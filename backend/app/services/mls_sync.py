@@ -29,7 +29,13 @@ class MLSSyncService:
         self.mls_api_url = os.getenv("MLS_API_URL")
         self.mls_api_key = os.getenv("MLS_API_KEY")
         self.mls_api_secret = os.getenv("MLS_API_SECRET")
-        self.is_configured = bool(self.mls_api_url and self.mls_api_key)
+        self.mls_username = os.getenv("MLS_USERNAME")
+        self.mls_password = os.getenv("MLS_PASSWORD")
+        # Configured if we have either API key OR username/password
+        self.is_configured = bool(
+            (self.mls_api_url and self.mls_api_key) or 
+            (self.mls_username and self.mls_password)
+        )
     
     def is_mls_configured(self) -> bool:
         """Check if MLS credentials are configured"""
@@ -152,10 +158,9 @@ class MLSSyncService:
     
     def _fetch_mls_properties(self, zip_code: str) -> List[Dict[str, Any]]:
         """
-        Fetch properties from MLS API for a zip code
+        Fetch properties from Stellar MLS API for a zip code
         
-        This is a placeholder that will be implemented when MLS credentials are available.
-        It should connect to RESO Web API or RETS and fetch properties.
+        Supports both API key authentication and username/password authentication.
         
         Args:
             zip_code: Zip code to fetch properties for
@@ -163,21 +168,66 @@ class MLSSyncService:
         Returns:
             List of property dictionaries from MLS
         """
-        # TODO: Implement actual MLS API call when credentials are available
-        # This will use RESO Web API or RETS to fetch properties
+        import requests
+        from requests.auth import HTTPBasicAuth
         
-        logger.info(f"Fetching MLS properties for zip code {zip_code}")
+        logger.info(f"Fetching Stellar MLS properties for zip code {zip_code}")
         
-        # Placeholder - will be replaced with actual API call
-        # Example structure:
-        # response = requests.get(
-        #     f"{self.mls_api_url}/properties",
-        #     params={"zip_code": zip_code},
-        #     headers={"Authorization": f"Bearer {self.mls_api_key}"}
-        # )
-        # return response.json()["properties"]
-        
-        return []
+        try:
+            # Stellar MLS typically uses MLS Grid or Bridge API
+            # Try MLS Grid first (most common for Stellar MLS)
+            api_url = self.mls_api_url or "https://api.mlsgrid.com/v2"
+            
+            # Build authentication
+            auth = None
+            headers = {"Content-Type": "application/json"}
+            
+            if self.mls_api_key and self.mls_api_secret:
+                # API key authentication
+                auth = HTTPBasicAuth(self.mls_api_key, self.mls_api_secret)
+            elif self.mls_username and self.mls_password:
+                # Username/password authentication
+                auth = HTTPBasicAuth(self.mls_username, self.mls_password)
+            else:
+                logger.error("No MLS authentication credentials provided")
+                return []
+            
+            # Query properties by zip code
+            # Stellar MLS uses RESO Web API standard
+            params = {
+                "$filter": f"PostalCode eq '{zip_code}'",
+                "$select": "*",
+                "$top": 1000  # Limit results
+            }
+            
+            # Make API request
+            response = requests.get(
+                f"{api_url}/Property",
+                params=params,
+                auth=auth,
+                headers=headers,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                # RESO Web API returns data in "value" array
+                properties = data.get("value", [])
+                logger.info(f"Fetched {len(properties)} properties from Stellar MLS for zip {zip_code}")
+                return properties
+            elif response.status_code == 401:
+                logger.error("MLS authentication failed - check credentials")
+                return []
+            else:
+                logger.error(f"MLS API error: {response.status_code} - {response.text}")
+                return []
+                
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Error connecting to Stellar MLS API: {str(e)}")
+            return []
+        except Exception as e:
+            logger.error(f"Unexpected error fetching MLS properties: {str(e)}")
+            return []
     
     def _sync_single_property(self, mls_property: Dict[str, Any]) -> str:
         """
