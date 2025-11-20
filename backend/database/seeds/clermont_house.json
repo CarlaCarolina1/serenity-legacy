@@ -1,0 +1,47 @@
+{
+  "mls_number": null,
+  "address": "1825 Wilson Prairie Dr",
+  "city": "Groveland",
+  "state": "FL",
+  "zip_code": "34736",
+  "neighborhood": "Groveland",
+  "price": 550000,
+  "bedrooms": 4,
+  "bathrooms": 3,
+  "square_feet": 2500,
+  "lot_size": 0.25,
+  "year_built": 2018,
+  "property_type": "House",
+  "property_tax": 4200,
+  "insurance_estimate": 1800,
+  "hoa_fee": 150,
+  "status": "Available",
+  "description": "Beautiful family home in Groveland with stunning pool, spacious layout, and modern amenities. Perfect for families looking for comfort and style in Central Florida.",
+  "image_urls": [
+    "/images/clermont-house/new pool.webp",
+    "/images/clermont-house/PXL_20250817_203921073~4.jpg",
+    "/images/clermont-house/PXL_20250817_212054902.MP.jpg",
+    "/images/clermont-house/PXL_20250817_213228397.jpg",
+    "/images/clermont-house/PXL_20250817_213232415.jpg",
+    "/images/clermont-house/PXL_20250817_213243271.jpg",
+    "/images/clermont-house/PXL_20250817_213919475.jpg",
+    "/images/clermont-house/PXL_20250817_215427656.jpg",
+    "/images/clermont-house/PXL_20250817_215515732.jpg",
+    "/images/clermont-house/PXL_20250817_220901681.jpg",
+    "/images/clermont-house/PXL_20250817_220918792.jpg",
+    "/images/clermont-house/PXL_20250817_222432897.jpg",
+    "/images/clermont-house/PXL_20250817_222546208.jpg",
+    "/images/clermont-house/PXL_20250817_224754830.jpg",
+    "/images/clermont-house/Screenshot_20241014_193329_WhatsApp.jpg"
+  ],
+  "features": [
+    "Swimming Pool",
+    "Modern Kitchen",
+    "Spacious Living Areas",
+    "Master Suite",
+    "Large Backyard",
+    "2-Car Garage",
+    "Updated Appliances"
+  ]
+}
+
