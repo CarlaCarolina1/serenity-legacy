@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: carlas-website-backend
+    env: python
+    buildCommand: pip install -r requirements.txt && alembic upgrade head
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: FRONTEND_URL
+        value: https://your-vercel-url.vercel.app
+      - key: PYTHON_VERSION
+        value: 3.11.0
+
+databases:
+  - name: carlas-website-db
+    plan: free
+    databaseName: carlas_website
+    user: carlas_user
+
