@@ -1,0 +1,683 @@
+/* HomeNeo.css - Premium Landing Page Design */
+
+.home-neo {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.neo-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.neo-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #0a2f4b 0%, #1a4a6b 50%, #0a2f4b 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.neo-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(197, 161, 101, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(197, 161, 101, 0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.neo-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 var(--spacing-md);
+}
+
+.neo-hero-content {
+  text-align: center;
+  color: var(--color-text-light);
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.neo-hero-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(197, 161, 101, 0.2);
+  border: 1px solid rgba(197, 161, 101, 0.4);
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-secondary);
+  backdrop-filter: blur(10px);
+}
+
+.neo-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.neo-title-line-1 {
+  display: block;
+}
+
+.neo-title-line-2 {
+  display: block;
+  color: var(--color-secondary);
+}
+
+.neo-hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: var(--spacing-2xl);
+  opacity: 0.95;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.neo-hero-cta {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Enhanced Buttons */
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.neo-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.neo-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.neo-btn span,
+.neo-btn svg {
+  position: relative;
+  z-index: 1;
+}
+
+.neo-btn-primary {
+  background: var(--color-secondary);
+  color: var(--color-text-light);
+  border-color: var(--color-secondary);
+}
+
+.neo-btn-primary:hover {
+  background: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(197, 161, 101, 0.3);
+}
+
+.neo-btn-secondary {
+  background: transparent;
+  color: var(--color-text-light);
+  border-color: var(--color-text-light);
+}
+
+.neo-btn-secondary:hover {
+  background: var(--color-text-light);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.neo-btn-large {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.neo-hero-stats {
+  display: flex;
+  gap: var(--spacing-2xl);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-2xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.neo-stat {
+  text-align: center;
+}
+
+.neo-stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-secondary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.neo-stat-label {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.neo-hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.neo-scroll-indicator {
+  width: 2px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  position: relative;
+  animation: scrollBounce 2s infinite;
+}
+
+.neo-scroll-indicator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  animation: scrollMove 2s infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes scrollMove {
+  0% { top: 0; }
+  50% { top: 20px; }
+  100% { top: 0; }
+}
+
+/* ============================================
+   VALUE PROPOSITION SECTION
+   ============================================ */
+.neo-value-prop {
+  padding: var(--spacing-2xl) 0;
+  background: var(--color-background);
+}
+
+.neo-value-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+}
+
+.neo-value-content {
+  padding: var(--spacing-xl);
+}
+
+.neo-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+}
+
+.neo-section-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xl);
+}
+
+.neo-value-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.neo-feature-item {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.neo-feature-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--color-secondary);
+  color: var(--color-text-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.neo-feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.neo-feature-text strong {
+  color: var(--color-primary);
+  font-size: 1.125rem;
+}
+
+.neo-feature-text span {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.neo-value-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neo-visual-card {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a6b 100%);
+  border-radius: 20px;
+  padding: var(--spacing-2xl);
+  color: var(--color-text-light);
+  box-shadow: 0 20px 60px rgba(10, 47, 75, 0.3);
+  max-width: 400px;
+  width: 100%;
+}
+
+.neo-card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.neo-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.neo-card-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.neo-card-number {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-secondary);
+  font-weight: 400;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.neo-card-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.neo-card-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: var(--spacing-md) 0;
+}
+
+/* ============================================
+   SERVICES SECTION
+   ============================================ */
+.neo-services {
+  padding: var(--spacing-2xl) 0;
+  background: var(--color-background-light);
+}
+
+.neo-section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.neo-section-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-top: var(--spacing-md);
+}
+
+.neo-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.neo-service-card {
+  background: var(--color-background);
+  padding: var(--spacing-2xl);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.neo-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-secondary);
+}
+
+.neo-service-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.neo-service-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.neo-service-description {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.9;
+}
+
+.neo-service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.neo-service-link:hover {
+  color: var(--color-primary);
+  gap: 0.75rem;
+}
+
+/* ============================================
+   NEIGHBORHOODS SECTION
+   ============================================ */
+.neo-neighborhoods {
+  padding: var(--spacing-2xl) 0;
+  background: var(--color-background);
+}
+
+.neo-neighborhoods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.neo-neighborhood-card {
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-light) 100%);
+  padding: var(--spacing-xl);
+  border-radius: 16px;
+  border: 2px solid var(--color-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.neo-neighborhood-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.neo-neighborhood-card:hover::before {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.neo-neighborhood-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.neo-neighborhood-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-color: var(--color-secondary);
+}
+
+.neo-neighborhood-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.neo-neighborhood-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.neo-neighborhood-description {
+  color: white;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.neo-neighborhood-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.neo-neighborhood-link:hover {
+  color: var(--color-primary);
+  gap: 0.75rem;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.neo-cta {
+  position: relative;
+  padding: var(--spacing-2xl) 0;
+  overflow: hidden;
+}
+
+.neo-cta-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #d4b377 100%);
+  z-index: 0;
+}
+
+.neo-cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-text-light);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.neo-cta-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-light);
+}
+
+.neo-cta-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-2xl);
+  opacity: 0.95;
+}
+
+.neo-btn-cta {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.neo-btn-cta:hover {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 968px) {
+  .neo-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .neo-hero-stats {
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .neo-hero {
+    min-height: 90vh;
+  }
+
+  .neo-hero-cta {
+    flex-direction: column;
+  }
+
+  .neo-btn-large {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .neo-hero-stats {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .neo-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .neo-neighborhoods-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .neo-value-content {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .neo-hero-title {
+    font-size: 2rem;
+  }
+
+  .neo-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .neo-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+

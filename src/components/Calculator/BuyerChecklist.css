@@ -1,0 +1,125 @@
+.checklist-container {
+  background: var(--color-background);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+  position: sticky;
+  top: 100px;
+}
+
+.checklist-container h3 {
+  font-size: 1.8rem;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.buyer-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.buyer-tab {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 2px solid var(--color-border);
+  background: var(--color-background);
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+.buyer-tab:hover {
+  background: var(--color-bg-light);
+}
+
+.buyer-tab.active {
+  background: var(--color-secondary);
+  color: var(--color-text-light);
+  border-color: var(--color-secondary);
+}
+
+.checklist-content h4 {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+}
+
+.checklist-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist-content li {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.checklist-content input[type="checkbox"] {
+  margin-top: 0.2rem;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.checklist-content label {
+  cursor: pointer;
+  flex: 1;
+}
+
+.cta-box {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--color-bg-light);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.cta-box p {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.cta-button {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid transparent;
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+}
+
+.cta-button:hover {
+  background-color: #b08d52;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .checklist-container {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .buyer-tabs {
+    flex-direction: column;
+  }
+}
+
