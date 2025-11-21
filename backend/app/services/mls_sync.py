@@ -160,7 +160,7 @@ class MLSSyncService:
         """
         Fetch properties from Stellar MLS API for a zip code
         
-        Supports both API key authentication and username/password authentication.
+        Supports OAuth 2.0, API key, and username/password authentication.
         
         Args:
             zip_code: Zip code to fetch properties for
@@ -169,7 +169,7 @@ class MLSSyncService:
             List of property dictionaries from MLS
         """
         import requests
-        from requests.auth import HTTPBasicAuth
+        import base64
         
         logger.info(f"Fetching Stellar MLS properties for zip code {zip_code}")
         
@@ -178,19 +178,70 @@ class MLSSyncService:
             # Try MLS Grid first (most common for Stellar MLS)
             api_url = self.mls_api_url or "https://api.mlsgrid.com/v2"
             
-            # Build authentication
-            auth = None
-            headers = {"Content-Type": "application/json"}
+            # Build authentication headers
+            headers = {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
             
-            if self.mls_api_key and self.mls_api_secret:
+            access_token = None
+            
+            # Try OAuth 2.0 client credentials flow first
+            if self.mls_username and self.mls_password:
+                try:
+                    # MLS Grid OAuth token endpoint
+                    token_url = f"{api_url}/auth/token"
+                    
+                    # Create Basic Auth header for token request (username:password base64 encoded)
+                    credentials = f"{self.mls_username}:{self.mls_password}"
+                    encoded_credentials = base64.b64encode(credentials.encode()).decode()
+                    
+                    token_headers = {
+                        "Authorization": f"Basic {encoded_credentials}",
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    }
+                    
+                    token_data = {
+                        "grant_type": "client_credentials"
+                    }
+                    
+                    logger.info("Attempting OAuth token request...")
+                    token_response = requests.post(
+                        token_url,
+                        data=token_data,
+                        headers=token_headers,
+                        timeout=30
+                    )
+                    
+                    if token_response.status_code == 200:
+                        token_json = token_response.json()
+                        access_token = token_json.get("access_token")
+                        logger.info("Successfully obtained OAuth token")
+                    else:
+                        logger.warning(f"OAuth token request failed: {token_response.status_code} - {token_response.text}")
+                        # Fallback: try API key format
+                        headers["X-API-Key"] = self.mls_username
+                        if self.mls_password:
+                            headers["X-API-Secret"] = self.mls_password
+                            
+                except Exception as e:
+                    logger.warning(f"OAuth token request error: {str(e)}, trying alternative auth")
+                    # Fallback: try API key in headers
+                    headers["X-API-Key"] = self.mls_username
+                    if self.mls_password:
+                        headers["X-API-Secret"] = self.mls_password
+            
+            elif self.mls_api_key and self.mls_api_secret:
                 # API key authentication
-                auth = HTTPBasicAuth(self.mls_api_key, self.mls_api_secret)
-            elif self.mls_username and self.mls_password:
-                # Username/password authentication
-                auth = HTTPBasicAuth(self.mls_username, self.mls_password)
+                headers["X-API-Key"] = self.mls_api_key
+                headers["X-API-Secret"] = self.mls_api_secret
             else:
                 logger.error("No MLS authentication credentials provided")
                 return []
+            
+            # Add Bearer token if we got one
+            if access_token:
+                headers["Authorization"] = f"Bearer {access_token}"
             
             # Query properties by zip code
             # Stellar MLS uses RESO Web API standard
@@ -200,11 +251,11 @@ class MLSSyncService:
                 "$top": 1000  # Limit results
             }
             
+            logger.info(f"Making API request to {api_url}/Property with zip {zip_code}")
             # Make API request
             response = requests.get(
                 f"{api_url}/Property",
                 params=params,
-                auth=auth,
                 headers=headers,
                 timeout=30
             )
