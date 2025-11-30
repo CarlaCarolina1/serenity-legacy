@@ -55,8 +55,8 @@ const Home = () => {
   return (
     <div className="home">
       <SEO
-        title="Real Estate Properties, Land, and Customizable Homes in Central Florida"
-        description="Buy, sell, and invest in real estate properties, land, new residential homes, commercial real estate, and customizable homes in Orlando, Clermont, and Central Florida. Expert real estate services for buying properties and selling properties."
+        title="Find Your Dream Home in Central Florida"
+        description="Find your dream home in Central Florida. Expert real estate services in Orlando, Clermont, Reunion Resort, and more."
         keywords="real estate, buying properties, selling properties, land, customizable homes, new residential, commercial real estate, Orlando real estate, Central Florida real estate, homes for sale, property investment, land for sale, new homes, customizable properties"
         url="https://serenitylegacy.net"
         schema={homeSchema}

@@ -33,8 +33,8 @@ export const siteContent = {
   // ============================================
   home: {
     hero: {
-      title: "Buy, Sell, and Invest in Real Estate Properties, Land, and Customizable Homes in Central Florida",
-      subtitle: "Expert real estate services for buying properties, selling properties, land sales, new residential homes, commercial real estate, and customizable homes in Orlando, Clermont, Reunion Resort, and throughout Central Florida",
+      title: "Find Your Dream Home in Central Florida",
+      subtitle: "Expert real estate services in Orlando, Clermont, Reunion Resort, and more",
       ctaPrimary: "Calculate Your Home Ownership Costs",
       ctaSecondary: "View Available Properties",
     },
