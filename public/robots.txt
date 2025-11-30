@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://serenitylegacy.net/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin/
+
+# Allow all other pages
+Allow: /
+Allow: /properties
+Allow: /services
+Allow: /about
+Allow: /contact
+Allow: /calculator
+Allow: /resources
+

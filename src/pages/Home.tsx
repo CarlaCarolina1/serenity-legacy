@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { siteContent } from '../data/siteContent'
+import SEO from '../components/SEO'
+import { getLocalBusinessSchema, getWebsiteSchema } from '../utils/schema'
 import './Home.css'
 
 const Home = () => {
@@ -42,8 +44,23 @@ const Home = () => {
     return () => clearInterval(interval) // Cleanup on unmount
   }, [luxuryHomes.length])
 
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      getLocalBusinessSchema(),
+      getWebsiteSchema()
+    ]
+  }
+
   return (
     <div className="home">
+      <SEO
+        title="Real Estate Properties, Land, and Customizable Homes in Central Florida"
+        description="Buy, sell, and invest in real estate properties, land, new residential homes, commercial real estate, and customizable homes in Orlando, Clermont, and Central Florida. Expert real estate services for buying properties and selling properties."
+        keywords="real estate, buying properties, selling properties, land, customizable homes, new residential, commercial real estate, Orlando real estate, Central Florida real estate, homes for sale, property investment, land for sale, new homes, customizable properties"
+        url="https://serenitylegacy.net"
+        schema={homeSchema}
+      />
       {/* Hero Section */}
       <section 
         className="home-hero"

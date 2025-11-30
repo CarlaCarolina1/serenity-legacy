@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import PropertyCard from '../components/PropertyCard'
 import { propertyApi, Property } from '../services/api'
 import { getFallbackProperties } from '../data/properties'
+import SEO from '../components/SEO'
 import './Properties.css'
 
 const Properties = () => {
@@ -40,6 +41,12 @@ const Properties = () => {
 
   return (
     <div className="properties-page">
+      <SEO
+        title="Properties for Sale - Real Estate Listings in Central Florida"
+        description="Browse homes for sale, land for sale, new residential properties, commercial real estate, and customizable homes in Orlando, Clermont, and Central Florida. Find your perfect property today."
+        keywords="properties for sale, homes for sale, land for sale, real estate listings, new residential homes, commercial real estate, customizable homes, Orlando properties, Central Florida real estate, property search"
+        url="https://serenitylegacy.net/properties"
+      />
       <section className="properties-hero">
         <div className="container">
           <h1>Available Properties</h1>
@@ -120,7 +127,7 @@ const Properties = () => {
                         <div className="property-gallery-image-container">
                           <img
                             src={imageUrls[0] || '/images/placeholder.jpg'}
-                            alt={property.address}
+                            alt={`${property.address} - Real estate property for sale in ${property.neighborhood || 'Central Florida'}`}
                             loading="lazy"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement

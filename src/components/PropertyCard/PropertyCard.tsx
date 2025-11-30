@@ -50,7 +50,7 @@ const PropertyCard = ({
     <div className="property-card">
       <Link to={`/properties/${id}`} className="property-card-link">
         <div className="property-card-image-container">
-          <img src={image} alt={address} className="property-card-image" />
+          <img src={image} alt={`${address} - Real estate property for sale in ${neighborhood}, Central Florida`} className="property-card-image" />
           <div className={`property-status-badge ${statusColors[status]}`}>
             {statusLabels[status]}
           </div>

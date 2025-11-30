@@ -165,7 +165,7 @@ const PropertyDetail = () => {
                   <>
                     <img
                       src={imageUrls[currentImageIndex]}
-                      alt={`${property.address} - Image ${currentImageIndex + 1}`}
+                      alt={`${property.address} - Real estate property for sale in ${property.neighborhood || 'Central Florida'} - Image ${currentImageIndex + 1}`}
                       className="gallery-main-image"
                     />
                     {imageUrls.length > 1 && (
@@ -195,7 +195,7 @@ const PropertyDetail = () => {
                       onClick={() => goToImage(index)}
                       aria-label={`View image ${index + 1}`}
                     >
-                      <img src={image} alt={`Thumbnail ${index + 1}`} />
+                      <img src={image} alt={`${property.address} property thumbnail ${index + 1}`} />
                     </button>
                   ))}
                 </div>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { contactApi } from '../services/api'
 import { useSearchParams } from 'react-router-dom'
 import { siteContent } from '../data/siteContent'
+import SEO from '../components/SEO'
 import './Contact.css'
 
 const Contact = () => {
@@ -115,6 +116,12 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title="Contact Us - Real Estate Consultation in Central Florida"
+        description="Contact Carla for expert real estate services. Get help with buying properties, selling properties, land sales, new residential homes, commercial real estate, and customizable homes in Orlando and Central Florida."
+        keywords="contact real estate agent, real estate consultation, Orlando realtor contact, property inquiry, real estate services contact"
+        url="https://serenitylegacy.net/contact"
+      />
       <section className="contact-hero">
         <div className="container">
           <h1>{siteContent.contact.title}</h1>

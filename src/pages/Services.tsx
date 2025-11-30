@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 import './Services.css'
 
 const Services = () => {
   return (
     <div className="services-page">
+      <SEO
+        title="Real Estate Services - Buying, Selling, and Investing in Properties"
+        description="Expert real estate services for buying properties, selling properties, land sales, new residential homes, commercial real estate, and customizable homes in Central Florida. Professional guidance for all your real estate needs."
+        keywords="real estate services, buying properties, selling properties, land sales, new residential homes, commercial real estate, customizable homes, property investment, real estate consultation, Orlando real estate services"
+        url="https://serenitylegacy.net/services"
+      />
       <section className="services-hero">
         <div className="container">
           <h1>Our Services</h1>

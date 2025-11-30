@@ -15,7 +15,7 @@ export const siteContent = {
   // SITE IDENTITY
   // ============================================
   siteName: "Serenity Legacy",
-  siteTagline: "Your Trusted Real Estate Partner in Central Florida",
+  siteTagline: "Your Trusted Real Estate Partner in Central Florida - Buy, Sell, and Invest in Properties, Land, and Customizable Homes",
   
   // ============================================
   // CONTACT INFORMATION
@@ -33,29 +33,29 @@ export const siteContent = {
   // ============================================
   home: {
     hero: {
-      title: "Find Your Dream Home in Central Florida",
-      subtitle: "Expert real estate services in Orlando, Clermont, Reunion Resort, and more",
+      title: "Buy, Sell, and Invest in Real Estate Properties, Land, and Customizable Homes in Central Florida",
+      subtitle: "Expert real estate services for buying properties, selling properties, land sales, new residential homes, commercial real estate, and customizable homes in Orlando, Clermont, Reunion Resort, and throughout Central Florida",
       ctaPrimary: "Calculate Your Home Ownership Costs",
       ctaSecondary: "View Available Properties",
     },
     services: {
-      title: "Our Services",
+      title: "Our Real Estate Services",
       items: [
         {
           title: "Buy a Home",
-          description: "Find your perfect home in Central Florida with expert guidance",
+          description: "Find your perfect residential property in Central Florida. Browse new homes, customizable homes, and existing properties with expert guidance for buying properties.",
         },
         {
           title: "Sell Your Home",
-          description: "Maximize your home's value with professional marketing and negotiation",
+          description: "Maximize your property's value with professional marketing and negotiation. Expert services for selling properties in Orlando and Central Florida.",
         },
         {
           title: "Investment Properties",
-          description: "Build your portfolio with Orlando's best investment opportunities",
+          description: "Build your portfolio with Orlando's best investment opportunities. Commercial real estate, residential investment properties, and land for sale.",
         },
         {
-          title: "Long-term Rentals",
-          description: "Find the perfect rental property for your needs",
+          title: "Land Sales",
+          description: "Find prime land for sale in Central Florida. Perfect for building your customizable home or commercial development.",
         },
       ],
     },
@@ -95,8 +95,8 @@ export const siteContent = {
       ],
     },
     cta: {
-      title: "Ready to Start Your Real Estate Journey?",
-      subtitle: "Contact us today for a free consultation",
+      title: "Ready to Buy, Sell, or Invest in Real Estate Properties?",
+      subtitle: "Contact us today for expert guidance on buying properties, selling properties, land sales, new residential homes, commercial real estate, and customizable homes",
       buttonText: "Get in Touch",
     },
   },
@@ -108,8 +108,8 @@ export const siteContent = {
     title: "About Carla",
     subtitle: "Your Trusted Real Estate Partner in Central Florida",
     experience: {
-      title: "Experience & Expertise",
-      description: "With years of experience in the Central Florida real estate market, Carla brings expertise, dedication, and personalized service to every client. Whether you're buying your first home, investing in property, or selling your current residence, Carla is committed to making your real estate journey smooth and successful.",
+      title: "Experience & Expertise in Real Estate",
+      description: "With years of experience in the Central Florida real estate market, Carla brings expertise, dedication, and personalized service to every client. Specializing in buying properties, selling properties, land sales, new residential homes, commercial real estate, and customizable homes. Whether you're buying your first home, investing in property, or selling your current residence, Carla is committed to making your real estate journey smooth and successful.",
     },
     areas: {
       title: "Areas We Serve",

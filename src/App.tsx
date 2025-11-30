@@ -11,6 +11,8 @@ import Resources from './pages/Resources'
 import Contact from './pages/Contact'
 import PropertyDetail from './pages/PropertyDetail'
 import PropertyAdmin from './pages/Admin/PropertyAdmin'
+import NeighborhoodPage from './pages/Neighborhoods/NeighborhoodPage'
+import BlogList from './pages/Blog/BlogList'
 import './App.css'
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
           <Route path="/properties/:id" element={<PropertyDetail />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/neighborhoods/:slug" element={<NeighborhoodPage />} />
+          <Route path="/blog" element={<BlogList />} />
           <Route path="/search" element={<Properties />} />
           <Route path="/map" element={<Properties />} />
           <Route path="/admin/properties" element={<PropertyAdmin />} />
