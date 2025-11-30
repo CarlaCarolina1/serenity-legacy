@@ -33,7 +33,7 @@ export const siteContent = {
   // ============================================
   home: {
     hero: {
-      title: "Meet Carla: Your Trusted Real Estate Partner",
+      title: "Find Your Dream Home in Central Florida",
       subtitle: "Expert real estate services in Orlando, Clermont, Reunion Resort, and more",
       ctaPrimary: "Calculate Your Home Ownership Costs",
       ctaSecondary: "View Available Properties",
