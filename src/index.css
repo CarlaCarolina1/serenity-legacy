@@ -31,17 +31,18 @@
   font-display: swap;
 }
 
-/* CSS Variables - Colors from Jose's design */
+/* CSS Variables - Color Theme: Brown/Beige Text, Scarlet Red, Beige, Gold */
 :root {
-  --color-primary: #0a2f4b; /* Dark Navy Blue */
-  --color-secondary: #c5a165; /* Gold Accent */
-  --color-accent: #e74c3c;
-  --color-text: #333333;
+  --color-primary: #DC143C; /* Scarlet Red */
+  --color-secondary: #D4AF37; /* Gold */
+  --color-accent: #C41E3A; /* Darker Scarlet for accents */
+  --color-text: #8B4513; /* Saddle Brown for text */
   --color-text-light: #ffffff;
-  --color-text-disclaimer: #777777;
-  --color-background: #fafafa; /* Soft off-white instead of pure white */
-  --color-background-light: #f0f0f0; /* Light gray for contrast */
-  --color-border: #e0e0e0; /* Slightly darker border for better definition */
+  --color-text-disclaimer: #A0826D; /* Lighter brown for disclaimers */
+  --color-background: #F5F5DC; /* Beige background */
+  --color-background-light: #E6D5B8; /* Warmer beige for contrast */
+  --color-border: #D2B48C; /* Tan/beige border */
+  --color-beige: #E6D5B8; /* Beige accent */
   --font-heading: 'Prata', serif;
   --font-body: 'Raleway', sans-serif;
   --spacing-xs: 0.25rem;
@@ -98,17 +99,17 @@ a:hover {
   font-size: 0.9rem;
   transition: all 0.3s ease;
   margin-top: var(--spacing-md);
-  box-shadow: 0 4px 12px rgba(197, 161, 101, 0.3);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
   border: none;
   cursor: pointer;
   text-decoration: none;
 }
 
 .cta-button:hover {
-  background: #d4b377;
+  background: #FFD700;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(197, 161, 101, 0.4);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
 }
 
 button {

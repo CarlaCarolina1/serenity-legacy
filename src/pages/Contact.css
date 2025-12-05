@@ -45,7 +45,7 @@
 
 .contact-content {
   padding: var(--spacing-2xl) 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-light) 100%);
 }
 
 .contact-grid {
@@ -193,7 +193,7 @@
 }
 
 .submit-button:hover:not(:disabled) {
-  background-color: #d4b377;
+  background-color: var(--color-secondary);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(197, 161, 101, 0.4);
 }

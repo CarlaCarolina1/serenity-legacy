@@ -126,7 +126,7 @@
 }
 
 .service-cta:hover {
-  background-color: #d4b377;
+  background-color: var(--color-secondary);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(197, 161, 101, 0.4);
 }

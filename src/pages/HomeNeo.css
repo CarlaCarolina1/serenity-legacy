@@ -24,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #0a2f4b 0%, #1a4a6b 50%, #0a2f4b 100%);
+  background: linear-gradient(135deg, #DC143C 0%, #C41E3A 50%, #DC143C 100%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
 }
@@ -350,7 +350,7 @@
 }
 
 .neo-visual-card {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a6b 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #C41E3A 100%);
   border-radius: 20px;
   padding: var(--spacing-2xl);
   color: var(--color-text-light);
@@ -584,7 +584,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-secondary) 0%, #d4b377 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #FFD700 100%);
   z-index: 0;
 }
 

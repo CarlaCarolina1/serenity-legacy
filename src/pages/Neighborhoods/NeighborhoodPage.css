@@ -56,7 +56,7 @@
 
 .neighborhood-highlights {
   padding: 80px 0;
-  background: #f8f9fa;
+  background: var(--color-background);
 }
 
 .neighborhood-highlights h2 {
@@ -101,12 +101,12 @@
 .highlight-card p {
   margin: 0;
   line-height: 1.6;
-  color: #333;
+  color: var(--color-text);
 }
 
 .neighborhood-info {
   padding: 80px 0;
-  background: white;
+  background: var(--color-background-light);
 }
 
 .info-grid {
@@ -118,7 +118,7 @@
 }
 
 .info-card {
-  background: #f8f9fa;
+  background: var(--color-background);
   padding: 2.5rem;
   border-radius: 12px;
   text-align: center;
@@ -134,7 +134,7 @@
 .info-value {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #333;
+  color: var(--color-text);
 }
 
 .info-card ul {
@@ -145,8 +145,9 @@
 
 .info-card li {
   padding: 0.5rem 0;
-  color: #555;
-  border-bottom: 1px solid #e0e0e0;
+  color: var(--color-text);
+  opacity: 0.9;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .info-card li:last-child {
@@ -155,7 +156,7 @@
 
 .neighborhood-amenities {
   padding: 80px 0;
-  background: #f8f9fa;
+  background: var(--color-background);
 }
 
 .neighborhood-amenities h2 {
@@ -192,7 +193,7 @@
 
 .neighborhood-cta {
   padding: 80px 0;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #8b6f47 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #C41E3A 100%);
   color: white;
 }
 
