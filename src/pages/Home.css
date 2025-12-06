@@ -122,10 +122,10 @@
 }
 
 .cta-button-secondary:hover {
-  background-color: var(--color-text-light);
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
 }
 
 /* Services Section */
@@ -139,13 +139,19 @@
   font-size: 2rem;
   text-align: center;
   margin-bottom: var(--spacing-2xl);
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .section-heading {
   font-family: var(--font-heading);
   font-size: 2.5rem;
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1.5rem;
 }
 
@@ -180,7 +186,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--color-secondary), #FFD700);
+  background: var(--gold-gradient);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -198,7 +204,10 @@
 
 .service-card h3 {
   font-family: var(--font-heading);
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: var(--spacing-md);
   font-size: 1.5rem;
 }
@@ -248,7 +257,7 @@
 }
 
 .neighborhood-card-gemini {
-  background: var(--color-primary);
+  background: var(--color-background-dark);
   color: white;
   padding: 2rem;
   border-radius: 10px;

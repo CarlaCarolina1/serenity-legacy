@@ -24,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #DC143C 0%, #C41E3A 50%, #DC143C 100%);
+  background: linear-gradient(135deg, #5D4037 0%, #8B4513 50%, #5D4037 100%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
 }
@@ -166,9 +166,9 @@
 }
 
 .neo-btn-primary {
-  background: var(--color-secondary);
+  background: var(--gold-gradient);
   color: var(--color-text-light);
-  border-color: var(--color-secondary);
+  border-color: transparent;
 }
 
 .neo-btn-primary:hover {
@@ -250,7 +250,7 @@
   left: -3px;
   width: 8px;
   height: 8px;
-  background: var(--color-secondary);
+  background: var(--gold-gradient);
   border-radius: 50%;
   animation: scrollMove 2s infinite;
 }
@@ -316,7 +316,7 @@
   flex-shrink: 0;
   width: 32px;
   height: 32px;
-  background: var(--color-secondary);
+  background: var(--gold-gradient);
   color: var(--color-text-light);
   border-radius: 50%;
   display: flex;
@@ -350,11 +350,11 @@
 }
 
 .neo-visual-card {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #C41E3A 100%);
+  background: var(--color-background-dark);
   border-radius: 20px;
   padding: var(--spacing-2xl);
   color: var(--color-text-light);
-  box-shadow: 0 20px 60px rgba(10, 47, 75, 0.3);
+  box-shadow: 0 20px 60px rgba(93, 64, 55, 0.3);
   max-width: 400px;
   width: 100%;
 }
@@ -584,7 +584,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-secondary) 0%, #FFD700 100%);
+  background: var(--gold-gradient);
   z-index: 0;
 }
 
@@ -611,8 +611,8 @@
 }
 
 .neo-btn-cta {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  background: var(--gold-gradient);
+  border-color: transparent;
 }
 
 .neo-btn-cta:hover {

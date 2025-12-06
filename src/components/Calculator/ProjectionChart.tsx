@@ -37,7 +37,7 @@ const ProjectionChart = ({ yearlyData }: ProjectionChartProps) => {
       {
         label: 'Principal Paid',
         data: yearlyData.map((d) => d.principal),
-        backgroundColor: '#DC143C', // Scarlet Red
+        backgroundColor: '#8B4513', // Brown
       },
       {
         label: 'Interest Paid',

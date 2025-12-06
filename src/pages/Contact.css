@@ -63,7 +63,10 @@
 
 .contact-info h2 {
   font-family: var(--font-heading);
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: var(--spacing-lg);
   font-size: 2rem;
 }
@@ -98,7 +101,7 @@
 .contact-icon {
   width: 40px;
   height: 40px;
-  background: var(--color-secondary);
+  background: var(--gold-gradient);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -135,7 +138,7 @@
 .form-group label {
   font-weight: 600;
   margin-bottom: var(--spacing-sm);
-  color: var(--color-primary);
+  color: var(--color-text-dark);
 }
 
 .form-group input,
@@ -179,7 +182,7 @@
 
 .submit-button {
   padding: 1rem 2rem;
-  background-color: var(--color-secondary);
+  background: var(--gold-gradient);
   color: var(--color-text-light);
   border: none;
   border-radius: 50px;
@@ -189,13 +192,13 @@
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(197, 161, 101, 0.3);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 .submit-button:hover:not(:disabled) {
-  background-color: var(--color-secondary);
+  background: var(--gold-gradient-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(197, 161, 101, 0.4);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
 }
 
 .submit-button:disabled {
@@ -242,11 +245,17 @@
 }
 
 .tab-button:hover {
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .tab-button.active {
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   border-bottom-color: var(--color-secondary);
 }
 
