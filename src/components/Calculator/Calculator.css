@@ -22,7 +22,10 @@
   text-align: center;
   padding-top: 1rem;
   margin-bottom: 2rem;
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .calculator-form {
@@ -152,7 +155,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--color-secondary);
+  background: var(--gold-gradient);
   cursor: pointer;
 }
 
@@ -160,7 +163,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--color-secondary);
+  background: var(--gold-gradient);
   cursor: pointer;
   border: none;
 }
@@ -176,7 +179,10 @@
   font-size: 2rem;
   text-align: center;
   font-family: var(--font-heading);
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
 }
 
@@ -184,7 +190,10 @@
   text-align: center;
   font-family: var(--font-heading);
   font-size: 3rem;
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1.5rem;
 }
 
@@ -212,7 +221,10 @@
 .breakdown-item div:last-child {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Projection Section */
@@ -251,9 +263,9 @@
 }
 
 .proj-tab.active {
-  background: var(--color-primary);
+  background: var(--gold-gradient);
   color: var(--color-text-light);
-  border-color: var(--color-primary);
+  border-color: transparent;
 }
 
 .projection-content {
@@ -289,7 +301,10 @@
 .projection-table th {
   background: var(--color-background-light);
   font-weight: 700;
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .projection-table td {
@@ -308,7 +323,10 @@
 }
 
 .calculator-disclaimer strong {
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Mobile Responsive */

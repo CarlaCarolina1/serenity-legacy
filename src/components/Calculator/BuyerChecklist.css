@@ -10,7 +10,10 @@
 .checklist-container h3 {
   font-size: 1.8rem;
   font-family: var(--font-heading);
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1.5rem;
 }
 
@@ -38,14 +41,17 @@
 }
 
 .buyer-tab.active {
-  background: var(--color-secondary);
+  background: var(--gold-gradient);
   color: var(--color-text-light);
-  border-color: var(--color-secondary);
+  border-color: transparent;
 }
 
 .checklist-content h4 {
   font-size: 1.1rem;
-  color: var(--color-primary);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   font-family: var(--font-heading);
@@ -87,7 +93,7 @@
 .cta-box p {
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--color-primary);
+  color: var(--color-text-dark);
 }
 
 .cta-button {
@@ -102,12 +108,12 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border: 2px solid transparent;
-  background-color: var(--color-secondary);
+  background: var(--gold-gradient);
   color: var(--color-text-light);
 }
 
 .cta-button:hover {
-  background-color: #b08d52;
+  background: var(--gold-gradient-hover);
 }
 
 /* Mobile Responsive */
