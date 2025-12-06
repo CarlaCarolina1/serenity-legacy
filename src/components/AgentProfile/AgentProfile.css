@@ -1,0 +1,144 @@
+.agent-profile-section {
+  padding: 80px 0;
+  background: var(--color-background);
+}
+
+.agent-profile-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.agent-profile-image {
+  position: relative;
+}
+
+.agent-profile-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.agent-profile-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--color-background-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-border);
+}
+
+.agent-profile-placeholder span {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.agent-profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.agent-profile-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.agent-profile-subtitle {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.agent-profile-bio {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.agent-differentiators {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.differentiator-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.differentiator-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background-light);
+  border-radius: 8px;
+}
+
+.differentiator-content {
+  flex: 1;
+}
+
+.differentiator-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.differentiator-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin: 0;
+}
+
+@media (max-width: 968px) {
+  .agent-profile-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .agent-profile-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .agent-profile-section {
+    padding: 60px 0;
+  }
+
+  .agent-profile-title {
+    font-size: 2rem;
+  }
+
+  .agent-profile-bio {
+    font-size: 1rem;
+  }
+
+  .differentiator-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+

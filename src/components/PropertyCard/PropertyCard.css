@@ -57,7 +57,7 @@
 }
 
 .status-contract {
-  background: var(--gold-gradient);
+  background-color: var(--color-secondary);
 }
 
 .status-sold {
@@ -78,10 +78,7 @@
 .property-card-price {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
   margin-bottom: var(--spacing-xs);
   font-weight: 600;
 }
@@ -115,27 +112,26 @@
 }
 
 .property-detail strong {
-  color: var(--color-text-dark);
+  color: var(--color-primary);
   font-weight: 600;
 }
 
 .property-card-calculate-btn {
   margin-top: auto;
   padding: var(--spacing-sm) var(--spacing-md);
-  background: var(--gold-gradient);
+  background-color: var(--color-secondary);
   color: var(--color-text-light);
   border-radius: 4px;
   text-align: center;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease;
   display: block;
 }
 
 .property-card-calculate-btn:hover {
-  background: var(--gold-gradient-hover);
+  background-color: var(--color-accent);
   color: var(--color-text-light);
-  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {

@@ -3,7 +3,7 @@
 }
 
 .property-detail-hero {
-  background: var(--color-background-dark);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #C41E3A 100%);
   color: var(--color-text-light);
   padding: var(--spacing-xl) 0;
 }
@@ -200,9 +200,8 @@
 }
 
 .cta-button-secondary:hover {
-  background: var(--gold-gradient);
+  background-color: var(--color-secondary);
   color: var(--color-text-light);
-  border-color: transparent;
 }
 
 .property-share {
@@ -238,9 +237,9 @@
 }
 
 .share-btn:hover {
-  background: var(--gold-gradient);
+  background-color: var(--color-primary);
   color: var(--color-text-light);
-  border-color: transparent;
+  border-color: var(--color-primary);
 }
 
 .property-description,

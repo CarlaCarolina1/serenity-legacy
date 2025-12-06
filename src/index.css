@@ -31,27 +31,21 @@
   font-display: swap;
 }
 
-/* CSS Variables - Color Theme: Beige, Gold (Gradient), White, Brown */
+/* CSS Variables - Luxury Minimalist Theme: White/Light Gray, Charcoal/Black, Gold/Deep Blue Accents */
 :root {
-  --color-primary: #5D4037; /* Dark Brown - for backgrounds and dark sections */
-  --color-secondary: #D4AF37; /* Gold - base color for gradients */
-  --color-secondary-light: #F4D03F; /* Lighter gold for gradient */
-  --color-secondary-dark: #B8860B; /* Darker gold for gradient */
-  --color-accent: #8B4513; /* Saddle Brown for accents */
-  --color-text: #ffffff; /* White text for dark backgrounds */
-  --color-text-dark: #3E2723; /* Dark brown text for light backgrounds */
+  --color-primary: #1a1a1a; /* Charcoal/Black for text */
+  --color-secondary: #D4AF37; /* Gold accent */
+  --color-accent: #1e3a5f; /* Deep Blue accent */
+  --color-text: #2c2c2c; /* Dark charcoal for body text */
   --color-text-light: #ffffff;
-  --color-text-disclaimer: #D7CCC8; /* Light beige for secondary text */
-  --color-background: #F5F5DC; /* Beige background */
-  --color-background-light: #FAF0E6; /* Lighter beige for contrast */
-  --color-background-dark: #5D4037; /* Dark brown for sections */
-  --color-border: #D2B48C; /* Tan/beige border */
-  --color-beige: #E6D5B8; /* Beige accent */
-  /* Gold gradient */
-  --gold-gradient: linear-gradient(135deg, #F4D03F 0%, #D4AF37 50%, #B8860B 100%);
-  --gold-gradient-hover: linear-gradient(135deg, #FFD700 0%, #F4D03F 50%, #D4AF37 100%);
-  --font-heading: 'Prata', serif;
-  --font-body: 'Raleway', sans-serif;
+  --color-text-muted: #666666; /* Muted gray for secondary text */
+  --color-background: #ffffff; /* White background */
+  --color-background-light: #f8f9fa; /* Very light gray for sections */
+  --color-background-alt: #f5f5f5; /* Light gray alternative */
+  --color-border: #e0e0e0; /* Light border */
+  --color-separator: #D4AF37; /* Gold for separators */
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -70,66 +64,69 @@
 body {
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
-  color: var(--color-text-dark);
+  line-height: 1.7;
+  color: var(--color-text);
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 400;
-  line-height: 1.2;
+  font-weight: 600;
+  line-height: 1.3;
   margin-bottom: var(--spacing-md);
-}
-
-/* Gold gradient text for headings on light backgrounds */
-.gold-gradient-text {
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* White text for headings on dark backgrounds */
-.dark-bg-heading {
-  color: var(--color-text);
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
 }
 
 a {
   color: var(--color-secondary);
   text-decoration: none;
   transition: color 0.2s ease;
+  font-weight: 500;
 }
 
 a:hover {
-  color: var(--color-secondary-light);
+  color: var(--color-accent);
 }
 
 .cta-button {
   display: inline-block;
-  padding: 1rem 2rem;
-  background: var(--gold-gradient);
-  color: white;
-  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border-radius: 4px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
   margin-top: var(--spacing-md);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
   text-decoration: none;
+  text-transform: none;
 }
 
 .cta-button:hover {
-  background: var(--gold-gradient-hover);
+  background: var(--color-accent);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.cta-button-secondary:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
 }
 
 button {

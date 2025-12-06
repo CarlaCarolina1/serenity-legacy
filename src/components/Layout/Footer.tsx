@@ -40,6 +40,11 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        <div className="footer-cta">
+          <h3>Ready to Begin Your Journey?</h3>
+          <p>Schedule a Consultation</p>
+          <a href="/contact" className="cta-button">Schedule Consultation</a>
+        </div>
         <div className="footer-bottom">
           <p>&copy; {currentYear} {siteContent.footer.companyName}. {siteContent.footer.copyright}</p>
         </div>

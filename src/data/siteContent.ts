@@ -33,10 +33,118 @@ export const siteContent = {
   // ============================================
   home: {
     hero: {
-      title: "Find Your Dream Home in Central Florida",
+      title: "Discover Your Dream Home in Central Florida",
       subtitle: "Expert real estate services in Orlando, Clermont, Reunion Resort, and more",
-      ctaPrimary: "Calculate Your Home Ownership Costs",
-      ctaSecondary: "View Available Properties",
+      ctaPrimary: "Search Properties",
+      ctaSecondary: "Schedule Consultation",
+    },
+    newConstruction: {
+      title: "Premium New Construction Communities",
+      subtitle: "Partner with Central Florida's most trusted builders",
+      builders: [
+        {
+          name: "Lennar",
+          description: "America's leading homebuilder offering innovative new homes with Everything's Included® features.",
+          logo: "https://www.lennar.com/images/lennar-logo.svg",
+        },
+        {
+          name: "D.R. Horton",
+          description: "America's largest homebuilder, delivering quality homes and exceptional value across Central Florida.",
+          logo: "https://www.drhorton.com/images/dr-horton-logo.svg",
+        },
+        {
+          name: "Pulte",
+          description: "Building homes with innovative design and energy-efficient features for modern living.",
+          logo: "https://www.pulte.com/images/pulte-logo.svg",
+        },
+        {
+          name: "Taylor Morrison",
+          description: "Creating inspired homes and communities with exceptional craftsmanship and design.",
+          logo: "https://www.taylormorrison.com/images/taylor-morrison-logo.svg",
+        },
+        {
+          name: "K. Hovnanian",
+          description: "Delivering quality homes with attention to detail and customer satisfaction.",
+          logo: "https://www.khov.com/images/khov-logo.svg",
+        },
+      ],
+    },
+    featuredProperties: {
+      title: "Featured Properties",
+      subtitle: "Exclusive selection of premium homes",
+    },
+    agentProfile: {
+      title: "Meet Carla: Your Trusted Real Estate Partner",
+      subtitle: "Licensed Realtor | Orlando, Florida",
+      bio: "With extensive knowledge of Central Florida's real estate and new construction markets, I guide clients through every step of their real estate journey with professionalism, integrity, and genuine care. My passion for real estate stems from helping families and individuals achieve property goals that transform their lives. Whether you're a first-time buyer navigating the process, a seasoned investor expanding your portfolio, or relocating from another state, I provide the expertise and personalized attention you deserve.",
+      image: "/images/carla-headshot.jpg",
+      differentiators: [
+        {
+          title: "Builder Relationships",
+          description: "Strong connections with Lennar, D.R. Horton, Pulte, Taylor Morrison, and K. Hovnanian provide access to exclusive new construction opportunities and incentives.",
+          icon: "🤝",
+        },
+        {
+          title: "Market Intelligence",
+          description: "Comprehensive analysis of pricing trends, neighborhood dynamics, and projected growth to ensure you make strategically sound investment decisions.",
+          icon: "📊",
+        },
+      ],
+    },
+    testimonials: {
+      title: "What Our Clients Say",
+      items: [
+        {
+          quote: "Carla made our home buying experience seamless. Her knowledge of the Central Florida market and attention to detail helped us find our perfect home. Highly recommend!",
+          clientName: "Sarah & Michael Johnson",
+          location: "Orlando, FL",
+        },
+        {
+          quote: "Working with Carla was exceptional. She understood exactly what we were looking for and negotiated the best deal. Professional, responsive, and truly cares about her clients.",
+          clientName: "David Martinez",
+          location: "Clermont, FL",
+        },
+        {
+          quote: "Carla's expertise in new construction helped us navigate the entire process from lot selection to closing. Her builder relationships gave us access to exclusive opportunities.",
+          clientName: "Jennifer & Robert Chen",
+          location: "Reunion Resort, FL",
+        },
+        {
+          quote: "As an investor, I appreciate Carla's market insights and strategic approach. She's helped me build a strong portfolio in Central Florida. Outstanding service!",
+          clientName: "Thomas Anderson",
+          location: "Orlando, FL",
+        },
+      ],
+    },
+    marketInsights: {
+      title: "Central Florida Market Insights",
+      subtitle: "Key statistics and trends",
+      stats: [
+        {
+          label: "Median Home Price",
+          value: "$385,000",
+          change: "+8.5%",
+          period: "Year over Year",
+        },
+        {
+          label: "Average Days on Market",
+          value: "42",
+          change: "-12%",
+          period: "vs. Last Year",
+        },
+        {
+          label: "Market Appreciation Rate",
+          value: "6.2%",
+          change: "Annual",
+          period: "5-Year Average",
+        },
+        {
+          label: "New Construction Starts",
+          value: "12,450",
+          change: "+15%",
+          period: "This Year",
+        },
+      ],
     },
     services: {
       title: "Our Real Estate Services",

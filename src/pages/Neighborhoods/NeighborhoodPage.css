@@ -64,10 +64,7 @@
   font-size: 2.5rem;
   margin-bottom: 3rem;
   font-family: 'Prata', serif;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
 }
 
 .highlights-grid {
@@ -96,10 +93,7 @@
 
 .highlight-icon {
   font-size: 1.5rem;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
   font-weight: bold;
   flex-shrink: 0;
 }
@@ -133,10 +127,7 @@
 .info-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
   font-family: 'Prata', serif;
 }
 
@@ -173,10 +164,7 @@
   font-size: 2.5rem;
   margin-bottom: 3rem;
   font-family: 'Prata', serif;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
 }
 
 .amenities-grid {
@@ -198,17 +186,14 @@
 }
 
 .amenity-icon {
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
   font-size: 1.25rem;
   flex-shrink: 0;
 }
 
 .neighborhood-cta {
   padding: 80px 0;
-  background: var(--color-background-dark);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #C41E3A 100%);
   color: white;
 }
 
@@ -248,14 +233,14 @@
 }
 
 .cta-button-large {
-  background: var(--gold-gradient);
-  color: white;
+  background: white;
+  color: var(--color-primary);
 }
 
 .cta-button-large:hover {
-  background: var(--gold-gradient-hover);
+  background: #f0f0f0;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button-secondary {
@@ -265,9 +250,8 @@
 }
 
 .cta-button-secondary:hover {
-  background: var(--gold-gradient);
-  color: white;
-  border-color: transparent;
+  background: white;
+  color: var(--color-primary);
 }
 
 /* Mobile Responsive */
