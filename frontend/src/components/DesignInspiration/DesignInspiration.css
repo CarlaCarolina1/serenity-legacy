@@ -1,0 +1,106 @@
+/* Design Inspiration Section - Dark Theme with Image Gallery */
+.design-inspiration-section {
+  padding: 100px 0;
+  background: var(--bg-dark);
+}
+
+.design-inspiration-header {
+  text-align: left;
+  margin-bottom: 3rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+.design-inspiration-title {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  color: var(--color-gold);
+  font-weight: 400;
+}
+
+.design-inspiration-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 900px;
+}
+
+.inspiration-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.inspiration-gallery .inspiration-image:nth-child(n+6) {
+  grid-column: span 1;
+}
+
+.inspiration-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.inspiration-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.inspiration-image:hover img {
+  transform: scale(1.05);
+}
+
+.design-inspiration-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  max-width: 1400px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
+}
+
+.design-inspiration-cta {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 1200px) {
+  .inspiration-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .design-inspiration-section {
+    padding: 60px 0;
+  }
+
+  .design-inspiration-title {
+    font-size: 2rem;
+  }
+
+  .inspiration-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .inspiration-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inspiration-gallery {
+    grid-template-columns: 1fr;
+  }
+}

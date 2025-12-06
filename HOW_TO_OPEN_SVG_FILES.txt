@@ -1,0 +1,58 @@
+═══════════════════════════════════════════════════════════════
+HOW TO OPEN SVG FILES ON WINDOWS
+═══════════════════════════════════════════════════════════════
+
+SVG files are image files, but Windows doesn't have a default program 
+to open them with a double-click. Here are 3 easy ways to view them:
+
+───────────────────────────────────────────────────────────────
+METHOD 1: Use Your Web Browser (EASIEST)
+───────────────────────────────────────────────────────────────
+
+1. Right-click the SVG file (e.g., Serenity_Legacy_Logo.svg)
+2. Click "Open with"
+3. Choose "Google Chrome" or "Microsoft Edge"
+4. The logo will display in your browser!
+
+───────────────────────────────────────────────────────────────
+METHOD 2: Drag and Drop
+───────────────────────────────────────────────────────────────
+
+1. Open your web browser (Chrome, Edge, Firefox)
+2. Drag the SVG file from your desktop into the browser window
+3. The logo will display!
+
+───────────────────────────────────────────────────────────────
+METHOD 3: Use the HTML Preview File (BEST FOR VIEWING ALL)
+───────────────────────────────────────────────────────────────
+
+1. Double-click "VIEW_LOGOS.html" on your desktop
+2. It will open in your browser showing all 3 logo options
+3. This is the easiest way to compare all logos at once!
+
+───────────────────────────────────────────────────────────────
+WHY SVG FILES?
+───────────────────────────────────────────────────────────────
+
+SVG files are special because:
+✓ They can be resized to any size without losing quality
+✓ They're perfect for websites (load fast, look sharp)
+✓ They work on all devices (phones, tablets, computers)
+✓ They can be edited later if needed
+
+───────────────────────────────────────────────────────────────
+SETTING A DEFAULT PROGRAM (OPTIONAL)
+───────────────────────────────────────────────────────────────
+
+If you want SVG files to always open in your browser:
+
+1. Right-click any SVG file
+2. Select "Open with" → "Choose another app"
+3. Check "Always use this app to open .svg files"
+4. Select your browser (Chrome or Edge)
+5. Click "OK"
+
+Now you can double-click SVG files and they'll open in your browser!
+
+═══════════════════════════════════════════════════════════════
+

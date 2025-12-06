@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Carla's Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            margin: 0 0 1rem 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.05);
+        }
+        .button-primary {
+            background: #4a90e2;
+        }
+        .status {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Carla's Website Launcher</h1>
+        <p>Click the button below to open the website in Chrome</p>
+        <a href="http://localhost:5173" class="button button-primary" target="_blank" id="openBtn">
+            Open Website
+        </a>
+        <div class="status" id="status">
+            Checking if server is running...
+        </div>
+    </div>
+    <script>
+        // Try to open in Chrome specifically
+        const openBtn = document.getElementById('openBtn');
+        const status = document.getElementById('status');
+        
+        // Check if server is running
+        fetch('http://localhost:5173')
+            .then(() => {
+                status.textContent = '✅ Server is running! Click the button above.';
+                status.style.color = '#4ade80';
+            })
+            .catch(() => {
+                status.textContent = '⚠️ Server not running. Start it with: npm run dev (in frontend folder)';
+                status.style.color = '#fbbf24';
+            });
+        
+        // Auto-open on page load (optional - uncomment if you want it)
+        // window.open('http://localhost:5173', '_blank');
+    </script>
+</body>
+</html>
+

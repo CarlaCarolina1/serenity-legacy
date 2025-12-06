@@ -1,0 +1,88 @@
+/* New Construction Section - Dark Theme */
+.new-construction-section {
+  padding: 100px 0;
+  background: var(--bg-dark);
+}
+
+.new-construction-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+.new-construction-title {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-gold);
+  font-weight: 400;
+}
+
+.new-construction-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.builders-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+.builder-card {
+  padding: 0;
+}
+
+.builder-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+}
+
+.builder-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.new-construction-closing {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 1200px) {
+  .builders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .new-construction-section {
+    padding: 60px 0;
+  }
+
+  .new-construction-title {
+    font-size: 2rem;
+  }
+
+  .builders-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

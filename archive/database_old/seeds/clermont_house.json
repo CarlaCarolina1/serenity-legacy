@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "clermont-house",
+    "title": "Clermont Modern Lakeview Home",
+    "description": "Lakefront three-bedroom home with resort-style backyard, designed for entertaining and multigenerational living.",
+    "price": 725000,
+    "beds": 4,
+    "baths": 3.5,
+    "square_feet": 3150,
+    "city": "Clermont",
+    "state": "FL",
+    "neighborhood": "Clermont House",
+    "status": "Available",
+    "featured_image": "/images/clermont-house/hero.jpg"
+  }
+]

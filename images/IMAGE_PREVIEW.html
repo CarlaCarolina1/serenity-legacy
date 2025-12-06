@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Home Images - Select Your Top 15</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a2f4b 0%, #1a4a6b 100%);
+            color: white;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .instructions h2 {
+            margin-bottom: 1rem;
+            color: #c5a165;
+        }
+        .instructions ol {
+            margin-left: 2rem;
+            line-height: 2;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .image-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            backdrop-filter: blur(10px);
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: #c5a165;
+        }
+        .image-card.selected {
+            border-color: #c5a165;
+            background: rgba(197, 161, 101, 0.2);
+        }
+        .image-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .image-card:hover .image-container img {
+            transform: scale(1.1);
+        }
+        .image-info {
+            padding: 1rem;
+        }
+        .image-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #c5a165;
+        }
+        .image-number {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+        .select-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #c5a165;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .select-btn:hover {
+            background: #d4b377;
+            transform: translateY(-2px);
+        }
+        .select-btn.selected {
+            background: #0a2f4b;
+        }
+        .summary {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(10, 47, 75, 0.95);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid #c5a165;
+            backdrop-filter: blur(10px);
+            min-width: 250px;
+        }
+        .summary h3 {
+            color: #c5a165;
+            margin-bottom: 1rem;
+        }
+        .summary-count {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #c5a165;
+        }
+        .selected-list {
+            margin-top: 1rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .selected-list div {
+            padding: 0.5rem;
+            background: rgba(197, 161, 101, 0.1);
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏠 Luxury Home Images</h1>
+        <p>Select Your Top 15 Images for Carla's Website</p>
+    </div>
+
+    <div class="instructions">
+        <h2>📋 Instructions</h2>
+        <ol>
+            <li>Review all 40 luxury home images below</li>
+            <li>Click "Select" on your favorite images (aim for 15)</li>
+            <li>Selected images will be highlighted in gold</li>
+            <li>Check the summary box in the bottom-right corner</li>
+            <li>Once you've selected 15, let Neo know which image numbers you chose</li>
+        </ol>
+    </div>
+
+    <div class="grid" id="imageGrid"></div>
+
+    <div class="summary">
+        <h3>Selected Images</h3>
+        <div class="summary-count" id="selectedCount">0</div>
+        <div style="font-size: 0.9rem; margin-top: 0.5rem;">out of 15 needed</div>
+        <div class="selected-list" id="selectedList"></div>
+    </div>
+
+    <script>
+        // Array of 40 luxury home images
+        const luxuryHomes = [
+            { url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80', name: 'Modern Luxury Estate' },
+            { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Classic Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80', name: 'Contemporary Villa' },
+            { url: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2031&q=80', name: 'Elegant Estate' },
+            { url: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Luxury Mediterranean' },
+            { url: 'https://images.unsplash.com/photo-1600585154526-990dbe4eb5a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80', name: 'Grand Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Stately Home' },
+            { url: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Modern Villa' },
+            { url: 'https://images.unsplash.com/photo-1600607688969-a5fcd26c57e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Luxury Estate' },
+            { url: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=2092&q=80', name: 'Elegant Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2085&q=80', name: 'Classic Estate' },
+            { url: 'https://images.unsplash.com/photo-1600607688909-df6c7f7e1e5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Luxury Villa' },
+            { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Grand Estate' },
+            { url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80', name: 'Modern Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Stately Villa' },
+            { url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Luxury Home' },
+            { url: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Elegant Estate' },
+            { url: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=2092&q=80', name: 'Classic Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2085&q=80', name: 'Modern Estate' },
+            { url: 'https://images.unsplash.com/photo-1600607688909-df6c7f7e1e5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Luxury Villa' },
+            { url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80', name: 'Grand Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600585154526-990dbe4eb5a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80', name: 'Stately Home' },
+            { url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Elegant Villa' },
+            { url: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Luxury Estate' },
+            { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Modern Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80', name: 'Classic Estate' },
+            { url: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2031&q=80', name: 'Grand Villa' },
+            { url: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=2092&q=80', name: 'Luxury Home' },
+            { url: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2085&q=80', name: 'Elegant Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600607688909-df6c7f7e1e5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Stately Estate' },
+            { url: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=2092&q=80', name: 'Modern Villa' },
+            { url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80', name: 'Luxury Estate' },
+            { url: 'https://images.unsplash.com/photo-1600585154526-990dbe4eb5a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80', name: 'Classic Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Grand Estate' },
+            { url: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Elegant Villa' },
+            { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Luxury Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80', name: 'Modern Estate' },
+            { url: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2031&q=80', name: 'Stately Mansion' },
+            { url: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Classic Villa' },
+            { url: 'https://images.unsplash.com/photo-1600607688969-a5fcd26c57e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', name: 'Luxury Estate' }
+        ];
+
+        let selectedImages = [];
+
+        function renderImages() {
+            const grid = document.getElementById('imageGrid');
+            grid.innerHTML = '';
+
+            luxuryHomes.forEach((home, index) => {
+                const card = document.createElement('div');
+                card.className = `image-card ${selectedImages.includes(index) ? 'selected' : ''}`;
+                
+                card.innerHTML = `
+                    <div class="image-container">
+                        <img src="${home.url}" alt="${home.name}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect fill=\'%23ddd\' width=\'400\' height=\'300\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\'%3EImage Loading...%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="image-info">
+                        <div class="image-number">Image #${index + 1}</div>
+                        <h3>${home.name}</h3>
+                        <button class="select-btn ${selectedImages.includes(index) ? 'selected' : ''}" onclick="toggleSelection(${index})">
+                            ${selectedImages.includes(index) ? '✓ Selected' : 'Select'}
+                        </button>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+
+            updateSummary();
+        }
+
+        function toggleSelection(index) {
+            if (selectedImages.includes(index)) {
+                selectedImages = selectedImages.filter(i => i !== index);
+            } else {
+                if (selectedImages.length < 15) {
+                    selectedImages.push(index);
+                } else {
+                    alert('You can only select 15 images. Please deselect one first.');
+                    return;
+                }
+            }
+            renderImages();
+        }
+
+        function updateSummary() {
+            document.getElementById('selectedCount').textContent = selectedImages.length;
+            const list = document.getElementById('selectedList');
+            list.innerHTML = '';
+            
+            if (selectedImages.length === 0) {
+                list.innerHTML = '<div style="opacity: 0.6; font-style: italic;">No images selected yet</div>';
+            } else {
+                selectedImages.sort((a, b) => a - b).forEach(index => {
+                    const div = document.createElement('div');
+                    div.textContent = `#${index + 1}: ${luxuryHomes[index].name}`;
+                    list.appendChild(div);
+                });
+            }
+        }
+
+        // Initial render
+        renderImages();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+SERENITY LEGACY LOGO FILES
+===========================
+
+📁 LOGO LOCATION:
+The new logo files are saved in: Carlas Website/frontend/public/
+
+📄 LOGO FILES CREATED:
+1. logo.svg - Vertical logo (for standalone use)
+2. logo-horizontal.svg - Horizontal logo (for header/navigation)
+
+🎨 LOGO DESIGN:
+- Golden triangle geometric design
+- "SERENITY" in larger golden serif text
+- "LEGACY" in smaller golden serif text
+- Matches website color scheme (gold #c5a165)
+- Professional SVG format (scalable, crisp at any size)
+- Includes gradient effects and shadows for depth
+
+✅ CURRENTLY IN USE:
+- Header uses: logo-horizontal.svg
+- This is the horizontal version that works best in navigation bars
+
+💡 IF YOU WANT TO ADJUST:
+- Both files are SVG (vector graphics)
+- Can be edited with any vector editor (Illustrator, Inkscape, etc.)
+- Or tell Neo what changes you want and he can update them
+
+🔍 TO VIEW:
+- Open the SVG files in Chrome browser to see them
+- Or view on the website header
+

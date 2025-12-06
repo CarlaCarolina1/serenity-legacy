@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <!-- Rich golden gradient with metallic effect -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0d9a0;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#d4b377;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#c5a165;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9d7a3f;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Metallic shine for inner triangle -->
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff8e8;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#f0d9a0;stop-opacity:0.9" />
+      <stop offset="70%" style="stop-color:#c5a165;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#8b6f3d;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Text gradient -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8d4a8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#c5a165;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a6894d;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle shadow for depth -->
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+    
+    <!-- Glow effect for logo -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Logo triangle group -->
+  <g transform="translate(200, 20)" filter="url(#glow)">
+    <!-- Large outer triangle (thick golden lines) -->
+    <path d="M 0 0 L -100 120 L 100 120 Z" 
+          fill="none" 
+          stroke="url(#goldGradient)" 
+          stroke-width="9" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#shadow)"/>
+    
+    <!-- Small solid triangle at top center -->
+    <path d="M 0 25 L -40 75 L 40 75 Z" 
+          fill="url(#goldShine)" 
+          stroke="url(#goldGradient)" 
+          stroke-width="2"
+          filter="url(#shadow)"/>
+    
+    <!-- Two diagonal lines forming inverted V -->
+    <line x1="0" y1="75" x2="-70" y2="120" 
+          stroke="url(#goldGradient)" 
+          stroke-width="7" 
+          stroke-linecap="round"
+          filter="url(#shadow)"/>
+    <line x1="0" y1="75" x2="70" y2="120" 
+          stroke="url(#goldGradient)" 
+          stroke-width="7" 
+          stroke-linecap="round"
+          filter="url(#shadow)"/>
+  </g>
+  
+  <!-- SERENITY text (larger, elegant serif) -->
+  <text x="200" y="165" 
+        font-family="Prata, Georgia, serif" 
+        font-size="34" 
+        font-weight="400" 
+        fill="url(#textGradient)" 
+        text-anchor="middle" 
+        letter-spacing="3px"
+        filter="url(#shadow)">SERENITY</text>
+  
+  <!-- LEGACY text (smaller, elegant serif) -->
+  <text x="200" y="190" 
+        font-family="Prata, Georgia, serif" 
+        font-size="22" 
+        font-weight="400" 
+        fill="url(#textGradient)" 
+        text-anchor="middle" 
+        letter-spacing="4px"
+        filter="url(#shadow)">LEGACY</text>
+</svg>

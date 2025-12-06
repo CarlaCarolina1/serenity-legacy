@@ -1,0 +1,54 @@
+═══════════════════════════════════════════════════════════════
+QUICK START: Preview Carla's Website
+═══════════════════════════════════════════════════════════════
+
+✅ GOOD NEWS: You already have a live server built-in!
+
+The React website uses Vite, which includes a development server.
+You DON'T need to install Live Server for the React app.
+
+═══════════════════════════════════════════════════════════════
+STEP-BY-STEP:
+═══════════════════════════════════════════════════════════════
+
+1. Open Terminal in Cursor:
+   - Press: Ctrl + `  (backtick key, above Tab)
+   - Or: Terminal → New Terminal
+
+2. Navigate to frontend folder:
+   cd "Carlas Website/frontend"
+
+3. Install dependencies (first time only):
+   npm install
+
+4. Start the dev server:
+   npm run dev
+
+5. Browser opens automatically!
+   - URL: http://localhost:5173
+   - Page auto-refreshes when you save changes!
+
+═══════════════════════════════════════════════════════════════
+FOR SIMPLE HTML FILES (like VIEW_LOGOS.html):
+═══════════════════════════════════════════════════════════════
+
+Option 1: Install Live Server Extension (Recommended)
+- Press: Ctrl + Shift + X
+- Search: "Live Server" by Ritwick Dey
+- Install it
+- Right-click HTML file → "Open with Live Server"
+
+Option 2: Use Cursor's Built-in Browser
+- Press: Ctrl + Shift + P
+- Type: "Simple Browser: Show"
+- Enter file path or URL
+
+═══════════════════════════════════════════════════════════════
+SUMMARY:
+═══════════════════════════════════════════════════════════════
+
+✅ React Website → Use Vite (npm run dev) - Already configured!
+✅ HTML Files → Install Live Server extension (optional but helpful)
+
+═══════════════════════════════════════════════════════════════
+
