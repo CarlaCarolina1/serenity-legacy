@@ -19,7 +19,10 @@
 .footer-brand h3 {
   font-family: var(--font-heading);
   font-size: 1.75rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
   font-weight: 400;
 }
@@ -34,7 +37,10 @@
 .footer-section h4 {
   font-family: var(--font-heading);
   font-size: 1rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1.25rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -59,7 +65,11 @@
 }
 
 .footer-section a:hover {
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .footer-contact-item {
@@ -78,7 +88,11 @@
 }
 
 .footer-contact-item a:hover {
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .footer-bottom {
@@ -111,7 +125,11 @@
 }
 
 .footer-legal a:hover {
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 @media (max-width: 968px) {

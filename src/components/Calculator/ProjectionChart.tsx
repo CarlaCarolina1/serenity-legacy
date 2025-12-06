@@ -31,6 +31,15 @@ interface ProjectionChartProps {
 }
 
 const ProjectionChart = ({ yearlyData }: ProjectionChartProps) => {
+  // Create gradient for gold bars
+  const createGoldGradient = (ctx: CanvasRenderingContext2D) => {
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400)
+    gradient.addColorStop(0, '#FFD700') // Light gold
+    gradient.addColorStop(0.5, '#D4AF37') // Medium gold
+    gradient.addColorStop(1, '#B8860B') // Dark gold
+    return gradient
+  }
+
   const data = {
     labels: yearlyData.map((d) => `Year ${d.year}`),
     datasets: [
@@ -42,7 +51,14 @@ const ProjectionChart = ({ yearlyData }: ProjectionChartProps) => {
       {
         label: 'Interest Paid',
         data: yearlyData.map((d) => d.interest),
-        backgroundColor: '#D4AF37', // Gold
+        backgroundColor: (context: any) => {
+          const chart = context.chart
+          const { ctx, chartArea } = chart
+          if (!chartArea) {
+            return '#D4AF37' // Fallback
+          }
+          return createGoldGradient(ctx)
+        },
       },
     ],
   }

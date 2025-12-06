@@ -10,7 +10,10 @@
 .buyer-checklist h2 {
   font-family: var(--font-heading);
   font-size: 2rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0.5rem;
   font-weight: 400;
 }
@@ -29,7 +32,10 @@
 .checklist-section h3 {
   font-family: var(--font-heading);
   font-size: 1.25rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-light);
@@ -69,8 +75,9 @@
 }
 
 .checklist-item input[type="checkbox"]:checked {
-  background: var(--color-gold);
-  border-color: var(--color-gold);
+  background: var(--gold-gradient);
+  border-image: var(--gold-gradient) 1;
+  border-style: solid;
 }
 
 .checklist-item input[type="checkbox"]:checked::after {
@@ -132,7 +139,7 @@
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  background: var(--gold-gradient);
   transition: width 0.3s ease;
   border-radius: 4px;
 }

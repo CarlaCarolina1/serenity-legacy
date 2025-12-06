@@ -15,7 +15,10 @@
 .services-hero h1 {
   font-family: var(--font-heading);
   font-size: 2.75rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
   font-weight: 400;
 }
@@ -43,7 +46,8 @@
 }
 
 .service-card:hover {
-  border-color: var(--color-gold);
+  border-image: var(--gold-gradient) 1;
+  border-style: solid;
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
 }
@@ -51,7 +55,7 @@
 .service-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  background: var(--gold-gradient);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -63,7 +67,10 @@
 .service-card h3 {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
   font-weight: 400;
 }
@@ -91,7 +98,10 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: bold;
 }
 

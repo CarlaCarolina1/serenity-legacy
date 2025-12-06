@@ -44,6 +44,12 @@
   --color-gold-light: #E5C158;
   --color-gold-dark: #B8962E;
   
+  /* Gold Gradients */
+  --gold-gradient: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+  --gold-gradient-text: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+  --gold-gradient-border: linear-gradient(135deg, #FFD700, #D4AF37, #B8860B);
+  --gold-gradient-hover: linear-gradient(135deg, #FFE55C 0%, #FFD700 50%, #D4AF37 100%);
+  
   /* Text Colors */
   --text-white: #ffffff;
   --text-light: #c9c9c9;
@@ -101,25 +107,34 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 1.3;
   margin-bottom: var(--spacing-md);
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   letter-spacing: 0.01em;
 }
 
 a {
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
   font-weight: 500;
 }
 
 a:hover {
-  color: var(--color-gold-light);
+  background: var(--gold-gradient-hover);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .cta-button {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  background: var(--gold-gradient);
   color: var(--bg-dark);
   border-radius: 4px;
   font-weight: 600;
@@ -135,7 +150,7 @@ a:hover {
 }
 
 .cta-button:hover {
-  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
+  background: var(--gold-gradient-hover);
   color: var(--bg-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
@@ -143,14 +158,22 @@ a:hover {
 
 .cta-button-secondary {
   background: transparent;
-  color: var(--color-gold);
-  border: 2px solid var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border: 2px solid;
+  border-image: var(--gold-gradient) 1;
 }
 
 .cta-button-secondary:hover {
-  background: var(--color-gold);
+  background: var(--gold-gradient);
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--bg-dark);
+  background-clip: unset;
   color: var(--bg-dark);
-  border-color: var(--color-gold);
+  border-image: none;
+  border-color: transparent;
 }
 
 button {
