@@ -5,55 +5,46 @@ import './AgentProfile.css'
 interface Differentiator {
   title: string
   description: string
-  icon: string
 }
 
 interface AgentProfileProps {
   title: string
   subtitle: string
   bio: string
-  image?: string
+  bio2: string
   differentiators: Differentiator[]
+  closingText: string
 }
 
 const AgentProfile: React.FC<AgentProfileProps> = ({ 
   title, 
   subtitle, 
   bio, 
-  image, 
-  differentiators 
+  bio2,
+  differentiators,
+  closingText
 }) => {
   return (
     <section className="agent-profile-section">
       <div className="container">
+        <div className="agent-profile-header">
+          <h2 className="agent-profile-title">{title}</h2>
+          <p className="agent-profile-subtitle">{subtitle}</p>
+        </div>
         <div className="agent-profile-content">
-          <div className="agent-profile-image">
-            {image ? (
-              <img src={image} alt="Carla Carolina - Real Estate Agent" />
-            ) : (
-              <div className="agent-profile-placeholder">
-                <span>Professional Photo</span>
-              </div>
-            )}
-          </div>
           <div className="agent-profile-text">
-            <h2 className="agent-profile-title">{title}</h2>
-            <p className="agent-profile-subtitle">{subtitle}</p>
             <p className="agent-profile-bio">{bio}</p>
+            <p className="agent-profile-bio">{bio2}</p>
             <div className="agent-differentiators">
               {differentiators.map((item, index) => (
                 <div key={index} className="differentiator-item">
-                  <div className="differentiator-icon">{item.icon}</div>
-                  <div className="differentiator-content">
-                    <h3 className="differentiator-title">{item.title}</h3>
-                    <p className="differentiator-description">{item.description}</p>
-                  </div>
+                  <h4 className="differentiator-title">{item.title}</h4>
+                  <p className="differentiator-description">{item.description}</p>
                 </div>
               ))}
             </div>
-            <Link to="/contact" className="cta-button">
-              Schedule Consultation
-            </Link>
+            <p className="agent-profile-closing">{closingText}</p>
+            <Link to="/contact" className="cta-button">Schedule Consultation</Link>
           </div>
         </div>
       </div>

@@ -31,11 +31,11 @@
   font-display: swap;
 }
 
-/* CSS Variables - Luxury Minimalist Theme: White/Light Gray, Charcoal/Black, Gold/Deep Blue Accents */
+/* CSS Variables - Gamma Design: Luxury Minimalist (White/Light Gray, Dark Text, Gold Accents) */
 :root {
-  --color-primary: #1a1a1a; /* Charcoal/Black for text */
+  --color-primary: #1a1a1a; /* Charcoal/Black for text and headings */
   --color-secondary: #D4AF37; /* Gold accent */
-  --color-accent: #1e3a5f; /* Deep Blue accent */
+  --color-accent: #1e3a5f; /* Deep Blue accent (optional) */
   --color-text: #2c2c2c; /* Dark charcoal for body text */
   --color-text-light: #ffffff;
   --color-text-muted: #666666; /* Muted gray for secondary text */

@@ -9,14 +9,19 @@ interface Testimonial {
 
 interface TestimonialsProps {
   title: string
+  subtitle: string
   testimonials: Testimonial[]
+  closingText: string
 }
 
-const Testimonials: React.FC<TestimonialsProps> = ({ title, testimonials }) => {
+const Testimonials: React.FC<TestimonialsProps> = ({ title, subtitle, testimonials, closingText }) => {
   return (
     <section className="testimonials-section">
       <div className="container">
-        <h2 className="testimonials-title">{title}</h2>
+        <div className="testimonials-header">
+          <h2 className="testimonials-title">{title}</h2>
+          <p className="testimonials-subtitle">{subtitle}</p>
+        </div>
         <div className="testimonials-grid">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="testimonial-card">
@@ -27,12 +32,13 @@ const Testimonials: React.FC<TestimonialsProps> = ({ title, testimonials }) => {
                 <p className="testimonial-text">"{testimonial.quote}"</p>
               </div>
               <div className="testimonial-author">
-                <p className="testimonial-name">{testimonial.clientName}</p>
+                <p className="testimonial-name">— {testimonial.clientName}</p>
                 <p className="testimonial-location">{testimonial.location}</p>
               </div>
             </div>
           ))}
         </div>
+        <p className="testimonials-closing">{closingText}</p>
       </div>
     </section>
   )

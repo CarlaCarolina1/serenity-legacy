@@ -1,0 +1,91 @@
+.design-inspiration-section {
+  padding: 80px 0;
+  background: var(--color-background);
+}
+
+.design-inspiration-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.design-inspiration-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.design-inspiration-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.inspiration-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+}
+
+.inspiration-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-background-light);
+}
+
+.inspiration-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.inspiration-image:hover img {
+  transform: scale(1.05);
+}
+
+.design-inspiration-description {
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.design-inspiration-cta {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .design-inspiration-section {
+    padding: 60px 0;
+  }
+
+  .design-inspiration-title {
+    font-size: 2rem;
+  }
+
+  .inspiration-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .inspiration-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inspiration-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+

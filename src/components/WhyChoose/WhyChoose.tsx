@@ -1,0 +1,56 @@
+import React from 'react'
+import './WhyChoose.css'
+
+interface Feature {
+  title: string
+  description: string
+  icon: string
+}
+
+interface WhyChooseProps {
+  title: string
+  subtitle: string
+  description: string
+  description2: string
+  features: Feature[]
+  closingText: string
+}
+
+const WhyChoose: React.FC<WhyChooseProps> = ({ 
+  title, 
+  subtitle, 
+  description, 
+  description2,
+  features, 
+  closingText 
+}) => {
+  return (
+    <section className="why-choose-section">
+      <div className="container">
+        <div className="why-choose-header">
+          <h2 className="why-choose-title">{title}</h2>
+          <h3 className="why-choose-subtitle">{subtitle}</h3>
+        </div>
+        <div className="why-choose-content">
+          <p className="why-choose-description">{description}</p>
+          <p className="why-choose-description">{description2}</p>
+        </div>
+        <div className="why-choose-features">
+          {features.map((feature, index) => (
+            <div key={index} className="why-choose-feature">
+              <div className="why-choose-icon">{feature.icon}</div>
+              <div className="why-choose-feature-content">
+                <h4 className="why-choose-feature-title">{feature.title}</h4>
+                <p className="why-choose-feature-description">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="why-choose-closing">{closingText}</p>
+      </div>
+    </section>
+  )
+}
+
+export default WhyChoose
+

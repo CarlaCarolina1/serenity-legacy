@@ -34,178 +34,274 @@ export const siteContent = {
   home: {
     hero: {
       title: "Discover Your Dream Home in Central Florida",
-      subtitle: "Expert real estate services in Orlando, Clermont, Reunion Resort, and more",
+      subtitle: "Experience exceptional living in Orlando's most desirable communities. From elegant new construction to prestigious resale properties, find your perfect home with expert guidance and personalized service.",
       ctaPrimary: "Search Properties",
       ctaSecondary: "Schedule Consultation",
     },
     newConstruction: {
       title: "Premium New Construction Communities",
-      subtitle: "Partner with Central Florida's most trusted builders",
+      subtitle: "Explore Central Florida's finest master-planned developments from award-winning builders. These carefully curated communities offer modern amenities, resort-style living, and exceptional value in the heart of the Sunshine State.",
       builders: [
         {
-          name: "Lennar",
-          description: "America's leading homebuilder offering innovative new homes with Everything's Included® features.",
-          logo: "https://www.lennar.com/images/lennar-logo.svg",
+          name: "Lennar Communities",
+          description: "Experience Everything's Included® homes with smart technology, designer finishes, and energy-efficient features in prime Orlando locations.",
         },
         {
-          name: "D.R. Horton",
-          description: "America's largest homebuilder, delivering quality homes and exceptional value across Central Florida.",
-          logo: "https://www.drhorton.com/images/dr-horton-logo.svg",
+          name: "D.R. Horton Neighborhoods",
+          description: "Discover America's Builder with flexible floor plans, premium upgrades, and family-friendly amenities near top-rated schools and entertainment.",
         },
         {
-          name: "Pulte",
-          description: "Building homes with innovative design and energy-efficient features for modern living.",
-          logo: "https://www.pulte.com/images/pulte-logo.svg",
+          name: "Pulte Home Designs",
+          description: "Life-Tested® homes featuring innovative layouts, quality craftsmanship, and thoughtful details that adapt to your lifestyle needs.",
         },
         {
-          name: "Taylor Morrison",
-          description: "Creating inspired homes and communities with exceptional craftsmanship and design.",
-          logo: "https://www.taylormorrison.com/images/taylor-morrison-logo.svg",
-        },
-        {
-          name: "K. Hovnanian",
-          description: "Delivering quality homes with attention to detail and customer satisfaction.",
-          logo: "https://www.khov.com/images/khov-logo.svg",
+          name: "Taylor Morrison Estates",
+          description: "Sophisticated residences with exceptional outdoor living spaces, designer kitchens, and proximity to Central Florida's finest attractions.",
         },
       ],
+      closingText: "Each builder brings unique advantages to your home-buying journey. Whether you prioritize cutting-edge smart home technology, flexible design options, or resort-style community amenities, these trusted names deliver exceptional quality and lasting value. Schedule a private tour to experience these remarkable communities firsthand.",
     },
     featuredProperties: {
-      title: "Featured Properties",
-      subtitle: "Exclusive selection of premium homes",
+      title: "Featured Properties Represented by Carla",
+      subtitle: "Browse an exclusive selection of homes currently available through my representation. Each property has been carefully evaluated to ensure it meets the highest standards of quality, location, and value for discerning buyers.",
+      properties: [
+        {
+          sqft: "4,280 sq ft",
+          location: "Champions Gate",
+          price: "$849,000",
+          beds: 6,
+          baths: 5.5,
+          description: "Stunning two-story residence with resort-style pool, game room, and gourmet kitchen. Minutes from world-class golf and Disney attractions.",
+          features: [
+            "Resort community with waterpark",
+            "Professional-grade kitchen appliances",
+            "Smart home technology throughout",
+            "Three-car garage with storage",
+          ],
+        },
+        {
+          sqft: "3,650 sq ft",
+          location: "Reunion Resort",
+          price: "$725,000",
+          beds: 5,
+          baths: 4,
+          description: "Contemporary luxury home with soaring ceilings, marble countertops, and designer finishes. Perfect for vacation rental investment.",
+          features: [
+            "Private screened pool and spa",
+            "Walking distance to resort amenities",
+            "Open-concept entertaining spaces",
+            "Fully furnished and turnkey ready",
+          ],
+        },
+        {
+          sqft: "2,890 sq ft",
+          location: "Windsor at Westside",
+          price: "$595,000",
+          beds: 4,
+          baths: 3.5,
+          description: "Elegant townhome-style villa with private pool, covered lanai, and upgraded interior package in a premier resort community.",
+          features: [
+            "Access to exclusive clubhouse and amenities",
+            "Granite countertops and wood cabinetry",
+            "Tile flooring in main living areas",
+            "Low-maintenance lifestyle",
+          ],
+        },
+        {
+          sqft: "3,200 sq ft",
+          location: "Kissimmee",
+          price: "$679,000",
+          beds: 5,
+          baths: 3,
+          description: "Serene lakefront property with dock, outdoor kitchen, and panoramic water views. A rare opportunity for waterfront living.",
+          features: [
+            "Deep-water lake with boating access",
+            "Oversized master suite with lake views",
+            "Tropical landscaping and privacy",
+            "Covered boat dock and lift",
+          ],
+        },
+      ],
+      closingText: "Each of these exceptional properties represents outstanding value in today's market. Contact me directly for private showings, detailed property information, pricing analysis, and investment projections. New listings added regularly.",
+      ctaPrimary: "Schedule Private Showing",
+      ctaSecondary: "Request Property Details",
+    },
+    designInspiration: {
+      title: "Stunning Homes & Design Inspiration",
+      subtitle: "Explore remarkable properties and architectural designs available in Central Florida. While these homes may not currently be listed under my representation, I have access to comprehensive market data and can help you find similar properties or connect you with opportunities that match your vision.",
+      description: "Central Florida's real estate market offers incredible diversity in architectural styles, from timeless Mediterranean estates to sleek contemporary designs. Whether you're drawn to classic elegance or modern minimalism, the region provides endless possibilities. Many communities feature signature architectural themes that create cohesive, visually stunning neighborhoods. Contact me to discuss your style preferences, desired features, and budget parameters—I'll curate a personalized selection of available properties that align with your dream home vision.",
+      ctaText: "Discuss Your Dream Home",
+    },
+    whyChoose: {
+      title: "Why Choose Central Florida?",
+      subtitle: "A Region of Unmatched Opportunity",
+      description: "Central Florida combines world-class entertainment, thriving economy, and exceptional quality of life. The Orlando metropolitan area continues to experience robust population growth, driven by major employers, tourism infrastructure, and favorable tax environment.",
+      description2: "From the renowned theme parks of International Drive to the natural springs of Central Florida, residents enjoy year-round outdoor recreation and cultural amenities. Top-rated schools, prestigious universities, and expanding healthcare facilities make this region ideal for families and retirees alike.",
+      features: [
+        {
+          title: "Year-Round Sunshine",
+          description: "Average 233 sunny days annually with mild winters and warm summers perfect for outdoor living",
+          icon: "☀️",
+        },
+        {
+          title: "Thriving Economy",
+          description: "Major employers in technology, healthcare, aerospace, and tourism drive consistent job growth",
+          icon: "📈",
+        },
+        {
+          title: "World-Class Accessibility",
+          description: "Orlando International Airport connects to 150+ destinations with convenient domestic and international travel",
+          icon: "✈️",
+        },
+        {
+          title: "Strong Investment Market",
+          description: "Robust vacation rental demand and steady appreciation make Central Florida properties excellent investments",
+          icon: "💰",
+        },
+      ],
+      closingText: "The region's combination of lifestyle amenities, economic opportunity, and real estate value creates compelling reasons to call Central Florida home. Whether you're relocating for work, seeking a vacation property, or planning retirement, this dynamic market offers something for every buyer.",
+    },
+    communities: {
+      title: "Communities I Serve with Pride",
+      subtitle: "My expertise spans Central Florida's most desirable residential markets. Each community offers distinct character, amenities, and lifestyle advantages. Understanding these nuances ensures you find not just a house, but the perfect neighborhood to call home.",
+      items: [
+        {
+          name: "Davenport & Champions Gate",
+          description: "Premier resort communities minutes from Disney. Exceptional vacation rental potential with luxury amenities including waterparks, golf courses, and clubhouses. Popular with investors and families seeking resort-style living.",
+        },
+        {
+          name: "Kissimmee & Celebration",
+          description: "Charming neighborhoods blending small-town atmosphere with modern convenience. Waterfront properties, master-planned communities, and easy access to theme parks. Strong appreciation and diverse housing options.",
+        },
+        {
+          name: "Orlando & Winter Park",
+          description: "Urban sophistication meets suburban comfort. From historic neighborhoods to modern developments, Orlando offers cultural amenities, dining, shopping, and entertainment. Excellent schools and professional opportunities.",
+        },
+        {
+          name: "Groveland & Minneola",
+          description: "Rolling hills and natural beauty define these growing communities. Larger lots, newer construction, and small-town charm with easy commute to Orlando. Perfect for those seeking space and tranquility.",
+        },
+        {
+          name: "Apopka & Surrounding Areas",
+          description: "Northwest Orlando's hidden gem offering affordable luxury and natural surroundings. Growing infrastructure, excellent schools, and family-friendly atmosphere. Great value with strong appreciation potential.",
+        },
+      ],
+      closingText: "Each community has unique selling points, school districts, commute considerations, and investment characteristics. My deep knowledge of these markets ensures you make informed decisions aligned with your lifestyle priorities and financial goals. Let's discuss which area best matches your needs.",
     },
     agentProfile: {
       title: "Meet Carla: Your Trusted Real Estate Partner",
       subtitle: "Licensed Realtor | Orlando, Florida",
-      bio: "With extensive knowledge of Central Florida's real estate and new construction markets, I guide clients through every step of their real estate journey with professionalism, integrity, and genuine care. My passion for real estate stems from helping families and individuals achieve property goals that transform their lives. Whether you're a first-time buyer navigating the process, a seasoned investor expanding your portfolio, or relocating from another state, I provide the expertise and personalized attention you deserve.",
-      image: "/images/carla-headshot.jpg",
+      bio: "With extensive knowledge of Central Florida's residential and new-construction markets, I guide clients through every step of their real estate journey with professionalism, integrity, and genuine care.",
+      bio2: "My passion for real estate stems from helping families and investors discover properties that transform their lives. Whether you're a first-time buyer navigating the process, a seasoned investor expanding your portfolio, or relocating from another state, I provide the expertise and personalized attention you deserve.",
       differentiators: [
         {
           title: "Builder Relationships",
-          description: "Strong connections with Lennar, D.R. Horton, Pulte, Taylor Morrison, and K. Hovnanian provide access to exclusive new construction opportunities and incentives.",
-          icon: "🤝",
+          description: "Direct connections with Lennar, D.R. Horton, Pulte, Taylor Morrison, and KB Home provide exclusive access to pre-construction opportunities, incentives, and lot selections before public release.",
         },
         {
           title: "Market Intelligence",
-          description: "Comprehensive analysis of pricing trends, neighborhood dynamics, and projected growth to ensure you make strategically sound investment decisions.",
-          icon: "📊",
+          description: "Comprehensive analysis of pricing trends, neighborhood dynamics, and investment potential ensures you make data-driven decisions with confidence and clarity.",
+        },
+        {
+          title: "Negotiation Excellence",
+          description: "Skilled advocacy protecting your interests throughout the transaction. I negotiate favorable terms, navigate inspections, and ensure smooth closings with attention to every detail.",
+        },
+        {
+          title: "Concierge Service",
+          description: "From initial consultation through closing and beyond, I coordinate inspections, financing, contractors, and resources to make your experience seamless and stress-free.",
         },
       ],
+      closingText: "Real estate is more than transactions—it's about relationships, trust, and achieving your goals. I'm committed to exceeding your expectations with responsive communication, honest guidance, and unwavering dedication to your success. Let's start your journey today.",
     },
     testimonials: {
-      title: "What Our Clients Say",
+      title: "What My Clients Are Saying",
+      subtitle: "The trust and satisfaction of my clients drive everything I do. Here's what homeowners and investors have shared about their experience working with me.",
       items: [
         {
-          quote: "Carla made our home buying experience seamless. Her knowledge of the Central Florida market and attention to detail helped us find our perfect home. Highly recommend!",
-          clientName: "Sarah & Michael Johnson",
+          quote: "Carla made our dream of owning a Florida vacation home a reality. Her knowledge of the resort communities was impressive, and she guided us through the entire process with patience and expertise. We couldn't be happier with our Champions Gate property!",
+          clientName: "Jennifer & Michael Torres",
+          location: "Chicago, IL",
+        },
+        {
+          quote: "As an out-of-state investor, I needed someone I could trust completely. Carla provided detailed market analysis, managed inspections remotely, and helped me secure an excellent rental property. Her professionalism is unmatched.",
+          clientName: "Robert Chen",
+          location: "San Francisco, CA",
+        },
+        {
+          quote: "We were first-time homebuyers feeling overwhelmed by the process. Carla explained everything clearly, answered our endless questions, and negotiated an amazing deal on our new construction home. She truly cares about her clients.",
+          clientName: "Alice & Jose Manuel Villeda",
           location: "Orlando, FL",
         },
         {
-          quote: "Working with Carla was exceptional. She understood exactly what we were looking for and negotiated the best deal. Professional, responsive, and truly cares about her clients.",
-          clientName: "David Martinez",
-          location: "Clermont, FL",
-        },
-        {
-          quote: "Carla's expertise in new construction helped us navigate the entire process from lot selection to closing. Her builder relationships gave us access to exclusive opportunities.",
-          clientName: "Jennifer & Robert Chen",
-          location: "Reunion Resort, FL",
-        },
-        {
-          quote: "As an investor, I appreciate Carla's market insights and strategic approach. She's helped me build a strong portfolio in Central Florida. Outstanding service!",
-          clientName: "Thomas Anderson",
-          location: "Orlando, FL",
+          quote: "Relocating from New York, we knew nothing about Central Florida. Carla toured us through multiple communities, provided honest insights about each area, and helped us find the perfect neighborhood for our family. Highly recommend!",
+          clientName: "Sarah Williams",
+          location: "New York, NY",
         },
       ],
+      closingText: "Your success story could be next. Whether you're buying your first home, upgrading to your dream property, or building an investment portfolio, I'm here to deliver exceptional results and service you'll want to share with others.",
     },
     marketInsights: {
-      title: "Central Florida Market Insights",
-      subtitle: "Key statistics and trends",
+      title: "Understanding the Central Florida Market",
+      subtitle: "Current Market Insights",
+      description: "Central Florida's real estate market continues demonstrating resilience and growth. Population influx from northern states, combined with Florida's tax advantages and lifestyle appeal, sustains strong demand across all price points.",
+      description2: "The new-construction segment remains particularly robust, with builders offering competitive incentives including rate buy-downs, closing cost assistance, and premium upgrade packages. Inventory levels vary by community, creating opportunities for strategic buyers.",
       stats: [
         {
+          label: "Annual Appreciation",
+          value: "15%",
+          description: "Average home value increase in premium Central Florida communities over the past three years",
+        },
+        {
           label: "Median Home Price",
-          value: "$385,000",
-          change: "+8.5%",
-          period: "Year over Year",
+          value: "$425K",
+          description: "Current median price for single-family homes in the Davenport and Kissimmee markets",
         },
         {
-          label: "Average Days on Market",
+          label: "Days on Market",
           value: "42",
-          change: "-12%",
-          period: "vs. Last Year",
+          description: "Average time from listing to contract for well-priced properties in desirable neighborhoods",
         },
         {
-          label: "Market Appreciation Rate",
-          value: "6.2%",
-          change: "Annual",
-          period: "5-Year Average",
-        },
-        {
-          label: "New Construction Starts",
-          value: "12,450",
-          change: "+15%",
-          period: "This Year",
+          label: "Occupancy Rate",
+          value: "85%",
+          description: "Short-term vacation rental occupancy in resort communities near major attractions",
         },
       ],
+      closingText: "Whether you're purchasing a primary residence or investment property, understanding market dynamics is crucial. Interest rate trends, builder incentives, and seasonal patterns all impact your buying power and potential returns. I provide comprehensive market analysis tailored to your specific goals, ensuring you enter the market at the right time with the right property. Let's discuss current opportunities and develop a strategic approach to maximize your investment.",
     },
-    services: {
-      title: "Our Real Estate Services",
-      items: [
+    footerCta: {
+      title: "Ready to Begin Your Journey?",
+      subtitle: "Your Central Florida dream home awaits. Whether you're exploring new construction communities, searching for the perfect resale property, or building an investment portfolio, I'm here to guide you with expertise, integrity, and personalized attention every step of the way.",
+      actions: [
         {
-          title: "Buy a Home",
-          description: "Find your perfect residential property in Central Florida. Browse new homes, customizable homes, and existing properties with expert guidance for buying properties.",
+          title: "Schedule a Consultation",
+          description: "Let's discuss your goals, preferences, and timeline. I'll provide honest guidance and create a customized home-buying strategy.",
         },
         {
-          title: "Sell Your Home",
-          description: "Maximize your property's value with professional marketing and negotiation. Expert services for selling properties in Orlando and Central Florida.",
+          title: "Explore Properties",
+          description: "Access exclusive listings, new construction opportunities, and off-market properties matching your criteria and budget.",
         },
         {
-          title: "Investment Properties",
-          description: "Build your portfolio with Orlando's best investment opportunities. Commercial real estate, residential investment properties, and land for sale.",
-        },
-        {
-          title: "Land Sales",
-          description: "Find prime land for sale in Central Florida. Perfect for building your customizable home or commercial development.",
+          title: "Make Your Move",
+          description: "From offer to closing, I handle negotiations, inspections, and coordination to ensure a smooth, successful transaction.",
         },
       ],
-    },
-    neighborhoods: {
-      title: "Popular Neighborhoods",
-      items: [
-        {
-          name: "Reunion Resort",
-          description: "Luxury resort living with world-class amenities",
-          image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        },
-        {
-          name: "Margaritaville",
-          description: "Relaxed island lifestyle in the heart of Orlando",
-          image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        },
-        {
-          name: "Champions Gate",
-          description: "Golf community with championship courses",
-          image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        },
-        {
-          name: "Clermont",
-          description: "Family-friendly community with beautiful homes",
-          image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        },
-        {
-          name: "Orlando Downtown",
-          description: "Urban living in the heart of the city",
-          image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        },
-        {
-          name: "Titusville",
-          description: "Coastal living near Kennedy Space Center",
-          image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        },
-      ],
-    },
-    cta: {
-      title: "Ready to Buy, Sell, or Invest in Real Estate Properties?",
-      subtitle: "Contact us today for expert guidance on buying properties, selling properties, land sales, new residential homes, commercial real estate, and customizable homes",
-      buttonText: "Get in Touch",
+      contactInfo: {
+        email: "cc@serenitylegacy.net",
+        phone: "(954) 303-3456",
+        office: "Orlando, FL 33896",
+        license: "FL Real Estate License #SL3371270",
+        serviceAreas: [
+          "Davenport & Champions Gate",
+          "Kissimmee & Celebration",
+          "Orlando & Winter Park",
+          "Groveland & Minneola",
+          "Apopka & Surrounding Areas",
+        ],
+      },
+      closingText: "Experience the difference that dedicated, knowledgeable representation makes. Your Central Florida lifestyle begins here—let's make it extraordinary together.",
+      ctaPrimary: "Schedule Your Consultation",
+      ctaSecondary: "View All Properties",
     },
   },
 
@@ -327,4 +423,5 @@ export const siteContent = {
     copyright: "All rights reserved.",
   },
 }
+
 
