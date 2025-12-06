@@ -135,7 +135,8 @@ a:hover {
   display: inline-block;
   padding: 1rem 2.5rem;
   background: var(--gold-gradient);
-  color: var(--bg-dark);
+  color: #0a0a0a !important;
+  -webkit-text-fill-color: #0a0a0a !important;
   border-radius: 4px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -151,28 +152,23 @@ a:hover {
 
 .cta-button:hover {
   background: var(--gold-gradient-hover);
-  color: var(--bg-dark);
+  color: #0a0a0a !important;
+  -webkit-text-fill-color: #0a0a0a !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
 .cta-button-secondary {
-  background: transparent;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  border: 2px solid;
-  border-image: var(--gold-gradient) 1;
+  background: transparent !important;
+  color: #D4AF37 !important;
+  -webkit-text-fill-color: #D4AF37 !important;
+  border: 2px solid #D4AF37;
 }
 
 .cta-button-secondary:hover {
-  background: var(--gold-gradient);
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: var(--bg-dark);
-  background-clip: unset;
-  color: var(--bg-dark);
-  border-image: none;
+  background: var(--gold-gradient) !important;
+  color: #0a0a0a !important;
+  -webkit-text-fill-color: #0a0a0a !important;
   border-color: transparent;
 }
 

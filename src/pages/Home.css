@@ -1,22 +1,27 @@
 /* Home Page - Luxury Dark Theme with Gold Accents */
 
 /* ============================================
-   HERO SECTION - Split Layout
+   HERO SECTION - Full Width with Sliding Background
    ============================================ */
 .home-hero {
   min-height: 100vh;
-  background: var(--bg-dark);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 4rem;
   padding-left: 8%;
+  max-width: 1400px;
+  width: 100%;
   animation: fadeInUp 1s ease-out;
 }
 
@@ -59,17 +64,6 @@
   flex-wrap: wrap;
 }
 
-.hero-image {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
 
 .cta-button-large {
   padding: 1rem 2rem;
@@ -77,22 +71,16 @@
 }
 
 .cta-button-secondary {
-  background: transparent;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  border: 2px solid;
-  border-image: var(--gold-gradient) 1;
+  background: transparent !important;
+  color: #D4AF37 !important;
+  -webkit-text-fill-color: #D4AF37 !important;
+  border: 2px solid #D4AF37;
 }
 
 .cta-button-secondary:hover {
-  background: var(--gold-gradient);
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: var(--bg-dark);
-  background-clip: unset;
-  color: var(--bg-dark);
-  border-image: none;
+  background: var(--gold-gradient) !important;
+  color: #0a0a0a !important;
+  -webkit-text-fill-color: #0a0a0a !important;
   border-color: transparent;
 }
 
