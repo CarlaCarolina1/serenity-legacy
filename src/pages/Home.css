@@ -1,42 +1,22 @@
-/* Home Page - Gamma Design: Luxury Minimalist */
+/* Home Page - Luxury Dark Theme with Gold Accents */
 
-/* Hero Section - Full Width with Large Photo */
+/* ============================================
+   HERO SECTION - Split Layout
+   ============================================ */
 .home-hero {
-  height: 90vh;
-  min-height: 600px;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-light);
-  text-align: center;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   overflow: hidden;
 }
 
-.home-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
-  z-index: 1;
-}
-
-.home-hero {
-  transition: background-image 2s ease-in-out;
-}
-
 .hero-content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-  position: relative;
-  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  padding-left: 8%;
   animation: fadeInUp 1s ease-out;
 }
 
@@ -53,71 +33,70 @@
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-text-light);
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 3.5rem;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  color: var(--color-gold);
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-2xl);
-  opacity: 0.95;
-  line-height: 1.6;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 500px;
   font-weight: 400;
 }
 
 .hero-cta {
   display: flex;
-  gap: var(--spacing-lg);
-  justify-content: center;
+  gap: 1rem;
   flex-wrap: wrap;
-  margin-top: var(--spacing-2xl);
+}
+
+.hero-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .cta-button-large {
-  padding: 1.125rem 2.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  text-transform: none;
-  letter-spacing: 0.5px;
+  padding: 1rem 2rem;
+  font-size: 0.95rem;
 }
 
 .cta-button-secondary {
   background: transparent;
-  color: var(--color-text-light);
-  border: 2px solid var(--color-text-light);
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
 }
 
 .cta-button-secondary:hover {
-  background: var(--color-text-light);
-  color: var(--color-primary);
-  border-color: var(--color-text-light);
+  background: var(--color-gold);
+  color: var(--bg-dark);
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE - HERO
+   ============================================ */
 @media (max-width: 968px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 768px) {
   .home-hero {
-    height: 70vh;
-    min-height: 500px;
-    background-attachment: scroll;
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    align-items: center;
   }
 
   .hero-title {
@@ -125,18 +104,15 @@
   }
 
   .hero-subtitle {
-    font-size: 1.125rem;
+    max-width: 100%;
+  }
+
+  .hero-image {
+    height: 50vh;
   }
 
   .hero-cta {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cta-button-large,
-  .cta-button-secondary {
-    width: 100%;
-    max-width: 300px;
+    justify-content: center;
   }
 }
 
@@ -147,5 +123,16 @@
 
   .hero-subtitle {
     font-size: 1rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-button-large,
+  .cta-button-secondary {
+    width: 100%;
+    text-align: center;
   }
 }

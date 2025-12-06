@@ -1,71 +1,96 @@
+/* Communities Section - Light Beige Theme */
 .communities-section {
-  padding: 80px 0;
-  background: var(--color-background);
+  padding: 100px 0;
+  background: var(--bg-light);
 }
 
 .communities-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
-  max-width: 900px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 2rem;
 }
 
 .communities-title {
-  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
   margin-bottom: 1rem;
-  color: var(--color-primary);
+  color: var(--text-dark);
+  font-weight: 400;
 }
 
 .communities-subtitle {
-  font-size: 1.125rem;
-  color: var(--color-text);
-  line-height: 1.7;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  line-height: 1.8;
   margin: 0;
+  max-width: 900px;
 }
 
 .communities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
+}
+
+.communities-grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
   margin: 0 auto 3rem;
+  padding: 0 2rem;
 }
 
 .community-card {
-  background: var(--color-background-light);
-  padding: 2rem;
-  border-radius: 8px;
-  border-left: 4px solid var(--color-secondary);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 0;
 }
 
-.community-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+.community-icon {
+  font-size: 1.25rem;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
 }
 
 .community-name {
+  font-family: var(--font-heading);
   font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--color-primary);
+  font-weight: 400;
+  color: var(--text-dark);
   margin-bottom: 1rem;
 }
 
 .community-description {
   font-size: 1rem;
-  line-height: 1.7;
-  color: var(--color-text);
+  line-height: 1.8;
+  color: var(--text-dark);
   margin: 0;
+  opacity: 0.85;
 }
 
 .communities-closing {
-  text-align: center;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--color-text);
-  max-width: 900px;
+  color: var(--text-dark);
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 2rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 1200px) {
+  .communities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .communities-grid-bottom {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -79,7 +104,5 @@
 
   .communities-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }
-

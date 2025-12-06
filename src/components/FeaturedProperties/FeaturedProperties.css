@@ -1,85 +1,90 @@
+/* Featured Properties Section - Dark Theme with Gold Borders */
 .featured-properties-section {
-  padding: 80px 0;
-  background: var(--color-background-light);
+  padding: 100px 0;
+  background: var(--bg-dark);
 }
 
 .featured-properties-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
-  max-width: 900px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 2rem;
 }
 
 .featured-properties-title {
-  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
   margin-bottom: 1rem;
-  color: var(--color-primary);
+  color: var(--color-gold);
+  font-weight: 400;
 }
 
 .featured-properties-subtitle {
-  font-size: 1.125rem;
-  color: var(--color-text);
-  line-height: 1.7;
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
   margin: 0;
+  max-width: 800px;
 }
 
 .featured-properties-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto 3rem;
+  padding: 0 2rem;
 }
 
 .featured-property-card {
-  background: var(--color-background);
+  background: transparent;
   padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-light);
+  border-radius: 0;
+  transition: border-color 0.3s ease;
 }
 
 .featured-property-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  border-color: var(--color-secondary);
+  border-color: var(--color-gold);
 }
 
 .featured-property-header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .featured-property-sqft {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-white);
   margin-bottom: 0.25rem;
+  font-weight: 400;
 }
 
 .featured-property-location {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-light);
 }
 
 .featured-property-price {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-gold);
   margin-bottom: 0.5rem;
 }
 
 .featured-property-details {
-  font-size: 1rem;
-  color: var(--color-text);
+  font-size: 0.95rem;
+  color: var(--text-light);
   margin-bottom: 1rem;
-  font-weight: 500;
 }
 
 .featured-property-description {
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--color-text);
+  color: var(--text-light);
   margin-bottom: 1.5rem;
 }
 
@@ -91,36 +96,43 @@
 
 .featured-property-features li {
   font-size: 0.95rem;
-  color: var(--color-text);
-  padding: 0.5rem 0;
-  padding-left: 1.5rem;
+  color: var(--text-light);
+  padding: 0.4rem 0;
+  padding-left: 1.25rem;
   position: relative;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .featured-property-features li::before {
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--color-secondary);
+  color: var(--color-gold);
   font-weight: bold;
-  font-size: 1.2rem;
 }
 
 .featured-properties-closing {
-  text-align: center;
-  font-size: 1.125rem;
+  text-align: left;
+  font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--color-text);
-  max-width: 900px;
+  color: var(--text-light);
+  max-width: 1400px;
   margin: 0 auto 2rem;
+  padding: 0 2rem;
 }
 
 .featured-properties-cta {
   display: flex;
   gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 968px) {
+  .featured-properties-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -132,19 +144,11 @@
     font-size: 2rem;
   }
 
-  .featured-properties-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
   .featured-properties-cta {
     flex-direction: column;
-    align-items: center;
   }
 
   .featured-properties-cta .cta-button {
-    width: 100%;
-    max-width: 300px;
+    text-align: center;
   }
 }
-

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import { siteContent } from '../data/siteContent'
 import SEO from '../components/SEO'
 import { getLocalBusinessSchema, getWebsiteSchema } from '../utils/schema'
@@ -15,33 +14,6 @@ import FooterCta from '../components/FooterCta/FooterCta'
 import './Home.css'
 
 const Home = () => {
-  // Array of luxury home images - high-resolution, magazine-quality
-  const luxuryHomes = [
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80',
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80',
-    'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2031&q=80',
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-  ]
-
-  // Pre-load images to prevent gray flashes
-  useEffect(() => {
-    luxuryHomes.forEach((url) => {
-      const img = new Image()
-      img.src = url
-    })
-  }, [])
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % luxuryHomes.length)
-    }, 7000) // Change image every 7 seconds
-
-    return () => clearInterval(interval)
-  }, [luxuryHomes.length])
-
   const homeSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -60,28 +32,27 @@ const Home = () => {
         schema={homeSchema}
       />
       
-      {/* 1. Hero Section */}
-      <section 
-        className="home-hero"
-        style={{
-          backgroundImage: `url(${luxuryHomes[currentImageIndex]})`
-        }}
-      >
-        <div className="container">
-          <div className="hero-content">
-            <h1 className="hero-title">{siteContent.home.hero.title}</h1>
-            <p className="hero-subtitle">
-              {siteContent.home.hero.subtitle}
-            </p>
-            <div className="hero-cta">
-              <Link to="/properties" className="cta-button cta-button-large">
-                {siteContent.home.hero.ctaPrimary}
-              </Link>
-              <Link to="/contact" className="cta-button cta-button-secondary">
-                {siteContent.home.hero.ctaSecondary}
-              </Link>
-            </div>
+      {/* 1. Hero Section - Split Layout */}
+      <section className="home-hero">
+        <div className="hero-content">
+          <h1 className="hero-title">{siteContent.home.hero.title}</h1>
+          <p className="hero-subtitle">
+            {siteContent.home.hero.subtitle}
+          </p>
+          <div className="hero-cta">
+            <Link to="/properties" className="cta-button cta-button-large">
+              {siteContent.home.hero.ctaPrimary}
+            </Link>
+            <Link to="/contact" className="cta-button cta-button-secondary">
+              {siteContent.home.hero.ctaSecondary}
+            </Link>
           </div>
+        </div>
+        <div className="hero-image">
+          <img 
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80" 
+            alt="Luxury modern home in Central Florida with palm trees"
+          />
         </div>
       </section>
 

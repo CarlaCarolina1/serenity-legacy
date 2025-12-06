@@ -31,20 +31,44 @@
   font-display: swap;
 }
 
-/* CSS Variables - Gamma Design: Luxury Minimalist (White/Light Gray, Dark Text, Gold Accents) */
+/* CSS Variables - Luxury Dark Theme: Black/Gold Elegance */
 :root {
-  --color-primary: #1a1a1a; /* Charcoal/Black for text and headings */
-  --color-secondary: #D4AF37; /* Gold accent */
-  --color-accent: #1e3a5f; /* Deep Blue accent (optional) */
-  --color-text: #2c2c2c; /* Dark charcoal for body text */
+  /* Dark Theme Backgrounds */
+  --bg-dark: #0a0a0a;
+  --bg-dark-secondary: #111111;
+  --bg-light: #d4cfc4; /* Warm beige for alternate sections */
+  --bg-card: #0f0f0f;
+  
+  /* Gold Accent */
+  --color-gold: #D4AF37;
+  --color-gold-light: #E5C158;
+  --color-gold-dark: #B8962E;
+  
+  /* Text Colors */
+  --text-white: #ffffff;
+  --text-light: #c9c9c9;
+  --text-muted: #888888;
+  --text-dark: #1a1a1a;
+  
+  /* Borders */
+  --border-gold: #D4AF37;
+  --border-subtle: #2a2a2a;
+  --border-light: #333333;
+  
+  /* Legacy variables for compatibility */
+  --color-primary: #0a0a0a;
+  --color-secondary: #D4AF37;
+  --color-accent: #D4AF37;
+  --color-text: #ffffff;
   --color-text-light: #ffffff;
-  --color-text-muted: #666666; /* Muted gray for secondary text */
-  --color-background: #ffffff; /* White background */
-  --color-background-light: #f8f9fa; /* Very light gray for sections */
-  --color-background-alt: #f5f5f5; /* Light gray alternative */
-  --color-border: #e0e0e0; /* Light border */
-  --color-separator: #D4AF37; /* Gold for separators */
-  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --color-text-muted: #888888;
+  --color-background: #0a0a0a;
+  --color-background-light: #111111;
+  --color-background-alt: #0f0f0f;
+  --color-border: #2a2a2a;
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -65,8 +89,8 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.7;
-  color: var(--color-text);
-  background-color: var(--color-background);
+  color: var(--text-light);
+  background-color: var(--bg-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -74,36 +98,36 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.3;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary);
-  letter-spacing: -0.02em;
+  color: var(--color-gold);
+  letter-spacing: 0.01em;
 }
 
 a {
-  color: var(--color-secondary);
+  color: var(--color-gold);
   text-decoration: none;
   transition: color 0.2s ease;
   font-weight: 500;
 }
 
 a:hover {
-  color: var(--color-accent);
+  color: var(--color-gold-light);
 }
 
 .cta-button {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: var(--color-secondary);
-  color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  color: var(--bg-dark);
   border-radius: 4px;
   font-weight: 600;
   letter-spacing: 0.5px;
   font-size: 0.95rem;
   transition: all 0.3s ease;
   margin-top: var(--spacing-md);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -111,22 +135,22 @@ a:hover {
 }
 
 .cta-button:hover {
-  background: var(--color-accent);
-  color: white;
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
+  color: var(--bg-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
 .cta-button-secondary {
   background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
 }
 
 .cta-button-secondary:hover {
-  background: var(--color-primary);
-  color: white;
-  border-color: var(--color-primary);
+  background: var(--color-gold);
+  color: var(--bg-dark);
+  border-color: var(--color-gold);
 }
 
 button {

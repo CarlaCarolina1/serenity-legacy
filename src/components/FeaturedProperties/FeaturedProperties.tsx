@@ -31,40 +31,34 @@ const FeaturedProperties: React.FC<FeaturedPropertiesProps> = ({
 }) => {
   return (
     <section className="featured-properties-section">
-      <div className="container">
-        <div className="featured-properties-header">
-          <h2 className="featured-properties-title">{title}</h2>
-          <p className="featured-properties-subtitle">{subtitle}</p>
-        </div>
-        <div className="featured-properties-grid">
-          {properties.map((property, index) => (
-            <div key={index} className="featured-property-card">
-              <div className="featured-property-header">
-                <div className="featured-property-sqft">{property.sqft}</div>
-                <div className="featured-property-location">Estate in {property.location}</div>
-              </div>
-              <div className="featured-property-price">{property.price}</div>
-              <div className="featured-property-details">
-                {property.beds} bed, {property.baths} bath
-              </div>
-              <p className="featured-property-description">{property.description}</p>
-              <ul className="featured-property-features">
-                {property.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
-                ))}
-              </ul>
+      <div className="featured-properties-header">
+        <h2 className="featured-properties-title">{title}</h2>
+        <p className="featured-properties-subtitle">{subtitle}</p>
+      </div>
+      <div className="featured-properties-grid">
+        {properties.map((property, index) => (
+          <div key={index} className="featured-property-card">
+            <div className="featured-property-header">
+              <h3 className="featured-property-sqft">{property.sqft} Estate in {property.location}</h3>
             </div>
-          ))}
-        </div>
-        <p className="featured-properties-closing">{closingText}</p>
-        <div className="featured-properties-cta">
-          <Link to="/contact" className="cta-button">{ctaPrimary}</Link>
-          <Link to="/properties" className="cta-button cta-button-secondary">{ctaSecondary}</Link>
-        </div>
+            <p className="featured-property-price">{property.price}</p>
+            <p className="featured-property-details">{property.beds} bed · {property.baths} bath</p>
+            <p className="featured-property-description">{property.description}</p>
+            <ul className="featured-property-features">
+              {property.features.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p className="featured-properties-closing">{closingText}</p>
+      <div className="featured-properties-cta">
+        <Link to="/contact" className="cta-button">{ctaPrimary}</Link>
+        <Link to="/properties" className="cta-button cta-button-secondary">{ctaSecondary}</Link>
       </div>
     </section>
   )
 }
 
 export default FeaturedProperties
-
