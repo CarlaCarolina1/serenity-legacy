@@ -78,7 +78,7 @@
 .property-card-price {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-primary);
+  color: var(--color-gold);
   margin-bottom: var(--spacing-xs);
   font-weight: 600;
 }
@@ -112,7 +112,7 @@
 }
 
 .property-detail strong {
-  color: var(--color-primary);
+  color: var(--text-light);
   font-weight: 600;
 }
 

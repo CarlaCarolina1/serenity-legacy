@@ -17,13 +17,13 @@
   font-family: var(--font-heading);
   font-size: 2.75rem;
   margin-bottom: 1rem;
-  color: var(--text-dark);
-  font-weight: 400;
+  color: var(--color-gold-dark);
+  font-weight: 500;
 }
 
 .communities-subtitle {
   font-size: 1.1rem;
-  color: var(--text-dark);
+  color: var(--text-on-light-strong);
   line-height: 1.8;
   margin: 0;
   max-width: 900px;
@@ -53,34 +53,34 @@
 
 .community-icon {
   font-size: 1.25rem;
-  color: var(--color-gold);
+  color: var(--color-gold-dark);
   margin-bottom: 0.75rem;
 }
 
 .community-name {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--text-dark);
+  font-weight: 500;
+  color: var(--color-gold-dark);
   margin-bottom: 1rem;
 }
 
 .community-description {
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--text-dark);
+  color: var(--text-on-light-strong);
   margin: 0;
-  opacity: 0.85;
+  opacity: 0.92;
 }
 
 .communities-closing {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--text-dark);
+  color: var(--text-on-light-strong);
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
-  opacity: 0.85;
+  opacity: 0.92;
 }
 
 @media (max-width: 1200px) {
