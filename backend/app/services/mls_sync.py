@@ -29,7 +29,13 @@ class MLSSyncService:
         self.mls_api_url = os.getenv("MLS_API_URL")
         self.mls_api_key = os.getenv("MLS_API_KEY")
         self.mls_api_secret = os.getenv("MLS_API_SECRET")
-        self.is_configured = bool(self.mls_api_url and self.mls_api_key)
+        self.mls_username = os.getenv("MLS_USERNAME")
+        self.mls_password = os.getenv("MLS_PASSWORD")
+        # Configured if we have either API key OR username/password
+        self.is_configured = bool(
+            (self.mls_api_url and self.mls_api_key) or 
+            (self.mls_username and self.mls_password)
+        )
     
     def is_mls_configured(self) -> bool:
         """Check if MLS credentials are configured"""
@@ -152,10 +158,9 @@ class MLSSyncService:
     
     def _fetch_mls_properties(self, zip_code: str) -> List[Dict[str, Any]]:
         """
-        Fetch properties from MLS API for a zip code
+        Fetch properties from Stellar MLS API for a zip code
         
-        This is a placeholder that will be implemented when MLS credentials are available.
-        It should connect to RESO Web API or RETS and fetch properties.
+        Supports OAuth 2.0, API key, and username/password authentication.
         
         Args:
             zip_code: Zip code to fetch properties for
@@ -163,21 +168,117 @@ class MLSSyncService:
         Returns:
             List of property dictionaries from MLS
         """
-        # TODO: Implement actual MLS API call when credentials are available
-        # This will use RESO Web API or RETS to fetch properties
+        import requests
+        import base64
         
-        logger.info(f"Fetching MLS properties for zip code {zip_code}")
+        logger.info(f"Fetching Stellar MLS properties for zip code {zip_code}")
         
-        # Placeholder - will be replaced with actual API call
-        # Example structure:
-        # response = requests.get(
-        #     f"{self.mls_api_url}/properties",
-        #     params={"zip_code": zip_code},
-        #     headers={"Authorization": f"Bearer {self.mls_api_key}"}
-        # )
-        # return response.json()["properties"]
-        
-        return []
+        try:
+            # Stellar MLS typically uses MLS Grid or Bridge API
+            # Try MLS Grid first (most common for Stellar MLS)
+            api_url = self.mls_api_url or "https://api.mlsgrid.com/v2"
+            
+            # Build authentication headers
+            headers = {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+            
+            access_token = None
+            
+            # Try OAuth 2.0 client credentials flow first
+            if self.mls_username and self.mls_password:
+                try:
+                    # MLS Grid OAuth token endpoint
+                    token_url = f"{api_url}/auth/token"
+                    
+                    # Create Basic Auth header for token request (username:password base64 encoded)
+                    credentials = f"{self.mls_username}:{self.mls_password}"
+                    encoded_credentials = base64.b64encode(credentials.encode()).decode()
+                    
+                    token_headers = {
+                        "Authorization": f"Basic {encoded_credentials}",
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    }
+                    
+                    token_data = {
+                        "grant_type": "client_credentials"
+                    }
+                    
+                    logger.info("Attempting OAuth token request...")
+                    token_response = requests.post(
+                        token_url,
+                        data=token_data,
+                        headers=token_headers,
+                        timeout=30
+                    )
+                    
+                    if token_response.status_code == 200:
+                        token_json = token_response.json()
+                        access_token = token_json.get("access_token")
+                        logger.info("Successfully obtained OAuth token")
+                    else:
+                        logger.warning(f"OAuth token request failed: {token_response.status_code} - {token_response.text}")
+                        # Fallback: try API key format
+                        headers["X-API-Key"] = self.mls_username
+                        if self.mls_password:
+                            headers["X-API-Secret"] = self.mls_password
+                            
+                except Exception as e:
+                    logger.warning(f"OAuth token request error: {str(e)}, trying alternative auth")
+                    # Fallback: try API key in headers
+                    headers["X-API-Key"] = self.mls_username
+                    if self.mls_password:
+                        headers["X-API-Secret"] = self.mls_password
+            
+            elif self.mls_api_key and self.mls_api_secret:
+                # API key authentication
+                headers["X-API-Key"] = self.mls_api_key
+                headers["X-API-Secret"] = self.mls_api_secret
+            else:
+                logger.error("No MLS authentication credentials provided")
+                return []
+            
+            # Add Bearer token if we got one
+            if access_token:
+                headers["Authorization"] = f"Bearer {access_token}"
+            
+            # Query properties by zip code
+            # Stellar MLS uses RESO Web API standard
+            params = {
+                "$filter": f"PostalCode eq '{zip_code}'",
+                "$select": "*",
+                "$top": 1000  # Limit results
+            }
+            
+            logger.info(f"Making API request to {api_url}/Property with zip {zip_code}")
+            # Make API request
+            response = requests.get(
+                f"{api_url}/Property",
+                params=params,
+                headers=headers,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                # RESO Web API returns data in "value" array
+                properties = data.get("value", [])
+                logger.info(f"Fetched {len(properties)} properties from Stellar MLS for zip {zip_code}")
+                return properties
+            elif response.status_code == 401:
+                logger.error("MLS authentication failed - check credentials")
+                return []
+            else:
+                logger.error(f"MLS API error: {response.status_code} - {response.text}")
+                return []
+                
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Error connecting to Stellar MLS API: {str(e)}")
+            return []
+        except Exception as e:
+            logger.error(f"Unexpected error fetching MLS properties: {str(e)}")
+            return []
     
     def _sync_single_property(self, mls_property: Dict[str, Any]) -> str:
         """
@@ -217,45 +318,79 @@ class MLSSyncService:
     
     def _map_mls_to_property(self, mls_property: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Map MLS property data to our Property model format
+        Map Stellar MLS (RESO Web API) property data to our Property model format
+        
+        RESO Web API uses standard field names. This maps them to our database schema.
         
         Args:
-            mls_property: Raw property data from MLS
+            mls_property: Raw property data from Stellar MLS API
             
         Returns:
             Dictionary with Property model fields
         """
-        # Map MLS fields to our Property model
-        # This mapping will need to be adjusted based on actual MLS API response structure
+        # RESO Web API field mappings for Stellar MLS
+        # Standard RESO fields: ListingKey, ListPrice, BedroomsTotal, BathroomsTotalInteger, etc.
         
-        image_urls = mls_property.get("photos", []) or []
-        if isinstance(image_urls, str):
-            try:
-                image_urls = json.loads(image_urls)
-            except:
-                image_urls = []
+        # Get images - RESO uses Media field or MediaURL
+        image_urls = []
+        if "Media" in mls_property:
+            media = mls_property.get("Media", [])
+            if isinstance(media, list):
+                image_urls = [m.get("MediaURL", "") for m in media if m.get("MediaURL")]
+            elif isinstance(media, str):
+                try:
+                    media_list = json.loads(media)
+                    image_urls = [m.get("MediaURL", "") for m in media_list if m.get("MediaURL")]
+                except:
+                    image_urls = []
+        elif "MediaURL" in mls_property:
+            image_urls = [mls_property.get("MediaURL")]
+        
+        # Get address components
+        address_parts = []
+        if mls_property.get("UnparsedAddress"):
+            address = mls_property.get("UnparsedAddress")
+        else:
+            # Build address from components
+            if mls_property.get("StreetNumber"):
+                address_parts.append(str(mls_property.get("StreetNumber")))
+            if mls_property.get("StreetName"):
+                address_parts.append(mls_property.get("StreetName"))
+            if mls_property.get("StreetSuffix"):
+                address_parts.append(mls_property.get("StreetSuffix"))
+            address = " ".join(address_parts) if address_parts else mls_property.get("StandardStatus", "Address Unknown")
+        
+        # Get price - handle different field names
+        price = 0
+        if "ListPrice" in mls_property:
+            price = float(mls_property.get("ListPrice", 0))
+        elif "CurrentPrice" in mls_property:
+            price = float(mls_property.get("CurrentPrice", 0))
+        
+        # Get MLS number
+        mls_number = mls_property.get("ListingKey") or mls_property.get("ListingId") or mls_property.get("MLSNumber")
         
         return {
-            "mls_number": mls_property.get("mls_number"),
-            "address": mls_property.get("address", ""),
-            "city": mls_property.get("city", "Orlando"),
-            "state": mls_property.get("state", "FL"),
-            "zip_code": mls_property.get("zip_code", ""),
-            "neighborhood": mls_property.get("neighborhood"),
-            "price": float(mls_property.get("price", 0)),
-            "bedrooms": int(mls_property.get("bedrooms", 0)),
-            "bathrooms": float(mls_property.get("bathrooms", 0)),
-            "square_feet": mls_property.get("square_feet"),
-            "lot_size": mls_property.get("lot_size"),
-            "year_built": mls_property.get("year_built"),
-            "property_type": mls_property.get("property_type", "House"),
-            "property_tax": mls_property.get("property_tax"),
-            "insurance_estimate": mls_property.get("insurance_estimate"),
-            "hoa_fee": mls_property.get("hoa_fee"),
-            "status": self._map_mls_status(mls_property.get("status", "Available")),
-            "description": mls_property.get("description"),
+            "mls_number": str(mls_number) if mls_number else None,
+            "address": address,
+            "city": mls_property.get("City", "Orlando"),
+            "state": mls_property.get("StateOrProvince", "FL"),
+            "zip_code": mls_property.get("PostalCode", ""),
+            "neighborhood": mls_property.get("SubdivisionName") or mls_property.get("CommunityName"),
+            "price": price,
+            "bedrooms": int(mls_property.get("BedroomsTotal", 0)),
+            "bathrooms": float(mls_property.get("BathroomsTotalInteger", 0) or mls_property.get("BathroomsTotal", 0)),
+            "square_feet": mls_property.get("LivingArea") or mls_property.get("SquareFeet"),
+            "lot_size": mls_property.get("LotSizeSquareFeet") or mls_property.get("LotSizeAcres"),
+            "year_built": mls_property.get("YearBuilt"),
+            "property_type": mls_property.get("PropertyType", "Residential") or "House",
+            "property_tax": mls_property.get("TaxAnnualAmount"),
+            "insurance_estimate": None,  # Not typically in MLS data
+            "hoa_fee": mls_property.get("AssociationFee") or mls_property.get("HOA"),
+            "status": self._map_mls_status(mls_property.get("StandardStatus", "Active")),
+            "description": mls_property.get("PublicRemarks") or mls_property.get("LongDescription") or "",
             "image_urls": json.dumps(image_urls) if image_urls else None,
-            "features": json.dumps(mls_property.get("features", [])) if mls_property.get("features") else None,
+            "features": json.dumps(mls_property.get("Features", [])) if mls_property.get("Features") else None,
         }
     
     def _map_mls_status(self, mls_status: str) -> str:

@@ -20,6 +20,13 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
+    # MLS Configuration
+    MLS_API_URL: Optional[str] = None
+    MLS_API_KEY: Optional[str] = None
+    MLS_API_SECRET: Optional[str] = None
+    MLS_USERNAME: Optional[str] = None
+    MLS_PASSWORD: Optional[str] = None
+    
     class Config:
         env_file = ".env"
         case_sensitive = True

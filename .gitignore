@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ============================================
 # CARLA'S WEBSITE .GITIGNORE
 # Created: December 10, 2025
@@ -199,4 +200,33 @@ archive/
 # ============================================
 # END OF .GITIGNORE
 # ============================================
+=======
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vercel
+.vercel
+>>>>>>> 710062ce5e3b9ac6da328c49c289b35aede05424
 

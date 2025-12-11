@@ -1,0 +1,138 @@
+/* Home Page - Luxury Dark Theme with Gold Accents */
+
+/* ============================================
+   HERO SECTION - Full Width with Sliding Background
+   ============================================ */
+.home-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  padding-left: 8%;
+  max-width: 1400px;
+  width: 100%;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 500px;
+  font-weight: 400;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+.cta-button-large {
+  padding: 1rem 2rem;
+  font-size: 0.95rem;
+}
+
+.cta-button-secondary {
+  background: transparent !important;
+  color: #D4AF37 !important;
+  -webkit-text-fill-color: #D4AF37 !important;
+  border: 2px solid #D4AF37;
+}
+
+.cta-button-secondary:hover {
+  background: var(--gold-gradient) !important;
+  color: #0a0a0a !important;
+  -webkit-text-fill-color: #0a0a0a !important;
+  border-color: transparent;
+}
+
+/* ============================================
+   RESPONSIVE - HERO
+   ============================================ */
+@media (max-width: 968px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    height: 50vh;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-button-large,
+  .cta-button-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
