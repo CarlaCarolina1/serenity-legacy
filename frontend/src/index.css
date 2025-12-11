@@ -161,7 +161,7 @@ a:hover {
   color: #0a0a0a !important;
   -webkit-text-fill-color: #0a0a0a !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 20px rgba(184, 137, 51, 0.4);
 }
 
 .cta-button-secondary {

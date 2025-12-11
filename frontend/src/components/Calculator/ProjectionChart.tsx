@@ -34,7 +34,7 @@ const ProjectionChart = ({ yearlyData }: ProjectionChartProps) => {
   // Create gradient for gold bars
   const createGoldGradient = (ctx: CanvasRenderingContext2D) => {
     const gradient = ctx.createLinearGradient(0, 0, 0, 400)
-    gradient.addColorStop(0, '#FFD700') // Light gold
+    gradient.addColorStop(0, '#C5A46D') // Muted warm gold
     gradient.addColorStop(0.5, '#B88933') // Medium gold (brand primary)
     gradient.addColorStop(1, '#B8860B') // Dark gold
     return gradient

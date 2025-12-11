@@ -88,7 +88,7 @@
   font-family: var(--font-heading);
   font-size: 4rem;
   font-weight: 400;
-  color: var(--text-white);
+  color: var(--color-gold);
   margin-bottom: 0.5rem;
   line-height: 1;
 }
@@ -96,7 +96,7 @@
 .stat-label {
   font-family: var(--font-heading);
   font-size: 1.125rem;
-  color: var(--text-white);
+  color: var(--color-gold-light);
   margin-bottom: 1rem;
   font-weight: 400;
 }

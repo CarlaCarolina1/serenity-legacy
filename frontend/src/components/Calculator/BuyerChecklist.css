@@ -1,21 +1,19 @@
 /* Buyer Checklist - Dark Theme */
 .buyer-checklist {
   background: var(--bg-dark-secondary);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   border: 1px solid var(--border-subtle);
 }
 
 .buyer-checklist h2 {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
+  font-size: 2.25rem;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
   font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .buyer-checklist > p {
@@ -31,15 +29,13 @@
 
 .checklist-section h3 {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border-light);
+  font-size: 1.375rem;
+  color: var(--color-gold-light);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-light);
   font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .checklist-item {

@@ -49,7 +49,7 @@
   border-image: var(--gold-gradient) 1;
   border-style: solid;
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 10px 30px rgba(184, 137, 51, 0.15);
 }
 
 .service-icon {

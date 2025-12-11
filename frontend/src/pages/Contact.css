@@ -1,13 +1,13 @@
 /* Contact Page - Dark Theme */
 .contact-page {
-  padding-top: 100px;
+  padding-top: 120px;
   min-height: 100vh;
   background: var(--bg-dark);
 }
 
 .contact-hero {
   text-align: center;
-  padding: 4rem 2rem 3rem;
+  padding: 2rem 2rem 3rem;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -167,7 +167,7 @@
   outline: none;
   border-image: var(--gold-gradient) 1;
   border-style: solid;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 0 3px rgba(184, 137, 51, 0.2);
 }
 
 .contact-form select option {
@@ -196,7 +196,7 @@
 .contact-form button:hover {
   background: var(--gold-gradient-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 20px rgba(184, 137, 51, 0.4);
 }
 
 .contact-form button:disabled {

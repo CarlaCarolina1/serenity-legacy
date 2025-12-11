@@ -584,7 +584,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-secondary) 0%, #FFD700 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-gold-peak) 100%);
   z-index: 0;
 }
 
