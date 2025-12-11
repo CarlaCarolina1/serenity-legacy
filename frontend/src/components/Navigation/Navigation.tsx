@@ -15,28 +15,9 @@ const Navigation = () => {
 
   return (
     <nav className="navigation">
-      {/* Top Right Buttons */}
-      <div className="nav-top-buttons">
-        <Link to="/properties" className="nav-button">
-          Preview Homes
-        </Link>
-        <Link to="/map" className="nav-button">
-          Map
-        </Link>
-        <Link to="/calculator" className="nav-button">
-          Financing Calculator
-        </Link>
-        <Link to="/search" className="nav-button">
-          Search 4 Homes
-        </Link>
-        <Link to="/contact" className="nav-button nav-button-primary">
-          Contact Us
-        </Link>
-      </div>
-
       {/* Mobile Menu Toggle (for mobile) */}
-      <button 
-        className={`nav-mobile-toggle ${isMenuOpen ? 'open' : ''}`} 
+      <button
+        className={`nav-mobile-toggle ${isMenuOpen ? 'open' : ''}`}
         aria-label="Toggle menu"
         onClick={toggleMenu}
       >
@@ -61,6 +42,9 @@ const Navigation = () => {
         </li>
         <li>
           <Link to="/resources" onClick={closeMenu}>Resources</Link>
+        </li>
+        <li>
+          <Link to="/calculator" onClick={closeMenu}>Calculator</Link>
         </li>
         <li>
           <Link to="/contact" onClick={closeMenu}>Contact</Link>

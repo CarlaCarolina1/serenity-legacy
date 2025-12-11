@@ -25,7 +25,8 @@
 .property-card-image-container {
   position: relative;
   width: 100%;
-  padding-top: 75%; /* 4:3 aspect ratio */
+  padding-top: 75%;
+  /* 4:3 aspect ratio */
   overflow: hidden;
   background-color: var(--color-background-light);
 }
@@ -78,7 +79,7 @@
 .property-card-price {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-gold);
+  color: var(--color-gold-peak);
   margin-bottom: var(--spacing-xs);
   font-weight: 600;
 }
@@ -143,4 +144,3 @@
     font-size: 0.8rem;
   }
 }
-

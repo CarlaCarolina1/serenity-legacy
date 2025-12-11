@@ -1,0 +1,106 @@
+/* Floating Social Media Buttons */
+.floating-social-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.floating-social-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-social-btn svg {
+    width: 28px;
+    height: 28px;
+}
+
+.floating-social-btn:hover {
+    transform: scale(1.1) translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* WhatsApp - Green */
+.floating-social-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+}
+
+.floating-social-btn.whatsapp:hover {
+    background: linear-gradient(135deg, #128C7E, #075E54);
+}
+
+/* Facebook - Blue */
+.floating-social-btn.facebook {
+    background: linear-gradient(135deg, #1877F2, #0C63D4);
+    color: white;
+}
+
+.floating-social-btn.facebook:hover {
+    background: linear-gradient(135deg, #0C63D4, #084B9C);
+}
+
+/* Instagram - Gradient */
+.floating-social-btn.instagram {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+    color: white;
+}
+
+.floating-social-btn.instagram:hover {
+    background: linear-gradient(45deg, #DD2A7B, #8134AF, #515BD4, #F58529);
+}
+
+/* LinkedIn - Blue */
+.floating-social-btn.linkedin {
+    background: linear-gradient(135deg, #0A66C2, #004182);
+    color: white;
+}
+
+.floating-social-btn.linkedin:hover {
+    background: linear-gradient(135deg, #004182, #002952);
+}
+
+/* Float Animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .floating-social-container {
+        bottom: 15px;
+        right: 15px;
+        gap: 10px;
+    }
+
+    .floating-social-btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-social-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+}

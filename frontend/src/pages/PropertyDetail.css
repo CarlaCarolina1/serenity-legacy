@@ -54,7 +54,8 @@
 .gallery-main {
   position: relative;
   width: 100%;
-  padding-top: 75%; /* 4:3 aspect ratio */
+  padding-top: 75%;
+  /* 4:3 aspect ratio */
   background-color: var(--color-background-light);
   border-radius: 8px;
   overflow: hidden;
@@ -177,14 +178,18 @@
 
 .property-detail-item strong {
   font-size: 1.5rem;
-  color: var(--color-primary);
+  color: #FFFFFF;
+  /* WHITE for visibility */
   font-family: var(--font-heading);
+  font-weight: 600;
 }
 
 .property-detail-item span {
-  font-size: 0.875rem;
-  color: var(--color-text-disclaimer);
+  font-size: 1rem;
+  color: var(--color-gold-peak, #D4AF37);
+  /* GOLD for labels */
   margin-top: var(--spacing-xs);
+  font-weight: 500;
 }
 
 .property-actions {
@@ -337,4 +342,3 @@
     grid-template-columns: 1fr;
   }
 }
-

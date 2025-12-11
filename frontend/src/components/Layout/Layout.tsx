@@ -2,7 +2,7 @@
  * Layout Component
  * 
  * Main layout wrapper for all pages.
- * Includes Header, Footer, and WhatsApp Widget.
+ * Includes Header, Footer, and Social Media Widgets.
  * 
  * IMPORTANT: Always preview this website in Google Chrome browser.
  * Never use Microsoft Edge for previews.
@@ -11,7 +11,7 @@
 import { ReactNode } from 'react'
 import Header from './Header'
 import Footer from './Footer'
-import WhatsAppWidget from '../WhatsApp/WhatsAppWidget'
+import FloatingSocial from '../FloatingSocial/FloatingSocial'
 import './Layout.css'
 
 interface LayoutProps {
@@ -24,10 +24,9 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main className="layout-main">{children}</main>
       <Footer />
-      <WhatsAppWidget />
+      <FloatingSocial />
     </div>
   )
 }
 
 export default Layout
-

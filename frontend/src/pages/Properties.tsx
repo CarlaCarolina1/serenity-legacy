@@ -7,7 +7,7 @@ import SEO from '../components/SEO'
 import './Properties.css'
 
 const Properties = () => {
-  const [viewMode, setViewMode] = useState<'grid' | 'list' | 'gallery'>('gallery')
+  const [viewMode, setViewMode] = useState<'grid' | 'list' | 'gallery'>('grid')
   const [properties, setProperties] = useState<Property[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -54,18 +54,22 @@ const Properties = () => {
         </div>
       </section>
 
+      {/* MLS Integration Placeholder Banner */}
+      <section className="mls-notice-banner" style={{ background: 'var(--bg-dark-secondary)', borderBottom: '1px solid var(--border-subtle)', padding: '1.5rem 0' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <h3 style={{ color: 'var(--color-gold-peak)', marginBottom: '0.5rem', fontSize: '1.25rem' }}>✨ Coming Soon: Full MLS Integration</h3>
+          <p style={{ color: 'var(--text-light)', maxWidth: '800px', margin: '0 auto', fontSize: '0.95rem' }}>
+            We're currently integrating with the Stellar MLS database to bring you real-time property listings from across Central Florida.
+            In the meantime, browse our featured listings below or contact Carla directly for a personalized property search.
+          </p>
+        </div>
+      </section>
+
       <section className="properties-content">
         <div className="container">
           <div className="properties-header">
             <h2>Featured Listings</h2>
             <div className="view-toggle">
-              <button
-                className={`view-btn ${viewMode === 'gallery' ? 'active' : ''}`}
-                onClick={() => setViewMode('gallery')}
-                aria-label="Gallery view"
-              >
-                Gallery
-              </button>
               <button
                 className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
                 onClick={() => setViewMode('grid')}
@@ -79,6 +83,13 @@ const Properties = () => {
                 aria-label="List view"
               >
                 List
+              </button>
+              <button
+                className={`view-btn ${viewMode === 'gallery' ? 'active' : ''}`}
+                onClick={() => setViewMode('gallery')}
+                aria-label="Gallery view"
+              >
+                Gallery
               </button>
             </div>
           </div>
@@ -109,8 +120,8 @@ const Properties = () => {
                     const imageUrls = Array.isArray(property.image_urls)
                       ? property.image_urls
                       : typeof property.image_urls === 'string'
-                      ? JSON.parse(property.image_urls || '[]')
-                      : []
+                        ? JSON.parse(property.image_urls || '[]')
+                        : []
                     const formatPrice = (price: number) => {
                       return new Intl.NumberFormat('en-US', {
                         style: 'currency',
@@ -126,12 +137,12 @@ const Properties = () => {
                       >
                         <div className="property-gallery-image-container">
                           <img
-                            src={imageUrls[0] || '/images/placeholder.jpg'}
+                              src={imageUrls[0] || 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80'}
                             alt={`${property.address} - Real estate property for sale in ${property.neighborhood || 'Central Florida'}`}
                             loading="lazy"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement
-                              target.src = '/images/placeholder.jpg'
+                                target.src = 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80'
                             }}
                           />
                           <div className="property-gallery-overlay">
@@ -160,8 +171,8 @@ const Properties = () => {
                     const imageUrls = Array.isArray(property.image_urls)
                       ? property.image_urls
                       : typeof property.image_urls === 'string'
-                      ? JSON.parse(property.image_urls || '[]')
-                      : []
+                        ? JSON.parse(property.image_urls || '[]')
+                        : []
                     const statusMap: Record<string, 'available' | 'under_contract' | 'sold' | 'off_market'> = {
                       Available: 'available',
                       'Under Contract': 'under_contract',
@@ -172,7 +183,7 @@ const Properties = () => {
                       <PropertyCard
                         key={property.id}
                         id={property.id.toString()}
-                        image={imageUrls[0] || '/images/placeholder.jpg'}
+                        image={imageUrls[0] || 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80'}
                         price={property.price}
                         beds={property.bedrooms}
                         baths={property.bathrooms}
@@ -200,4 +211,3 @@ const Properties = () => {
 }
 
 export default Properties
-

@@ -46,11 +46,21 @@ const PropertyCard = ({
     off_market: 'status-off-market',
   }
 
+  const safeImage = image || 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80'
+
   return (
     <div className="property-card">
       <Link to={`/properties/${id}`} className="property-card-link">
         <div className="property-card-image-container">
-          <img src={image} alt={`${address} - Real estate property for sale in ${neighborhood}, Central Florida`} className="property-card-image" />
+          <img
+            src={safeImage}
+            alt={`${address} - Real estate property for sale in ${neighborhood}, Central Florida`}
+            className="property-card-image"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              target.src = 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80'
+            }}
+          />
           <div className={`property-status-badge ${statusColors[status]}`}>
             {statusLabels[status]}
           </div>

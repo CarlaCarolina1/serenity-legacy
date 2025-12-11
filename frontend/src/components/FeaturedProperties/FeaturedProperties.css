@@ -17,10 +17,11 @@
   font-family: var(--font-heading);
   font-size: 2.75rem;
   margin-bottom: 1rem;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-peak);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
   font-weight: 400;
 }
 
@@ -42,16 +43,52 @@
 }
 
 .featured-property-card {
-  background: transparent;
-  padding: 2rem;
+  background: var(--bg-dark-secondary);
   border: 1px solid var(--border-light);
-  border-radius: 0;
-  transition: border-color 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .featured-property-card:hover {
-  border-image: var(--gold-gradient) 1;
-  border-style: solid;
+  border-color: var(--color-gold-peak);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+}
+
+.featured-property-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.featured-property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.featured-property-card:hover .featured-property-image {
+  transform: scale(1.05);
+}
+
+.featured-property-price-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--gold-gradient);
+  color: var(--bg-dark);
+  padding: 0.75rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.featured-property-content {
+  padding: 2rem;
 }
 
 .featured-property-header {
@@ -72,15 +109,6 @@
   color: var(--text-light);
 }
 
-.featured-property-price {
-  font-size: 1.25rem;
-  font-weight: 700;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
-}
 
 .featured-property-details {
   font-size: 0.95rem;
@@ -114,10 +142,11 @@
   content: '•';
   position: absolute;
   left: 0;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-peak);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
   font-weight: bold;
 }
 

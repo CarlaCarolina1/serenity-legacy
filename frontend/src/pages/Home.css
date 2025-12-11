@@ -30,6 +30,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -41,12 +42,17 @@
   font-size: 3.5rem;
   line-height: 1.15;
   margin-bottom: 1.5rem;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-peak);
+  /* Solid Classic Gold */
+  /* Remove gradient that causes "neon" look */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* Improve legibility on image */
 }
 
 .hero-subtitle {
@@ -62,6 +68,36 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* Trust Badges */
+.hero-trust-badges {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.trust-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trust-badge-value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-gold-peak);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.trust-badge-label {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  text-align: center;
+  line-height: 1.3;
 }
 
 

@@ -262,9 +262,13 @@ const Calculator = ({
                 <input
                   id="down-payment"
                   type="text"
+                  step="0.01"
+                  min="0"
+                  max="100"
+                  inputMode="decimal"
                   value={
                     downPaymentType === '%'
-                      ? downPaymentPercent.toFixed(1)
+                      ? downPaymentPercent.toFixed(2)
                       : formatInputValue(downPayment)
                   }
                   onChange={(e) => {

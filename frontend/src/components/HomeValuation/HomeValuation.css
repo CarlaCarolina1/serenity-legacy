@@ -1,0 +1,199 @@
+/* Home Valuation Section - Lead Generator */
+.home-valuation-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-secondary) 100%);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.home-valuation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.home-valuation-content {
+    color: var(--text-light);
+}
+
+.home-valuation-title {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    color: var(--color-gold-peak);
+    margin-bottom: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.home-valuation-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.home-valuation-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.home-valuation-benefits li {
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-valuation-form-wrapper {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.home-valuation-form h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--color-gold-peak);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-row:has(.form-group:only-child) {
+    grid-template-columns: 1fr;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.form-group input {
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+    color: var(--text-white);
+    background: var(--bg-dark);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-gold-peak);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.valuation-submit-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--gold-gradient);
+    color: var(--bg-dark);
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.valuation-submit-btn:hover {
+    background: var(--gold-gradient-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(184, 137, 51, 0.4);
+}
+
+.form-disclaimer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+/* Success State */
+.home-valuation-success {
+    text-align: center;
+    padding: 2rem;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--color-gold-peak);
+    color: var(--bg-dark);
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-weight: bold;
+}
+
+.home-valuation-success h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-gold-peak);
+    margin-bottom: 1rem;
+}
+
+.home-valuation-success p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .home-valuation-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .home-valuation-title {
+        font-size: 2.25rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-valuation-section {
+        padding: 3rem 1rem;
+    }
+
+    .home-valuation-form-wrapper {
+        padding: 1.5rem;
+    }
+
+    .home-valuation-title {
+        font-size: 1.875rem;
+    }
+}

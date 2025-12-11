@@ -11,6 +11,7 @@ import Communities from '../components/Communities/Communities'
 import AgentProfile from '../components/AgentProfile/AgentProfile'
 import Testimonials from '../components/Testimonials/Testimonials'
 import MarketInsights from '../components/MarketInsights/MarketInsights'
+import HomeValuation from '../components/HomeValuation/HomeValuation'
 import FooterCta from '../components/FooterCta/FooterCta'
 import './Home.css'
 
@@ -32,7 +33,7 @@ const Home = () => {
         url="https://serenitylegacy.net"
         schema={homeSchema}
       />
-      
+
       {/* 1. Hero Section - Full Width with Sliding Background */}
       <section className="home-hero">
         <HeroSlider />
@@ -48,6 +49,21 @@ const Home = () => {
             <Link to="/contact" className="cta-button cta-button-secondary">
               {siteContent.home.hero.ctaSecondary}
             </Link>
+          </div>
+          {/* Trust Badges */}
+          <div className="hero-trust-badges">
+            <div className="trust-badge">
+              <div className="trust-badge-value">10+</div>
+              <div className="trust-badge-label">Years<br />Experience</div>
+            </div>
+            <div className="trust-badge">
+              <div className="trust-badge-value">500+</div>
+              <div className="trust-badge-label">Properties<br />Sold</div>
+            </div>
+            <div className="trust-badge">
+              <div className="trust-badge-value">98%</div>
+              <div className="trust-badge-label">Client<br />Satisfaction</div>
+            </div>
           </div>
         </div>
       </section>
@@ -124,7 +140,10 @@ const Home = () => {
         closingText={siteContent.home.marketInsights.closingText}
       />
 
-      {/* 10. Ready to Begin Your Journey? */}
+      {/* 10. Home Valuation Tool - Lead Generator */}
+      <HomeValuation />
+
+      {/* 11. Ready to Begin Your Journey? */}
       <FooterCta
         title={siteContent.home.footerCta.title}
         subtitle={siteContent.home.footerCta.subtitle}

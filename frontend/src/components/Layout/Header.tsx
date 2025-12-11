@@ -9,14 +9,21 @@ const Header = () => {
       <div className="header-container">
         <div className="header-logo">
           <Link to="/" className="logo-link">
-            <img src="/logo-horizontal.svg" alt={siteContent.siteName} className="logo-image" />
+            <span className="logo-text">{siteContent.siteName}</span>
           </Link>
         </div>
         <Navigation />
+        <div className="header-contact-quick">
+          <a href={`tel:${siteContent.contactInfo.phone}`} className="header-phone-link">
+            <span className="phone-text">{siteContent.contactInfo.phone}</span>
+          </a>
+        </div>
+        <Link to="/contact" className="header-cta-button">
+          Schedule Showing
+        </Link>
       </div>
     </header>
   )
 }
 
 export default Header
-

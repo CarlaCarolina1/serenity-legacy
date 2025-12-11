@@ -11,7 +11,24 @@ const Footer = () => {
           <div className="footer-section">
             <h3>{siteContent.footer.companyName}</h3>
             <p>{siteContent.footer.tagline}</p>
+
+            {/* Social Media Links */}
+            <div className="footer-social-section">
+              <h4>Connect With Us</h4>
+              <div className="footer-social-links">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-facebook">
+                  <span>f</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-instagram">
+                  <span>IG</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-linkedin">
+                  <span>in</span>
+                </a>
+              </div>
+            </div>
           </div>
+
           <div className="footer-section">
             <h4>{siteContent.footer.contactTitle}</h4>
             {siteContent.contactInfo.phone && (
@@ -29,6 +46,7 @@ const Footer = () => {
               <a href="/contact">Get in Touch</a>
             </p>
           </div>
+
           <div className="footer-section">
             <h4>{siteContent.footer.servicesTitle}</h4>
             <ul>
@@ -40,6 +58,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+
         <div className="footer-bottom">
           <p>&copy; {currentYear} {siteContent.footer.companyName}. {siteContent.footer.copyright}</p>
         </div>
@@ -49,4 +68,3 @@ const Footer = () => {
 }
 
 export default Footer
-

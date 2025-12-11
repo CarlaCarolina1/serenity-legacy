@@ -17,10 +17,11 @@
   font-family: var(--font-heading);
   font-size: 2.75rem;
   margin-bottom: 0;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-peak);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
   font-weight: 400;
 }
 
@@ -28,10 +29,11 @@
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 400;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-light);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
   margin: 0;
 }
 

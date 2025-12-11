@@ -1,4 +1,4 @@
-# 🏠 IDX Integration Plan - Automatic MLS Listings
+image.png# 🏠 IDX Integration Plan - Automatic MLS Listings
 
 **Date:** December 10, 2025  
 **Based on:** Lex's professional guidance on IDX integration  

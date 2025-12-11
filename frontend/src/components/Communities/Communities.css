@@ -17,8 +17,13 @@
   font-family: var(--font-heading);
   font-size: 2.75rem;
   margin-bottom: 1rem;
-  color: var(--color-gold-dark);
-  font-weight: 500;
+  color: #1a1a1a;
+  /* Dark text for light background */
+  font-weight: 400;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
 }
 
 .communities-subtitle {
@@ -48,13 +53,48 @@
 }
 
 .community-card {
-  padding: 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.community-icon {
-  font-size: 1.25rem;
-  color: var(--color-gold-dark);
-  margin-bottom: 0.75rem;
+.community-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.community-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.community-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.community-card:hover .community-image {
+  transform: scale(1.1);
+}
+
+.community-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.community-content {
+  padding: 1.5rem;
 }
 
 .community-name {

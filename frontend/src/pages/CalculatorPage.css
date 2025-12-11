@@ -1,6 +1,7 @@
+/* Calculator Page - Black/White/Gold Theme (from Backup design) */
 .calculator-page {
   min-height: 100vh;
-  background-color: var(--color-background-light);
+  background: var(--bg-dark);
 }
 
 .calculator-hero {
@@ -8,8 +9,8 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: var(--color-text-light);
-  padding: 4rem 0;
+  color: var(--text-white);
+  padding: 5rem 2rem;
   text-align: center;
   position: relative;
 }
@@ -21,7 +22,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(10, 47, 75, 0.6), rgba(10, 47, 75, 0.8));
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.85));
   z-index: 1;
 }
 
@@ -33,17 +34,20 @@
 .calculator-hero h1 {
   font-family: var(--font-heading);
   font-size: 3.5rem;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text-light);
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  color: var(--color-gold-peak);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
 }
 
 .calculator-hero p {
   font-size: 1.25rem;
+  color: var(--text-white);
   opacity: 0.95;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   max-width: 700px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 .calculator-content {
@@ -52,16 +56,14 @@
 
 @media (max-width: 768px) {
   .calculator-hero {
-    background-attachment: scroll;
-    padding: 3rem 0;
+    padding: 3rem 1.5rem;
   }
 
   .calculator-hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .calculator-hero p {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }
-

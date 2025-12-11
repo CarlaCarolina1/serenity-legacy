@@ -23,7 +23,7 @@
   text-align: center;
   padding-top: 0;
   margin-bottom: 2.5rem;
-  color: var(--color-gold);
+  color: var(--color-gold-peak);
   font-weight: 400;
   letter-spacing: 0.02em;
 }
@@ -69,10 +69,7 @@
   display: flex;
   align-items: center;
   font-family: var(--font-body);
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-peak);
 }
 
 .input-prefix {
@@ -119,8 +116,8 @@
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(184, 137, 51, 0.2);
+  border-color: var(--color-gold-peak);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
 .down-payment-header {
@@ -201,7 +198,7 @@
   font-size: 1.875rem;
   text-align: center;
   font-family: var(--font-heading);
-  color: var(--color-gold);
+  color: var(--color-gold-peak);
   margin-bottom: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -250,7 +247,7 @@
 .breakdown-item div:last-child {
   font-size: 1.375rem;
   font-weight: 600;
-  color: var(--color-gold);
+  color: var(--color-gold-peak);
 }
 
 /* Projection Section */
@@ -261,7 +258,7 @@
 .projection-section h3 {
   font-family: var(--font-heading);
   font-size: 1.625rem;
-  color: var(--color-gold);
+  color: var(--color-gold-peak);
   margin-bottom: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -293,9 +290,9 @@
 }
 
 .proj-tab.active {
-  background: var(--color-gold);
+  background: var(--color-gold-peak);
   color: var(--bg-dark);
-  border-color: var(--color-gold);
+  border-color: var(--color-gold-peak);
   font-weight: 700;
 }
 
@@ -333,7 +330,7 @@
 .projection-table th {
   background: var(--bg-card);
   font-weight: 700;
-  color: var(--color-gold);
+  color: var(--color-gold-peak);
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;

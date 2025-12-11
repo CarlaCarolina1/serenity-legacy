@@ -2,6 +2,69 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import './Services.css'
 
+const services = [
+  {
+    title: 'Buy a Home',
+    icon: '🏠',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop',
+    description: 'Find your perfect home in Central Florida with expert guidance through every step of the buying process.',
+    features: [
+      'Property search and matching',
+      'Market analysis and pricing',
+      'Negotiation and contract management',
+      'Home inspection coordination',
+      'Closing assistance'
+    ],
+    cta: 'Start Your Home Search',
+    ctaLink: '/contact'
+  },
+  {
+    title: 'Sell Your Home',
+    icon: '💰',
+    image: 'https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&h=400&fit=crop',
+    description: 'Maximize your home\'s value with professional marketing, strategic pricing, and expert negotiation.',
+    features: [
+      'Market analysis and pricing strategy',
+      'Professional photography and staging',
+      'Marketing and advertising',
+      'Open house coordination',
+      'Negotiation and closing'
+    ],
+    cta: 'Get a Free Home Valuation',
+    ctaLink: '/contact'
+  },
+  {
+    title: 'Investment Properties',
+    icon: '📊',
+    image: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=600&h=400&fit=crop', // Different investment property image
+    description: 'Build your real estate portfolio with Orlando\'s best investment opportunities and strong rental potential.',
+    features: [
+      'Investment property analysis',
+      'ROI calculations and projections',
+      'Rental market insights',
+      'Property management referrals',
+      'Portfolio building strategies'
+    ],
+    cta: 'Explore Investment Opportunities',
+    ctaLink: '/contact'
+  },
+  {
+    title: 'Long-term Rentals',
+    icon: '🔑',
+    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop',
+    description: 'Find the perfect rental property for your needs, whether relocating or looking for a long-term home.',
+    features: [
+      'Rental property search',
+      'Application assistance',
+      'Lease negotiation',
+      'Neighborhood insights',
+      'Relocation support'
+    ],
+    cta: 'Find Your Rental',
+    ctaLink: '/contact'
+  }
+]
+
 const Services = () => {
   return (
     <div className="services-page">
@@ -11,8 +74,9 @@ const Services = () => {
         keywords="real estate services, buying properties, selling properties, land sales, new residential homes, commercial real estate, customizable homes, property investment, real estate consultation, Orlando real estate services"
         url="https://serenitylegacy.net/services"
       />
+
       <section className="services-hero">
-        <div className="container">
+        <div className="services-hero-content">
           <h1>Our Services</h1>
           <p className="services-subtitle">
             Comprehensive real estate services tailored to your needs
@@ -20,79 +84,34 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-content">
-        <div className="container">
-          <div className="service-detail">
-            <h2>Buy a Home</h2>
-            <p>
-              Find your perfect home in Central Florida with expert guidance through every step
-              of the buying process. From initial search to closing, we're here to help.
-            </p>
-            <ul>
-              <li>Property search and matching</li>
-              <li>Market analysis and pricing</li>
-              <li>Negotiation and contract management</li>
-              <li>Home inspection coordination</li>
-              <li>Closing assistance</li>
-            </ul>
-            <Link to="/contact" className="service-cta">
-              Start Your Home Search
-            </Link>
-          </div>
-
-          <div className="service-detail">
-            <h2>Sell Your Home</h2>
-            <p>
-              Maximize your home's value with professional marketing, strategic pricing, and expert
-              negotiation. We'll help you sell quickly and for the best price.
-            </p>
-            <ul>
-              <li>Market analysis and pricing strategy</li>
-              <li>Professional photography and staging</li>
-              <li>Marketing and advertising</li>
-              <li>Open house coordination</li>
-              <li>Negotiation and closing</li>
-            </ul>
-            <Link to="/contact" className="service-cta">
-              Get a Free Home Valuation
-            </Link>
-          </div>
-
-          <div className="service-detail">
-            <h2>Investment Properties</h2>
-            <p>
-              Build your real estate portfolio with Orlando's best investment opportunities. We
-              specialize in identifying properties with strong rental potential and appreciation.
-            </p>
-            <ul>
-              <li>Investment property analysis</li>
-              <li>ROI calculations and projections</li>
-              <li>Rental market insights</li>
-              <li>Property management referrals</li>
-              <li>Portfolio building strategies</li>
-            </ul>
-            <Link to="/contact" className="service-cta">
-              Explore Investment Opportunities
-            </Link>
-          </div>
-
-          <div className="service-detail">
-            <h2>Long-term Rentals</h2>
-            <p>
-              Find the perfect rental property for your needs. Whether you're relocating or looking
-              for a long-term home, we'll help you find the right fit.
-            </p>
-            <ul>
-              <li>Rental property search</li>
-              <li>Application assistance</li>
-              <li>Lease negotiation</li>
-              <li>Neighborhood insights</li>
-              <li>Relocation support</li>
-            </ul>
-            <Link to="/contact" className="service-cta">
-              Find Your Rental
-            </Link>
-          </div>
+      <section className="services-grid-section">
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div key={index} className="service-card">
+              <div className="service-image-wrapper">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="service-image"
+                />
+                <div className="service-icon-overlay">
+                  <span className="service-icon">{service.icon}</span>
+                </div>
+              </div>
+              <div className="service-content">
+                <h2 className="service-title">{service.title}</h2>
+                <p className="service-description">{service.description}</p>
+                <ul className="service-features">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+                <Link to={service.ctaLink} className="service-cta-button">
+                  {service.cta}
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>

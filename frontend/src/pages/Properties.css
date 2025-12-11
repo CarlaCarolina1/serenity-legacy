@@ -15,10 +15,11 @@
 .properties-header h1 {
   font-family: var(--font-heading);
   font-size: 2.75rem;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-peak);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
   margin-bottom: 1rem;
   font-weight: 400;
 }
@@ -54,11 +55,11 @@
 .filter-btn:hover {
   border-image: var(--gold-gradient) 1;
   border-style: solid;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  background: transparent;
+  color: var(--color-gold-peak);
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
 }
 
 .filter-btn.active {
@@ -128,10 +129,11 @@
 .property-price {
   font-size: 1.5rem;
   font-weight: 700;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-peak);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
   margin-bottom: 0.5rem;
 }
 
@@ -164,10 +166,11 @@
 .properties-cta h2 {
   font-family: var(--font-heading);
   font-size: 2rem;
-  background: var(--gold-gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-gold-peak);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
   margin-bottom: 1rem;
   font-weight: 400;
 }

@@ -142,7 +142,7 @@ const Contact = () => {
                   <div className="contact-detail-card">
                     <div className="contact-icon">📞</div>
                     <p>
-                      <strong>Phone:</strong> <a href={`tel:${siteContent.contactInfo.phone.replace(/\D/g, '')}`} style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>{siteContent.contactInfo.phone}</a>
+                      <strong>Phone:</strong> <a href={`tel:${siteContent.contactInfo.phone.replace(/\D/g, '')}`} style={{ color: 'var(--color-gold-peak)', textDecoration: 'none' }}>{siteContent.contactInfo.phone}</a>
                     </p>
                   </div>
                 )}
@@ -150,7 +150,7 @@ const Contact = () => {
                   <div className="contact-detail-card">
                     <div className="contact-icon">✉️</div>
                     <p>
-                      <strong>Email:</strong> <a href={`mailto:${siteContent.contactInfo.email}`} style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>{siteContent.contactInfo.email}</a>
+                      <strong>Email:</strong> <a href={`mailto:${siteContent.contactInfo.email}`} style={{ color: 'var(--color-gold-peak)', textDecoration: 'none' }}>{siteContent.contactInfo.email}</a>
                     </p>
                   </div>
                 )}
@@ -389,7 +389,7 @@ const Contact = () => {
                 </button>
 
                 <div style={{ marginTop: '1rem', textAlign: 'center' }}>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text)' }}>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>
                     {siteContent.contact.appointment.form.callDirectly}
                   </p>
                 </div>
