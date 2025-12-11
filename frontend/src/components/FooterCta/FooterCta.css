@@ -17,7 +17,10 @@
   font-family: var(--font-heading);
   font-size: 2.75rem;
   margin-bottom: 1rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 400;
 }
 
@@ -47,7 +50,7 @@
 .footer-cta-action-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  background: var(--gold-gradient);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -74,7 +77,10 @@
 .footer-cta-contact-title {
   font-family: var(--font-heading);
   font-size: 1.75rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 400;
   max-width: 1400px;
   margin: 0 auto 2rem;
@@ -102,12 +108,18 @@
 }
 
 .footer-cta-contact-info a {
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
 }
 
 .footer-cta-contact-info a:hover {
-  color: var(--color-gold-light);
+  background: var(--gold-gradient-hover);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .footer-cta-service-areas p {
@@ -136,7 +148,10 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .footer-cta-buttons {

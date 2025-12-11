@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { siteContent } from '../data/siteContent'
 import SEO from '../components/SEO'
 import { getLocalBusinessSchema, getWebsiteSchema } from '../utils/schema'
+import HeroSlider from '../components/HeroSlider/HeroSlider'
 import NewConstruction from '../components/NewConstruction/NewConstruction'
 import FeaturedProperties from '../components/FeaturedProperties/FeaturedProperties'
 import DesignInspiration from '../components/DesignInspiration/DesignInspiration'
@@ -32,8 +33,9 @@ const Home = () => {
         schema={homeSchema}
       />
       
-      {/* 1. Hero Section - Split Layout */}
+      {/* 1. Hero Section - Full Width with Sliding Background */}
       <section className="home-hero">
+        <HeroSlider />
         <div className="hero-content">
           <h1 className="hero-title">{siteContent.home.hero.title}</h1>
           <p className="hero-subtitle">
@@ -47,12 +49,6 @@ const Home = () => {
               {siteContent.home.hero.ctaSecondary}
             </Link>
           </div>
-        </div>
-        <div className="hero-image">
-          <img 
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80" 
-            alt="Luxury modern home in Central Florida with palm trees"
-          />
         </div>
       </section>
 

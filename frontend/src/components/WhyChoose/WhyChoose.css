@@ -17,7 +17,10 @@
   font-family: var(--font-heading);
   font-size: 2.75rem;
   margin-bottom: 0;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 400;
 }
 
@@ -25,7 +28,10 @@
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 400;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0;
 }
 
@@ -85,7 +91,7 @@
 .why-choose-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  background: var(--gold-gradient);
   border-radius: 50%;
   display: flex;
   align-items: center;

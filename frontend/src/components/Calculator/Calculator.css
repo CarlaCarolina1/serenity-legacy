@@ -23,7 +23,10 @@
   text-align: center;
   padding-top: 1rem;
   margin-bottom: 2rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 400;
 }
 
@@ -67,7 +70,10 @@
   display: flex;
   align-items: center;
   font-family: var(--font-body);
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .input-prefix {
@@ -106,7 +112,8 @@
 
 .form-group .input-wrapper input:focus {
   outline: none;
-  border-color: var(--color-gold);
+  border-image: var(--gold-gradient) 1;
+  border-style: solid;
   box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
   z-index: 2;
 }
@@ -114,7 +121,8 @@
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: var(--color-gold);
+  border-image: var(--gold-gradient) 1;
+  border-style: solid;
   box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
 }
 
@@ -144,7 +152,7 @@
 }
 
 .down-payment-toggle button.active {
-  background: var(--color-gold);
+  background: var(--gold-gradient);
   color: var(--bg-dark);
   border-radius: 3px;
 }
@@ -169,7 +177,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--color-gold);
+  background: var(--gold-gradient);
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
 }
@@ -178,7 +186,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--color-gold);
+  background: var(--gold-gradient);
   cursor: pointer;
   border: none;
   box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
@@ -195,7 +203,10 @@
   font-size: 1.75rem;
   text-align: center;
   font-family: var(--font-heading);
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
   font-weight: 400;
 }
@@ -235,7 +246,10 @@
 .breakdown-item div:last-child {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Projection Section */
@@ -246,7 +260,10 @@
 .projection-section h3 {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-gold);
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
   font-weight: 400;
 }
@@ -273,13 +290,15 @@
 
 .proj-tab:hover {
   background: var(--bg-dark);
-  border-color: var(--color-gold);
+  border-image: var(--gold-gradient) 1;
+  border-style: solid;
 }
 
 .proj-tab.active {
-  background: var(--color-gold);
+  background: var(--gold-gradient);
   color: var(--bg-dark);
-  border-color: var(--color-gold);
+  border-image: var(--gold-gradient) 1;
+  border-style: solid;
 }
 
 .projection-content {

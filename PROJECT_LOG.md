@@ -39,12 +39,56 @@
 
 ---
 
-### **Session: December 6, 2025 - Luxury Dark Theme Complete Redesign**
+### **Session: December 11, 2025 - Gold Palette Refresh & Spacing Fixes**
 
-**Session Started:** December 6, 2025, 1:04 AM  
-**Session Ended:** December 6, 2025, ~3:30 AM  
-**Session Duration:** ~2-3 hours  
-**Session Type:** Complete Visual Redesign - Luxury Dark Theme Implementation
+**Session Started:** December 11, 2025  
+**Session Ended:** December 11, 2025  
+**Session Type:** Visual refinement, accessibility/contrast, spacing fix
+
+**Backup:** `backups/serenity-legacy-pre-gold-refresh-20251211-0057.zip` (full project, excluding backups folder)
+
+**What Was Accomplished:**
+- ✅ **Palette Refresh (Gold System)**
+  - Primary `#B88933`, Secondary `#C5A46D`, Peak `#D4AF37`, Dark `#A67C00`, Champagne `#E0C178`
+  - Updated global tokens: `--color-gold`, `--color-gold-light`, `--color-gold-dark`, `--gold-gradient*`, `--text-on-light-strong`
+  - Reduced neon effect; improved readability on dark and light surfaces
+- ✅ **Global Contrast & Heading/CTA Refinement**
+  - Updated gradients/shadows for CTAs to match new gold depth
+  - Updated secondary CTAs to use new tokens (Home hero)
+  - Updated chart gold in calculator projections to primary gold
+- ✅ **Layout & Spacing**
+  - Added global `scroll-padding-top` and `section` scroll margin to prevent header overlap when jumping between tabs/anchors
+  - Added layout main top padding to offset fixed header (no more clipped first lines)
+- ✅ **Component Adjustments**
+  - Property cards: price and emphasis text now use gold/light text for readability on dark cards
+  - Gemini home secondary gold aligned to new palette
+
+**Files Modified:**
+- `frontend/src/index.css` (palette, gradients, scroll padding, section scroll margin, CTA shadow)
+- `frontend/src/components/Layout/Layout.css` (main top padding for fixed header offset)
+- `frontend/src/pages/Home.css` (secondary CTA colors → gold tokens)
+- `frontend/src/components/Calculator/ProjectionChart.tsx` (chart gold to primary)
+- `frontend/src/pages/HomeGemini.css` (secondary gold aligned)
+- `frontend/src/components/PropertyCard/PropertyCard.css` (price/emphasis readability)
+
+**Notes on Behavior:**
+- Anchor/tab navigation no longer clips text under the fixed header (global padding + scroll margin).
+- Gold now reads as deep metallic, not neon; improved contrast on beige/light sections and dark surfaces.
+- Property cards and calculator charts align to the new palette for cohesive brand identity.
+
+**Next Steps:**
+- Verify on-device: hero, communities (light section), featured properties, about, calculator, contact.
+- Adjust section-specific spacing if any page still feels tight after the global header offset.
+- Continue IDX integration planning (see `IDX_INTEGRATION_PLAN.md`) when ready.
+
+---
+
+### **Session: December 6, 2025 - Luxury Dark Theme Redesign & Critical Fixes**
+
+**Session Started:** December 5, 2025 (evening)  
+**Session Ended:** December 6, 2025, 2:05 AM  
+**Session Duration:** ~4-5 hours total  
+**Session Type:** Complete Visual Redesign + Critical Fixes & Improvements
 
 **What Was Accomplished:**
 - ✅ **Complete Luxury Dark Theme Redesign**
@@ -122,6 +166,91 @@
 
 **Detailed Documentation:**
 - See `DECEMBER_6_2025_WEBSITE_UPDATE.md` for complete breakdown
+
+---
+
+### **Session: December 6, 2025 (Late Evening/Early Morning) - Critical Fixes & Gradient Gold**
+
+**Session Started:** December 6, 2025 (late evening)  
+**Session Ended:** December 6, 2025, 2:05 AM  
+**Session Duration:** ~2-3 hours  
+**Session Type:** Critical Fixes & Visual Improvements  
+**Requested By:** Carla (Jose's wife)
+
+**What Was Accomplished:**
+
+1. ✅ **Gradient Gold Implementation**
+   - Converted all solid gold colors to beautiful gradients
+   - Added CSS variables: `--gold-gradient`, `--gold-gradient-text`, `--gold-gradient-hover`
+   - Updated 20 files with gradient gold (headings, buttons, icons, borders, links)
+   - Created dynamic gradient for calculator chart bars
+   - **Files Modified:** 20 files (index.css, all component CSS files, all page CSS files, ProjectionChart.tsx)
+
+2. ✅ **Hero Slider with Changing Background Images**
+   - Created new `HeroSlider` component with auto-changing images
+   - 4 luxury home images rotate every 5 seconds
+   - Full-width background with smooth fade transitions
+   - **Files Created:** 
+     - `src/components/HeroSlider/HeroSlider.tsx`
+     - `src/components/HeroSlider/HeroSlider.css`
+   - **Files Modified:** `Home.tsx`, `Home.css`
+
+3. ✅ **Mobile Navigation Fix**
+   - Hidden all navigation buttons on mobile (max-width: 968px)
+   - Only hamburger menu (3 bars) shows in corner
+   - Added useState for menu toggle functionality
+   - Mobile menu slides in from right when opened
+   - **Files Modified:** `Navigation.tsx`, `Navigation.css`
+
+4. ✅ **Carla's Profile Image**
+   - Updated image source to `/images/CarlaProfilefull.jpeg`
+   - Removed fallback image logic
+   - **File Modified:** `AgentProfile.tsx`
+   - **Note:** Image file copied to `public/images/` folder by Carla
+
+5. ✅ **"Meet Carla" Text Visibility**
+   - Changed title and subtitle to dark color (#1a1a1a)
+   - Removed gradient text effect for better visibility on beige background
+   - **File Modified:** `AgentProfile.css`
+
+6. ✅ **Button Text Visibility**
+   - Fixed all button text with `!important` flags
+   - Primary buttons: Dark text (#0a0a0a) on gold gradient background
+   - Secondary buttons: Gold text (#D4AF37) on transparent background
+   - Ensures text is always readable regardless of background
+   - **Files Modified:** `index.css`, `Home.css`
+
+**Technical Implementation:**
+- **Gradient Gold:** Used CSS `linear-gradient` with 3 color stops (light → medium → dark gold)
+- **Hero Slider:** React useState + useEffect with setInterval for auto-rotation
+- **Mobile Nav:** CSS media queries + React state management for toggle
+- **Text Visibility:** CSS `!important` flags to override conflicting styles
+
+**Files Modified/Created:**
+- 9 files modified (Navigation, AgentProfile, Home, index.css)
+- 2 new files created (HeroSlider component)
+- Total: 11 files for this session
+
+**Deployment Status:**
+- ✅ All code changes complete
+- ⏳ Awaiting git commit and push (terminal encountered issues)
+- 📝 Created `FIXES_APPLIED.md` with deployment instructions
+- **Note:** Changes ready for deployment once git commands are executed
+
+**Current Status:**
+- All fixes implemented and tested in code
+- Ready for deployment
+- Website will update automatically once pushed to GitHub
+
+**Next Steps:**
+1. Commit and push changes to GitHub
+2. Vercel will auto-deploy (1-2 minutes)
+3. Verify all fixes on live site
+4. Get feedback from Carla
+
+**Session Completed By:** 2:05 AM, December 6, 2025  
+**Completed For:** Carla (Jose's wife)  
+**Status:** ✅ All fixes ready for deployment
 
 ---
 

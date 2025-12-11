@@ -1,0 +1,20 @@
+[33m1840e71[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Update all gold colors to gradient gold throughout website
+[33mca6367e[m Complete dark luxury theme redesign with gold accents
+[33mefea1be[m Complete Gamma design implementation - Updated color scheme to luxury minimalist (white/light gray backgrounds, charcoal/black text, gold accents) - Updated all text content to match Gamma site exactly - Created all new sections: New Construction, Featured Properties, Design Inspiration, Why Choose, Communities, Agent Profile, Testimonials, Market Insights, Footer CTA - Restructured Home page with exact section order from Gamma design - Updated Calculator styling to match Gamma theme - Updated Footer to match Gamma design - Fully responsive across all components
+[33mec4dfda[m Complete luxury minimalist redesign - Updated color scheme to white/light gray backgrounds, charcoal/black text, gold/deep blue accents - Changed typography to modern Inter font - Restructured Home page with exact section order: Hero, New Construction, Featured Properties, Agent Profile, Testimonials, Market Insights - Created new components: NewConstruction, FeaturedProperties, AgentProfile, Testimonials, MarketInsights - Updated Footer with final CTA - Fully responsive design across all components
+[33mf12dd04[m Update Calculator components to use gold gradient theme
+[33m2b163a2[m Update color theme to beige, gold gradient, white, and brown - Changed primary color to dark brown (#5D4037) - Added gold gradient variables (--gold-gradient, --gold-gradient-hover) - Updated text colors: white for dark backgrounds, dark brown for light backgrounds - Updated all headings to use gold gradient text - Updated all buttons to use gold gradient backgrounds - Updated all page backgrounds and sections - Removed scarlet red, replaced with brown/beige color scheme
+[33m51c6837[m Update color theme to brown/beige text, scarlet red, beige, and gold - Changed primary color to scarlet red (#DC143C) - Changed secondary color to gold (#D4AF37) - Updated text colors to brown/beige tones - Updated backgrounds to beige (#F5F5DC) - Updated all hardcoded colors across all pages
+[33m4bb155b[m Revert hero title back to: Find Your Dream Home in Central Florida
+[33m4f2ec94[m Update hero title to: Meet Carla: Your Trusted Real Estate Partner
+[33m8f50e0f[m Revert hero title to original: Find Your Dream Home in Central Florida
+[33me9f11a1[m Add SEO optimization, neighborhood pages, and blog structure - Complete SEO implementation with meta tags, schema markup, sitemap, and robots.txt - Add 6 neighborhood landing pages (Reunion, Margaritaville, Champions Gate, Clermont, Orlando Downtown, Titusville) - Add blog listing page with sample posts - Update all pages with SEO components and optimized content - Add react-helmet-async for dynamic meta tags
+[33m116f7fd[m Fix MLS authentication - add OAuth 2.0 and alternative auth methods
+[33m16f6abf[m Update MLS property mapping for RESO Web API format
+[33mfe611e9[m Add Stellar MLS integration with username/password authentication
+[33ma1e6286[m Add email-validator dependency for Pydantic email validation
+[33m1c34683[m Fix Procfile for Render
+[33m5319dd5[m Update backend CORS and Render configuration
+[33mcf75d40[m Add backend folder for Render deployment
+[33mad4879e[m Add .gitignore to exclude build files
+[33m3d9ad88[m Remove vercel.json - let Vercel auto-detect Vite project

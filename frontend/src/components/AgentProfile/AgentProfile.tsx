@@ -33,12 +33,8 @@ const AgentProfile: React.FC<AgentProfileProps> = ({
       <div className="agent-profile-main">
         <div className="agent-profile-image">
           <img 
-            src="/images/carla-headshot.jpg" 
+            src="/images/CarlaProfilefull.jpeg" 
             alt="Carla Carolina - Licensed Realtor in Orlando, Florida"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-            }}
           />
         </div>
         <div className="agent-profile-content">

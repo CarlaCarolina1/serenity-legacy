@@ -81,45 +81,56 @@
 }
 
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .navigation {
-    flex-direction: column;
-    width: 100%;
+    width: auto;
   }
 
+  /* Hide all navigation buttons on mobile - only show hamburger */
   .nav-top-buttons {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .nav-button {
-    font-size: 0.75rem;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    display: none;
   }
 
   .nav-main-menu {
-    display: none; /* Will be shown when mobile menu is toggled */
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 75%;
+    max-width: 300px;
+    height: calc(100vh - 70px);
+    background: var(--bg-dark);
     flex-direction: column;
-    width: 100%;
+    padding: 2rem;
     gap: var(--spacing-md);
-    padding: var(--spacing-md) 0;
+    border-left: 1px solid var(--border-subtle);
+    z-index: 999;
+  }
+
+  .nav-main-menu.open {
+    display: flex;
+  }
+
+  .nav-main-menu a {
+    color: var(--text-white);
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .nav-mobile-toggle {
     display: flex;
   }
+
+  .nav-mobile-toggle span {
+    background-color: var(--text-white);
+  }
 }
 
 @media (max-width: 480px) {
-  .nav-top-buttons {
-    flex-direction: column;
+  .nav-main-menu {
     width: 100%;
-  }
-
-  .nav-button {
-    width: 100%;
-    text-align: center;
+    max-width: none;
   }
 }
 
