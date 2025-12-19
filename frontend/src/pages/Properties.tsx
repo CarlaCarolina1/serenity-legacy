@@ -78,29 +78,6 @@ const Properties = () => {
         <div className="container">
           <div className="properties-header">
             <h2>Featured Listings</h2>
-            <div className="view-toggle">
-              <button
-                className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
-                onClick={() => setViewMode('grid')}
-                aria-label="Grid view"
-              >
-                Grid
-              </button>
-              <button
-                className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
-                onClick={() => setViewMode('list')}
-                aria-label="List view"
-              >
-                List
-              </button>
-              <button
-                className={`view-btn ${viewMode === 'gallery' ? 'active' : ''}`}
-                onClick={() => setViewMode('gallery')}
-                aria-label="Gallery view"
-              >
-                Gallery
-              </button>
-            </div>
           </div>
 
           {loading && (
@@ -109,11 +86,6 @@ const Properties = () => {
             </div>
           )}
 
-          {statusMessage && (
-            <div className="properties-notice">
-              <p>{statusMessage}</p>
-            </div>
-          )}
 
           {error && (
             <div className="properties-error">
