@@ -54,14 +54,23 @@ const Properties = () => {
         </div>
       </section>
 
-      {/* MLS Integration Placeholder Banner */}
-      <section className="mls-notice-banner" style={{ background: 'var(--bg-dark-secondary)', borderBottom: '1px solid var(--border-subtle)', padding: '1.5rem 0' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <h3 style={{ color: 'var(--color-gold-peak)', marginBottom: '0.5rem', fontSize: '1.25rem' }}>✨ Coming Soon: Full MLS Integration</h3>
-          <p style={{ color: 'var(--text-light)', maxWidth: '800px', margin: '0 auto', fontSize: '0.95rem' }}>
-            We're currently integrating with the Stellar MLS database to bring you real-time property listings from across Central Florida.
-            In the meantime, browse our featured listings below or contact Carla directly for a personalized property search.
-          </p>
+      {/* IDX Integration - Live MLS Listings */}
+      <section className="idx-integration-section">
+        <div className="container">
+          <div className="idx-header">
+            <h2>Search All MLS Listings</h2>
+            <p className="idx-subtitle">Browse real-time property listings from across Central Florida</p>
+          </div>
+          <div className="idx-iframe-container">
+            <iframe
+              src="https://carlayacaman.myrealtyrealestate.com/wide.php"
+              allowTransparency={true}
+              frameBorder="0"
+              className="idx-iframe"
+              title="MLS Property Search"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
