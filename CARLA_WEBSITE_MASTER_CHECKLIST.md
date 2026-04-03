@@ -2,7 +2,7 @@
 
 **Document Version:** 2.2  
 **Project Start Date/Time:** November 6, 2025 at 10:41 PM  
-**Last Updated Date/Time:** November 8, 2025 at 2:00 AM  
+**Last Updated Date/Time:** March 23, 2026  
 **Project Duration:** Started November 6, 2025 at 10:41 PM - Duration: ~80% Complete (V1 Frontend + Backend Done)  
 **Author:** Neo (Primary Engineer)  
 **Collaborators:** Jose Yacaman, Codex (Spok - Verification Engineer)  
@@ -11,6 +11,8 @@
 **Purpose:** Detailed implementation checklist with three-box verification system for building Carla's real estate website with production-grade architecture  
 **Development Strategy:** Phased approach - V1 launch with core features, then iterate with additional features  
 **Current Status:** Frontend 100% complete, Backend 100% complete, Database schema ready (needs PostgreSQL setup), Integration complete. See `COMPLETE_WEBSITE_STATUS.md` for details.
+
+**Post-V1 enhancements / MLS UX backlog:** `CARLA_WEBSITE_UPDATES_PROJECT.md` — numbered ideas from competitive research (e.g. EWM-style map search presentation), March 2026.
 
 **⚠️ IMPORTANT TRACKING NOTE:** This checklist was not actively updated during development. It has been retroactively updated based on code review and file structure analysis. Future development should update this checklist in real-time as tasks are completed.
 
