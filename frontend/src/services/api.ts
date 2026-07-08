@@ -4,6 +4,10 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
+  // Fail fast instead of hanging on "Loading..." when the backend is asleep
+  // or unreachable. After this many ms the request rejects and the page falls
+  // back to sample data / an error message instead of freezing.
+  timeout: 12000,
   headers: {
     'Content-Type': 'application/json',
   },

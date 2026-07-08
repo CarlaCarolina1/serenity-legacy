@@ -50,8 +50,8 @@ export const getLocalBusinessSchema = () => ({
   ],
   "priceRange": "$$",
   "sameAs": [
-    "https://www.facebook.com/serenitylegacy",
-    "https://www.instagram.com/serenitylegacy"
+    "https://www.facebook.com/share/1F32RCazEi/?mibextid=wwXIfr",
+    "https://www.instagram.com/carlacarolinarealtor/"
   ]
 })
 

@@ -39,6 +39,62 @@
 
 ---
 
+### **Session: July 7, 2026 — Diagnosis, Properties Fix, Social Links, Doc Cleanup (Atlas)**
+
+**Engineer:** Atlas (Claude Code / Opus 4.8)
+**Present:** Jose Yacaman + Carla (live feedback session)
+**Status:** Diagnosis complete · 3 fixes applied (not yet deployed) · docs rebuilt · roadmap set
+
+**Context / why this session:** Carla's site works but the "find homes" feature is unreliable
+and slow, social buttons don't connect, several tabs need real content, and the repo was buried
+under 100+ obsolete markdown files. Jose asked for improvement **without a rebuild** and with the
+original design preserved exactly.
+
+**Key discovery — TWO app copies:**
+- The **live site (serenitylegacy.net) builds ONLY from `frontend/`** — see `vercel.json`
+  (`cd frontend && npm run build`, output `frontend/dist`).
+- The root `src/` folder is an **older parallel copy that is NOT deployed.** Editing it changes
+  nothing live. All real work must happen in `frontend/`. This likely explains past "I fixed it
+  but nothing changed" confusion.
+
+**Root cause of the Properties tab problems (two separate issues):**
+1. **MLS search iframe** (`carlayacaman.myrealtyrealestate.com/wide.php`) returns **403** direct /
+   **302 redirect** in-browser → the external IDX embed is no longer serving listings. This is a
+   **third-party subscription**, not a code bug. (Status of that account: unknown — needs Carla.)
+2. **"Featured Listings"** calls the backend on **Render's free tier**
+   (`carlas-website-backend.onrender.com`), which **sleeps and cold-starts (30–60s)**, and the API
+   call had **no timeout** → the page hung on "Loading properties…" forever. Confirmed live.
+
+**Fixes applied this session (in `frontend/`, committed to working tree, NOT yet deployed):**
+- ✅ Added `timeout: 12000` to the axios client (`frontend/src/services/api.ts`) → page now fails
+  fast to fallback content instead of freezing. Directly fixes "takes forever to load."
+- ✅ Wired real social profiles (Facebook + Instagram) in `FloatingSocial.tsx`, `Footer.tsx`, and
+  SEO structured data (`utils/schema.ts`). Removed the dead LinkedIn placeholder (no account).
+  FB: facebook.com/share/1F32RCazEi · IG: instagram.com/carlacarolinarealtor. WhatsApp already worked.
+- ✅ Created git restore point `backup/pre-atlas-2026-07-07` (original design fully preserved).
+
+**Documentation & housekeeping:**
+- ✅ Archived **113 obsolete docs** to `Docs_Archive/` (moved, never deleted — fully recoverable).
+- ✅ Rebuilt `README.md`, added `HANDOFF.md` and `ROADMAP.md`, logged this session.
+- ✅ Registered the project in `Collaboration_Hub/UNIVERSAL_GLOSSARY.md`.
+
+**Decisions from Jose & Carla this session:**
+- Listings source going forward = **New Construction / builder-permitted listings** (e.g. Meritage
+  Homes lets Carla list their homes in exchange for hosting open houses) — plus Atlas's recommended
+  hybrid (see ROADMAP). Full MLS IDX is secondary/optional.
+- Add property-type categories: **land / residential / commercial / new construction.**
+- Calculator: build the professional upgrade (loan types, amortization, extra payment, affordability,
+  live weekly rate). **Mortgage-referral commission flagged as a RESPA legal risk — do NOT build
+  until Carla clears it with her broker/attorney.**
+- Resources tab → dynamic per-property data (schools, crime, HOA, neighborhood) — plan approved.
+
+**NOT deployed yet:** all three code fixes go live only on the next Vercel deploy from GitHub.
+
+**Next 3 (see HANDOFF.md):** (1) deploy current fixes, (2) About-page real area photos,
+(3) begin Calculator pro upgrade + property-type filters.
+
+---
+
 ### **Session: December 12, 2025 - Contact Page Fixes & Production Deployment**
 
 **Session Started:** December 12, 2025 (evening)  

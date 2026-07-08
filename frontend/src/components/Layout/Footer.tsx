@@ -16,14 +16,11 @@ const Footer = () => {
             <div className="footer-social-section">
               <h4>Connect With Us</h4>
               <div className="footer-social-links">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-facebook">
+                <a href="https://www.facebook.com/share/1F32RCazEi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-facebook">
                   <span>f</span>
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-instagram">
+                <a href="https://www.instagram.com/carlacarolinarealtor/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-instagram">
                   <span>IG</span>
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-linkedin">
-                  <span>in</span>
                 </a>
               </div>
             </div>

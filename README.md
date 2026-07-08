@@ -1,211 +1,109 @@
-# 🏠 SERENITY LEGACY REAL ESTATE WEBSITE
+# 🏠 Serenity Legacy Real Estate — Carla's Website
 
-**Client**: Carla Carolina  
-**Business**: Serenity Legacy Real Estate  
-**Location**: Central Florida (Orlando, Clermont, Reunion Resort)  
-**Last Updated**: December 11, 2025
-
----
-
-## 🚀 FOR NEW DEVELOPERS - START HERE!
-
-### **📖 Read These First (In Order)**:
-1. **`PROJECT_STATUS.md`** - Current status & what's done vs todo
-2. **`QUICK_START.md`** - How to start development
-3. **`PROJECT_HANDOFF_LOG.md`** - Complete session history
-
-### **⚡ Quick Start**:
-```bash
-cd "C:\Users\Yacaman.LEX\Desktop\Carlas Website\frontend"
-npm run dev
-```
-Open: http://localhost:5173 (in Chrome, NOT Edge)
+**Client:** Carla Carolina (Jose's wife) — Licensed Realtor, FL License #SL3371270
+**Business:** Serenity Legacy Real Estate
+**Live site:** https://serenitylegacy.net
+**Service area:** Central Florida — Davenport, Champions Gate, Kissimmee, Orlando, Clermont, Titusville, Reunion, Margaritaville
+**Last updated:** July 7, 2026 (Atlas)
 
 ---
 
-## ✅ CURRENT STATUS: 85% COMPLETE
+## ⚠️ READ THIS FIRST — the #1 thing to know
 
-### **What's Working** ✅
-- Calculator page (text & spacing fixed)
-- About page (completely redesigned)
-- Header/Navigation (clean single bar)
-- Footer (with social links)
-- Floating social media buttons ❤️
-- Properties page (4-column grid)
-- Resources page (all images)
-- Home page
-- Services page
+**There are two copies of the app. Only `frontend/` is live.**
 
-### **What Needs Work** ⚠️
-- About page image path (2 min fix)
-- Down payment decimal input (2 min fix)
-- Contact page redesign (1-2 hours)
-- Areas We Serve images (2-3 hours)
-- Why Choose Us images (1 hour)
-
----
-
-## 🎨 DESIGN THEME
-
-**Colors**: Black, White, Gold (Luxury/Modern)  
-**Fonts**: Playfair Display (headings), Inter (body)  
-**Style**: Professional, corporate, elegant
-
-**Key Colors**:
-- Background: `#0a0a0a` (black)
-- Text: `#ffffff` (white)
-- Accent: `#D4AF37` (gold)
-
----
-
-## 📁 PROJECT STRUCTURE
+`vercel.json` builds the site with `cd frontend && npm run build` (output `frontend/dist`).
+The root-level `src/` folder is an **older parallel copy that is NOT deployed** — editing it changes
+nothing on the live site. **Always work in `frontend/`.**
 
 ```
 Carlas Website/
-├── frontend/               # React + TypeScript + Vite
+├── frontend/          ← THE LIVE APP (React + TypeScript + Vite). Work here.
 │   ├── src/
-│   │   ├── components/    # Reusable components
-│   │   ├── pages/         # Page components
-│   │   └── ...
-│   ├── public/
-│   │   └── images/        # Static images
-│   └── package.json
-├── PROJECT_STATUS.md      # 📊 Current status
-├── QUICK_START.md         # 🚀 How to start
-├── PROJECT_HANDOFF_LOG.md # 📋 Complete history
-└── README.md              # 📖 This file
+│   │   ├── pages/         # Home, About, Properties, Resources, Calculator, Contact, Services...
+│   │   ├── components/    # Layout, FloatingSocial, Calculator, PropertyCard, etc.
+│   │   ├── data/          # siteContent.ts (all editable text), properties.ts (fallback data)
+│   │   └── services/api.ts# axios client → backend
+│   └── public/images/     # static images
+├── backend/           # Python FastAPI + PostgreSQL (deployed on Render, free tier — sleeps)
+├── src/               # ⚠️ STALE parallel copy — NOT deployed. Do not edit.
+├── Docs_Archive/      # 113 archived historical docs (recoverable reference, not active)
+├── README.md          # this file
+├── PROJECT_LOG.md     # session-by-session history (newest at top)
+├── HANDOFF.md         # where we stopped + the next 3 steps
+└── ROADMAP.md         # planned features with status
 ```
 
 ---
 
-## 🛠️ TECH STACK
+## 🚀 Run it locally
 
-- **Frontend**: React 18 + TypeScript
-- **Build Tool**: Vite
-- **Styling**: CSS (no framework)
-- **Routing**: React Router
-- **State**: React Hooks
+```bash
+cd "C:/Users/Yacaman.LEX/Desktop/Carlas Website/frontend"
+npm install     # first time only
+npm run dev     # http://localhost:5173  (use Chrome, not Edge)
+```
 
----
-
-## 👤 USER PREFERENCES
-
-**User Loves** ❤️:
-- Floating social media buttons
-- Black/white/gold color scheme
-- Professional, corporate design
-- Generous spacing
-- Immediate fixes
-
-**User Dislikes** ❌:
-- Empty space / poor spacing
-- Invisible text (dark on dark)
-- Placeholder images
-- Simple/basic designs
-- Microsoft Edge browser
+> Note: the folder name contains a space ("Carlas Website"), which breaks some `npm`-launcher
+> tooling. If a launcher fails with `'C:\Program' is not recognized`, run npm from inside the
+> `frontend/` directory (as above) or use a no-space junction to the folder.
 
 ---
 
-## 📞 CONTACT INFORMATION
+## 🧩 Tech stack
 
-**Business**: Serenity Legacy Real Estate  
-**Phone**: (954) 303-3456  
-**Email**: carla@serenitylegacy.net  
-**Website**: serenitylegacy.net
-
-**Service Areas**:
-- Orlando, FL
-- Clermont, FL
-- Reunion Resort
-- Margaritaville
-- Champions Gate
-- Titusville
-- Kissimmee
+| Layer | Tech |
+|-------|------|
+| Frontend | React 18 + TypeScript + Vite |
+| Styling | Plain CSS (no framework), Playfair Display + Inter fonts |
+| Routing | React Router v6 |
+| State | React hooks / Zustand |
+| Backend | Python FastAPI + PostgreSQL (on Render, **free tier — cold-starts slowly**) |
+| Hosting | Vercel (frontend) + Render (backend) |
+| Repo | github.com/CarlaCarolina1/serenity-legacy |
 
 ---
 
-## 🎯 IMMEDIATE PRIORITIES
+## 🎨 Design
 
-### **Critical (15 minutes total)**:
-1. Fix About page image path (line 22 in About.tsx)
-2. Add decimal support to down payment input (add step="0.01")
+Black / white / **gold** luxury theme (`#0a0a0a` bg, `#ffffff` text, `#D4AF37` gold).
+Recommendation on file (see ROADMAP): keep the identity, soften the gold toward warm champagne, add
+more white space, let photography lead. **Do not do a full rebuild** — refine only.
 
-### **Important (1-2 hours)**:
-3. Redesign Contact page top section
-
-### **Nice to Have (2-4 hours)**:
-4. Add images to Areas We Serve
-5. Add images to Why Choose Us
+Original design is preserved on git branch **`backup/pre-atlas-2026-07-07`** and in all history.
 
 ---
 
-## 📚 DOCUMENTATION
+## 📌 Current known issues (as of July 7, 2026)
 
-All documentation is in the project root:
+| Area | Status |
+|------|--------|
+| Properties — "takes forever to load" | ✅ Fixed in code (API timeout). **Deploy pending.** |
+| Properties — MLS search iframe (external IDX) | ⚠️ Returns 403/302 — external subscription needs review |
+| Featured Listings — backend | ⚠️ Render free tier sleeps; needs paid tier or new data source |
+| Social buttons | ✅ Fixed — real FB + IG wired, dead LinkedIn removed. **Deploy pending.** |
+| About page area photos | ⚠️ Generic/incorrect stock — replacing with accurate local imagery |
+| Resources tab | ⚠️ Static cards — planned upgrade to dynamic per-property data |
+| Calculator | ✅ Works; pro upgrade planned (loan types, amortization, affordability, live rate) |
 
-- `PROJECT_STATUS.md` - What's done, what's not
-- `QUICK_START.md` - How to get started
-- `PROJECT_HANDOFF_LOG.md` - Complete session history
-- `REMAINING_FIXES_MANUAL.md` - Detailed fix instructions
-- `ALL_FIXES_COMPLETE.md` - Completed work summary
-
----
-
-## 🚨 IMPORTANT NOTES
-
-1. **Browser**: ALWAYS use Google Chrome for testing (NOT Edge)
-2. **Hard Refresh**: After every change (Ctrl+Shift+R)
-3. **Image Path**: Wife's photo is `/images/CarlaProfilefull.jpeg`
-4. **Encoding**: Some files have UTF-8 issues, may need manual editing
-5. **User Feedback**: Very detail-oriented, fix every issue immediately
+See **HANDOFF.md** for the next steps and **ROADMAP.md** for the feature plans.
 
 ---
 
-## 🎉 RECENT ACHIEVEMENTS
+## 🔑 Key references (in `Docs_Archive/` unless noted)
 
-**Session: Dec 11, 2025 (2 hours)**
-- ✅ Fixed Calculator page readability & spacing
-- ✅ Redesigned About page completely
-- ✅ Fixed header scrolling issues
-- ✅ Created floating social media buttons
-- ✅ Fixed Properties page default view
-- ✅ Fixed Resources page images
-- ✅ Enhanced footer with social links
-
-**User Feedback**: "Phenomenal job. Thank you so much." ❤️
+- `MLS_INTEGRATION_RESEARCH.md`, `IDX_INTEGRATION_PLAN.md`, `STELLAR_MLS_SETUP_INSTRUCTIONS.md` — MLS/IDX history
+- `CARLA_VERCEL_DEPLOYMENT_STEPS.md`, `CARLA_RENDER_DEPLOYMENT_STEPS.md` — deploy steps
+- `SEO_OPTIMIZATION_COMPLETE.md`, `GOOGLE_BUSINESS_PROFILE_SETUP.md` — SEO/marketing setup
+- `SOCIAL_MEDIA_CONTENT_TEMPLATES.md` — social post templates
 
 ---
 
-## 📈 PROGRESS TRACKING
+## 👤 About the client
 
-- **Overall**: 85% Complete
-- **Critical Issues**: 2 remaining (15 min total)
-- **Important Issues**: 1 remaining (1-2 hours)
-- **Nice to Have**: 2 remaining (2-4 hours)
+Carla is an independent realtor building her book of business. The site's #1 job is **lead
+generation** — help buyers find homes and get in touch. Phone: (954) 303-3456 · Email:
+cc@serenitylegacy.net · Socials: [Facebook](https://www.facebook.com/share/1F32RCazEi/?mibextid=wwXIfr)
+· [Instagram](https://www.instagram.com/carlacarolinarealtor/).
 
-**Estimated Time to 100%**: 4-6 hours
-
----
-
-## 🤝 HANDOFF STATUS
-
-**From**: Antigravity AI  
-**Date**: December 11, 2025 - 04:16 AM  
-**Status**: ✅ Ready for Next Developer  
-**Next Steps**: Read PROJECT_STATUS.md, fix 2 critical issues (15 min)
-
----
-
-## 💡 TIPS FOR SUCCESS
-
-1. Read all documentation before coding
-2. Test in Chrome after every change
-3. Hard refresh browser frequently
-4. Don't skip small issues
-5. Follow design system strictly
-6. User values quality over speed
-
----
-
-**Good Luck! The foundation is solid, just needs final polish!** 🚀
-
+*Part of the Sentari team ecosystem. Team map: `Collaboration_Hub/UNIVERSAL_GLOSSARY.md`.*

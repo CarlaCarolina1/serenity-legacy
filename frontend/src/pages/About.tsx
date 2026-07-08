@@ -89,14 +89,17 @@ const About = () => {
           <h2 className="section-title-center">{siteContent.about.areas.title}</h2>
           <div className="areas-grid-images">
             {[
-              { name: 'Reunion Resort', image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80' }, // Resort/golf vibe
-              { name: 'Margaritaville', image: 'https://images.unsplash.com/photo-1501117716987-c8e1ecb210af?auto=format&fit=crop&w=1200&q=80' }, // Margaritaville Resort Orlando-style pool
-              { name: 'Champions Gate', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80' }, // Golf/greens feel
-              { name: 'Clermont', image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80' }, // Lakes/pier
-              { name: 'Orlando', image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80' }, // City/professional
-              { name: 'Orlando Downtown', image: 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80' }, // Downtown skyline
-              { name: 'Titusville', image: 'https://images.unsplash.com/photo-1462332420958-a05d1e002413?auto=format&fit=crop&w=1200&q=80' }, // Space Coast / rocket feel
-              { name: 'Kissimmee', image: 'https://images.unsplash.com/photo-1508264165352-258859e62245?auto=format&fit=crop&w=1200&q=80' }, // Disney area for Kissimmee
+              // Local images live in /public/images/areas/ — drop in Carla's own photo with the
+              // same filename to replace any of these. See images/areas/IMAGES_MANIFEST.md.
+              // The 5 area photos below are real, verified, free-license images of the actual places.
+              { name: 'Reunion Resort', image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80' }, // resort/golf (generic — replace with a real Reunion photo when available)
+              { name: 'Margaritaville', image: 'https://images.unsplash.com/photo-1501117716987-c8e1ecb210af?auto=format&fit=crop&w=1200&q=80' }, // resort pool (generic — replace with Margaritaville/192 photo)
+              { name: 'Champions Gate', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80' }, // golf/greens (generic — replace with a real Champions Gate photo)
+              { name: 'Clermont', image: '/images/areas/clermont.jpg' }, // Florida Citrus Tower, Clermont (verified)
+              { name: 'Orlando', image: '/images/areas/orlando.jpg' }, // Downtown Orlando skyline, Lake Eola (verified)
+              { name: 'Orlando Downtown', image: '/images/areas/orlando-downtown.jpg' }, // Downtown Orlando + Lake Eola fountain (verified)
+              { name: 'Titusville', image: '/images/areas/titusville.jpg' }, // Rocket launch, Kennedy Space Center / Space Coast (NASA public domain)
+              { name: 'Kissimmee', image: '/images/areas/kissimmee.jpg' }, // Kissimmee Lakefront Park at sunset, Lake Toho (verified)
             ].map((area, index) => (
               <div key={index} className="area-image-card">
                 <div
