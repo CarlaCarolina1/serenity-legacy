@@ -12,17 +12,49 @@ interface CalculatorProps {
   hoaFee?: number
 }
 
+type LoanType = 'conventional' | 'fha' | 'va' | 'usda'
+
+// Loan-program rules (estimates — see disclaimer). upfrontMi = % of base loan financed
+// into the loan (FHA UFMIP / VA funding fee / USDA guarantee fee). annualMi = % of loan
+// per year charged monthly. Conventional PMI only applies while LTV > 80%.
+const LOAN_PROGRAMS: Record<LoanType, {
+  label: string
+  minDownPct: number
+  upfrontMiPct: number
+  annualMiPct: number
+  hasPmiRule: boolean // true = MI drops off above 20% down (conventional)
+  note: string
+}> = {
+  conventional: { label: 'Conventional', minDownPct: 3, upfrontMiPct: 0, annualMiPct: 0.5, hasPmiRule: true, note: 'PMI applies when your down payment is under 20%, and drops off once you reach 20% equity.' },
+  fha: { label: 'FHA', minDownPct: 3.5, upfrontMiPct: 1.75, annualMiPct: 0.55, hasPmiRule: false, note: 'FHA loans require 3.5% down, an upfront MIP (1.75%, financed) and monthly MIP for most buyers.' },
+  va: { label: 'VA', minDownPct: 0, upfrontMiPct: 2.15, annualMiPct: 0, hasPmiRule: false, note: 'VA loans (eligible veterans/service members) allow 0% down and have no monthly mortgage insurance — a one-time funding fee applies (financed).' },
+  usda: { label: 'USDA', minDownPct: 0, upfrontMiPct: 1.0, annualMiPct: 0.35, hasPmiRule: false, note: 'USDA loans (eligible rural/suburban areas) allow 0% down with a 1% upfront guarantee fee (financed) and a small annual fee.' },
+}
+
+// Current average mortgage rates — national estimate, updated periodically. This is NOT a
+// live per-lender quote. A weekly automated feed (e.g. Freddie Mac PMMS) can be wired via the
+// backend later; until then update these values and the asOf date.
+const CURRENT_RATES: { asOf: string; byTerm: Record<number, number> } = {
+  asOf: 'July 2026',
+  byTerm: { 30: 6.8, 20: 6.5, 15: 6.0 },
+}
+
 interface CalculationResult {
-  monthlyPayment: number
   principalAndInterest: number
   propertyTax: number
   insurance: number
   hoa: number
-  pmi: number
+  mortgageInsurance: number
+  miLabel: string
   totalMonthly: number
   downPayment: number
   downPaymentPercent: number
   loanAmount: number
+  upfrontFee: number
+  totalInterest: number
+  totalOfPayments: number
+  monthsSaved: number
+  interestSaved: number
 }
 
 interface YearlyData {
@@ -42,12 +74,14 @@ const Calculator = ({
   const [downPayment, setDownPayment] = useState(0)
   const [downPaymentPercent, setDownPaymentPercent] = useState(20)
   const [downPaymentType, setDownPaymentType] = useState<'%' | '$'>('%')
-  const [interestRate, setInterestRate] = useState(6.5)
-  const [interestRateInput, setInterestRateInput] = useState('6.5')
+  const [loanType, setLoanType] = useState<LoanType>('conventional')
+  const [interestRate, setInterestRate] = useState(CURRENT_RATES.byTerm[30])
+  const [interestRateInput, setInterestRateInput] = useState(String(CURRENT_RATES.byTerm[30]))
   const [loanTerm, setLoanTerm] = useState(30)
   const [tax, setTax] = useState(propertyTax)
   const [insurance, setInsurance] = useState(propertyInsurance)
   const [hoa, setHoa] = useState(hoaFee)
+  const [extraPayment, setExtraPayment] = useState(0)
   const [result, setResult] = useState<CalculationResult | null>(null)
   const [yearlyData, setYearlyData] = useState<YearlyData[]>([])
   const [projectionView, setProjectionView] = useState<'graph' | 'table'>('graph')
@@ -69,41 +103,53 @@ const Calculator = ({
     if (hoaFee > 0) setHoa(hoaFee)
   }, [propertyTax, propertyInsurance, hoaFee])
 
-  // Calculate detailed 3-year projection
+  // Detailed 3-year principal/interest/balance projection
   const calculateYearlyProjection = (
     loanAmount: number,
     monthlyRate: number,
     pAndI: number
   ): YearlyData[] => {
     let balance = loanAmount
-    const yearlyData: YearlyData[] = []
-
+    const data: YearlyData[] = []
     for (let year = 1; year <= 3; year++) {
       let totalInterestYear = 0
       let totalPrincipalYear = 0
-
       for (let month = 1; month <= 12; month++) {
-        // Handle interest-free loans
         const interestPayment = monthlyRate > 0 ? balance * monthlyRate : 0
         const principalPayment = pAndI - interestPayment
         balance -= principalPayment
-
         totalInterestYear += interestPayment
         totalPrincipalYear += principalPayment
       }
-
-      yearlyData.push({
-        year,
-        principal: totalPrincipalYear,
-        interest: totalInterestYear,
-        balance: Math.max(0, balance),
-      })
+      data.push({ year, principal: totalPrincipalYear, interest: totalInterestYear, balance: Math.max(0, balance) })
     }
-
-    return yearlyData
+    return data
   }
 
-  // Calculate mortgage payment
+  // Simulate payoff with an optional extra monthly principal payment.
+  // Returns number of months to payoff and total interest paid.
+  const simulatePayoff = (
+    loanAmount: number,
+    monthlyRate: number,
+    pAndI: number,
+    extra: number
+  ): { months: number; interest: number } => {
+    let balance = loanAmount
+    let interest = 0
+    let months = 0
+    const maxMonths = 12 * 40 // safety cap
+    while (balance > 0 && months < maxMonths) {
+      const interestPayment = monthlyRate > 0 ? balance * monthlyRate : 0
+      let principalPayment = pAndI - interestPayment + extra
+      if (principalPayment <= 0) break // payment never covers interest — avoid infinite loop
+      if (principalPayment > balance) principalPayment = balance
+      balance -= principalPayment
+      interest += interestPayment
+      months++
+    }
+    return { months, interest }
+  }
+
   const calculateMortgage = () => {
     if (price <= 0) return null
 
@@ -112,59 +158,81 @@ const Calculator = ({
       actualDownPayment = (price * downPaymentPercent) / 100
     }
 
-    const loanAmount = price - actualDownPayment
-    if (loanAmount <= 0) return null
+    const baseLoan = price - actualDownPayment
+    if (baseLoan <= 0) return null
+
+    const program = LOAN_PROGRAMS[loanType]
+    // Upfront fee (FHA UFMIP / VA funding fee / USDA guarantee) is financed into the loan.
+    const upfrontFee = (baseLoan * program.upfrontMiPct) / 100
+    const loanAmount = baseLoan + upfrontFee
 
     const monthlyRate = interestRate / 100 / 12
     const numPayments = loanTerm * 12
 
-    // Principal and Interest
-    // Handle interest-free loans (0% interest rate)
     let principalAndInterest: number
     if (interestRate === 0 || monthlyRate === 0) {
-      // Interest-free loan: just divide principal by number of payments
       principalAndInterest = loanAmount / numPayments
     } else {
-      // Standard mortgage formula
       principalAndInterest =
-        loanAmount *
-        (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+        (loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments))) /
         (Math.pow(1 + monthlyRate, numPayments) - 1)
     }
 
-    // PMI (if down payment < 20%)
+    // Mortgage insurance (monthly) by program
     const downPaymentPercentActual = (actualDownPayment / price) * 100
-    const pmi = downPaymentPercentActual < 20 ? (loanAmount * 0.005) / 12 : 0
+    let mortgageInsurance = 0
+    let miLabel = 'Mortgage Insurance'
+    if (loanType === 'conventional') {
+      miLabel = 'PMI'
+      mortgageInsurance = downPaymentPercentActual < 20 ? (loanAmount * (program.annualMiPct / 100)) / 12 : 0
+    } else if (loanType === 'fha') {
+      miLabel = 'FHA MIP'
+      mortgageInsurance = (loanAmount * (program.annualMiPct / 100)) / 12
+    } else if (loanType === 'usda') {
+      miLabel = 'USDA Annual Fee'
+      mortgageInsurance = (loanAmount * (program.annualMiPct / 100)) / 12
+    } // VA: none
 
-    // Monthly totals (allow zero values for tax, insurance, HOA)
     const monthlyTax = tax > 0 ? tax / 12 : 0
     const monthlyInsurance = insurance > 0 ? insurance / 12 : 0
-    const monthlyPayment =
-      principalAndInterest + monthlyTax + monthlyInsurance + (hoa || 0) + pmi
+    const totalMonthly = principalAndInterest + monthlyTax + monthlyInsurance + (hoa || 0) + mortgageInsurance
 
-    // Calculate 3-year projection
-    const projection = calculateYearlyProjection(
-      loanAmount,
-      monthlyRate,
-      principalAndInterest
-    )
+    // Lifetime totals (principal & interest only)
+    const baseline = simulatePayoff(loanAmount, monthlyRate, principalAndInterest, 0)
+    const totalInterest = baseline.interest
+    const totalOfPayments = loanAmount + totalInterest
+
+    // Extra-payment savings
+    let monthsSaved = 0
+    let interestSaved = 0
+    if (extraPayment > 0) {
+      const withExtra = simulatePayoff(loanAmount, monthlyRate, principalAndInterest, extraPayment)
+      monthsSaved = Math.max(0, baseline.months - withExtra.months)
+      interestSaved = Math.max(0, totalInterest - withExtra.interest)
+    }
+
+    const projection = calculateYearlyProjection(loanAmount, monthlyRate, principalAndInterest)
 
     return {
-      monthlyPayment,
       principalAndInterest,
       propertyTax: monthlyTax,
       insurance: monthlyInsurance,
       hoa: hoa || 0,
-      pmi,
-      totalMonthly: monthlyPayment,
+      mortgageInsurance,
+      miLabel,
+      totalMonthly,
       downPayment: actualDownPayment,
       downPaymentPercent: downPaymentPercentActual,
       loanAmount,
+      upfrontFee,
+      totalInterest,
+      totalOfPayments,
+      monthsSaved,
+      interestSaved,
       projection,
     }
   }
 
-  // Recalculate when inputs change
   useEffect(() => {
     const calculated = calculateMortgage()
     if (calculated) {
@@ -175,16 +243,14 @@ const Calculator = ({
       setResult(null)
       setYearlyData([])
     }
-  }, [price, downPayment, downPaymentPercent, downPaymentType, interestRate, loanTerm, tax, insurance, hoa])
+  }, [price, downPayment, downPaymentPercent, downPaymentType, loanType, interestRate, loanTerm, tax, insurance, hoa, extraPayment])
 
-  // Sync interestRateInput when interestRate changes externally
   useEffect(() => {
     if (interestRate.toString() !== interestRateInput) {
       setInterestRateInput(interestRate.toString())
     }
   }, [interestRate])
 
-  // Handle down payment type toggle
   const handleDownPaymentTypeToggle = (type: '%' | '$') => {
     setDownPaymentType(type)
     if (type === '%' && price > 0) {
@@ -194,7 +260,6 @@ const Calculator = ({
     }
   }
 
-  // Handle down payment changes
   const handleDownPaymentChange = (value: number) => {
     setDownPayment(value)
     if (price > 0 && downPaymentType === '$') {
@@ -209,16 +274,44 @@ const Calculator = ({
     }
   }
 
-  // Format input value for display
+  const applyCurrentRate = () => {
+    const rate = CURRENT_RATES.byTerm[loanTerm] ?? CURRENT_RATES.byTerm[30]
+    setInterestRate(rate)
+    setInterestRateInput(String(rate))
+  }
+
   const formatInputValue = (value: number): string => {
     if (value === 0) return ''
     return value.toLocaleString('en-US', { maximumFractionDigits: 0 })
+  }
+
+  const currentAvgForTerm = CURRENT_RATES.byTerm[loanTerm] ?? CURRENT_RATES.byTerm[30]
+
+  const formatMonths = (totalMonths: number): string => {
+    const y = Math.floor(totalMonths / 12)
+    const m = totalMonths % 12
+    const parts: string[] = []
+    if (y > 0) parts.push(`${y} yr${y > 1 ? 's' : ''}`)
+    if (m > 0) parts.push(`${m} mo`)
+    return parts.join(' ') || '0 mo'
   }
 
   return (
     <div className="calculator-wrapper">
       <div className="calculator-container">
         <h1 className="calculator-title">Home Ownership Calculator</h1>
+
+        {/* Current average rate panel */}
+        <div className="rate-banner">
+          <div className="rate-banner-info">
+            <span className="rate-banner-label">Current avg {loanTerm}-yr rate</span>
+            <span className="rate-banner-value">{currentAvgForTerm}%</span>
+            <span className="rate-banner-asof">national est., as of {CURRENT_RATES.asOf}</span>
+          </div>
+          <button type="button" className="rate-apply-btn" onClick={applyCurrentRate}>
+            Use this rate
+          </button>
+        </div>
 
         <form className="calculator-form" onSubmit={(e) => e.preventDefault()}>
           <div className="calculator-inputs">
@@ -235,6 +328,23 @@ const Calculator = ({
                   placeholder="Enter property price"
                 />
               </div>
+            </div>
+
+            {/* Loan Type */}
+            <div className="form-group full-width">
+              <label htmlFor="loan-type">Loan Type</label>
+              <select
+                id="loan-type"
+                value={loanType}
+                onChange={(e) => setLoanType(e.target.value as LoanType)}
+              >
+                {(Object.keys(LOAN_PROGRAMS) as LoanType[]).map((key) => (
+                  <option key={key} value={key}>
+                    {LOAN_PROGRAMS[key].label}
+                  </option>
+                ))}
+              </select>
+              <p className="field-hint">{LOAN_PROGRAMS[loanType].note}</p>
             </div>
 
             {/* Down Payment */}
@@ -299,6 +409,12 @@ const Calculator = ({
                   className="down-payment-slider"
                 />
               </div>
+              {downPaymentPercent < LOAN_PROGRAMS[loanType].minDownPct && (
+                <p className="field-hint field-hint-warn">
+                  {LOAN_PROGRAMS[loanType].label} loans typically require at least{' '}
+                  {LOAN_PROGRAMS[loanType].minDownPct}% down.
+                </p>
+              )}
             </div>
 
             {/* Loan Term */}
@@ -326,7 +442,6 @@ const Calculator = ({
                   value={interestRateInput}
                   onChange={(e) => {
                     const value = e.target.value
-                    // Allow decimal input: allow numbers, single decimal point, and empty string
                     if (value === '' || /^\d*\.?\d*$/.test(value)) {
                       setInterestRateInput(value)
                       const numValue = parseFloat(value)
@@ -338,7 +453,6 @@ const Calculator = ({
                     }
                   }}
                   onBlur={() => {
-                    // Ensure valid number on blur
                     const numValue = parseFloat(interestRateInput)
                     if (isNaN(numValue) || interestRateInput === '') {
                       setInterestRateInput('0')
@@ -397,6 +511,21 @@ const Calculator = ({
                 />
               </div>
             </div>
+
+            {/* Extra Monthly Payment */}
+            <div className="form-group">
+              <label htmlFor="extra">Extra Monthly Payment</label>
+              <div className="input-wrapper">
+                <span className="input-prefix">$</span>
+                <input
+                  id="extra"
+                  type="text"
+                  value={formatInputValue(extraPayment)}
+                  onChange={(e) => setExtraPayment(parseCurrency(e.target.value))}
+                  placeholder="Optional — pay off faster"
+                />
+              </div>
+            </div>
           </div>
         </form>
 
@@ -410,7 +539,7 @@ const Calculator = ({
 
             <div className="payment-breakdown">
               <div className="breakdown-item">
-                <div>Principal & Interest</div>
+                <div>Principal &amp; Interest</div>
                 <div>{formatCurrency(result.principalAndInterest)}</div>
               </div>
               <div className="breakdown-item">
@@ -427,13 +556,44 @@ const Calculator = ({
                   <div>{formatCurrency(result.hoa)}</div>
                 </div>
               )}
-              {result.pmi > 0 && (
+              {result.mortgageInsurance > 0 && (
                 <div className="breakdown-item">
-                  <div>PMI</div>
-                  <div>{formatCurrency(result.pmi)}</div>
+                  <div>{result.miLabel}</div>
+                  <div>{formatCurrency(result.mortgageInsurance)}</div>
                 </div>
               )}
             </div>
+
+            {/* Loan summary totals */}
+            <div className="loan-summary">
+              <div className="loan-summary-item">
+                <span className="loan-summary-label">Loan Amount</span>
+                <span className="loan-summary-value">{formatCurrency(result.loanAmount)}</span>
+              </div>
+              {result.upfrontFee > 0 && (
+                <div className="loan-summary-item">
+                  <span className="loan-summary-label">Upfront Fee (financed)</span>
+                  <span className="loan-summary-value">{formatCurrency(result.upfrontFee)}</span>
+                </div>
+              )}
+              <div className="loan-summary-item">
+                <span className="loan-summary-label">Total Interest ({loanTerm} yrs)</span>
+                <span className="loan-summary-value">{formatCurrency(result.totalInterest)}</span>
+              </div>
+              <div className="loan-summary-item">
+                <span className="loan-summary-label">Total of Payments</span>
+                <span className="loan-summary-value">{formatCurrency(result.totalOfPayments)}</span>
+              </div>
+            </div>
+
+            {/* Extra payment savings */}
+            {extraPayment > 0 && result.monthsSaved > 0 && (
+              <div className="savings-callout">
+                Paying an extra {formatCurrency(extraPayment)}/mo pays your loan off{' '}
+                <strong>{formatMonths(result.monthsSaved)} sooner</strong> and saves{' '}
+                <strong>{formatCurrency(result.interestSaved)}</strong> in interest.
+              </div>
+            )}
 
             {/* 3-Year Projection */}
             {yearlyData.length > 0 && (
@@ -470,9 +630,10 @@ const Calculator = ({
 
             {/* Disclaimer */}
             <div className="calculator-disclaimer">
-              <strong>This is an estimate only, not a final quote.</strong> Actual amounts may
-              vary. Property taxes, insurance rates, and other costs are estimates based on
-              available data. Consult with a mortgage professional for accurate figures.
+              <strong>This is an estimate only, not a final quote or a loan offer.</strong> Loan-program
+              rules, mortgage-insurance rates, taxes, and insurance are approximations and vary by
+              lender, credit, and eligibility. Current rates shown are national averages, not a
+              personalized quote. Consult a licensed mortgage professional for accurate figures.
             </div>
           </div>
         )}

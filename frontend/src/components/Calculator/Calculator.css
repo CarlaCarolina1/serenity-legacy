@@ -187,6 +187,120 @@
   box-shadow: 0 2px 8px rgba(184, 137, 51, 0.5);
 }
 
+/* Current rate banner */
+.rate-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.rate-banner-info {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rate-banner-label {
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rate-banner-value {
+  color: var(--color-gold-peak);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.rate-banner-asof {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.rate-apply-btn {
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background: var(--gold-gradient);
+  color: var(--bg-dark);
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rate-apply-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(184, 137, 51, 0.3);
+}
+
+/* Field hint text (loan-type note, down-payment warnings) */
+.field-hint {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.field-hint-warn {
+  color: var(--color-gold-peak);
+}
+
+/* Loan summary totals */
+.loan-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.loan-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+}
+
+.loan-summary-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.loan-summary-value {
+  font-weight: 700;
+  color: var(--text-white);
+  font-size: 1rem;
+}
+
+/* Extra-payment savings callout */
+.savings-callout {
+  background: rgba(184, 137, 51, 0.12);
+  border: 1px solid var(--color-gold);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.savings-callout strong {
+  color: var(--color-gold-peak);
+}
+
 /* Calculator Results */
 .calculator-results {
   border-top: 2px solid var(--border-light);
@@ -391,6 +505,15 @@
 
   .payment-breakdown {
     grid-template-columns: 1fr;
+  }
+
+  .loan-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .rate-banner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .total-monthly-payment {

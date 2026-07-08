@@ -39,27 +39,28 @@ regardless of the external MLS situation.
 
 ---
 
-## Module 3 — Property-type categories (land / residential / commercial / new construction)  ·  Status: **Planned**
-- Add a `property_type` filter UI on the Properties page (tabs or a filter bar).
-- Extend the listings data model with `type` and filter client-side.
-- Ties directly to Module 2's data source; build them together.
+## Module 3 — Property-type categories (land / residential / commercial / new construction)  ·  Status: **Built & Verified (July 7)**
+- ✅ Filter bar on the Properties page: All · New Construction · Residential · Land · Commercial,
+  filtering by `property_type` (browser-verified). Ready for real data from Module 2.
+- Next: when the New-Construction listings store exists, tag entries so each category populates.
 
 ---
 
-## Module 4 — Professional Mortgage Calculator upgrade  ·  Status: **Planned ("let's do it")**
+## Module 4 — Professional Mortgage Calculator upgrade  ·  Status: **Built & Verified (July 7)** — affordability mode pending
 
-Current calculator is solid (price, down payment %/$ slider, PMI auto-calc, taxes/insurance/HOA,
-3-year projection, buyer checklist). Add, in this order:
+Delivered & browser-verified July 7, 2026:
+1. ✅ **Loan type selector** — Conventional / FHA / VA / USDA, with correct min-down guidance,
+   financed upfront fees (FHA UFMIP / VA funding fee / USDA guarantee), and per-program monthly MI
+   (conventional PMI < 20%, FHA MIP, USDA annual, VA none).
+2. ✅ **Lifetime totals** — total interest over the loan life + total of payments.
+3. ✅ **Extra monthly principal** — shows payoff-time reduction + interest saved.
+4. ✅ **Current-rate panel** — national average by term with **"as of" date** + one-click apply.
+   *(Values are a labeled constant in `Calculator.tsx`; a weekly Freddie Mac PMMS feed via the
+   backend is the next honest step. True real-time per-lender rates need a paid feed — out of scope.)*
+5. ⏳ **Affordability mode** (income + debts → max home price via 28/36 DTI) — **next increment.**
 
-1. **Loan type selector** — Conventional / FHA / VA / USDA. Drives min down payment & mortgage
-   insurance rules (e.g. FHA MIP, VA no-PMI, conventional PMI < 20%).
-2. **Full amortization** — total interest over the loan life + full schedule (not just 3 years).
-3. **Extra monthly principal** — show interest saved & payoff-time reduction.
-4. **Affordability mode** — reverse calc: income + debts → max home price (using a 28/36 DTI rule).
-5. **Live rate display** — show current average 30-yr / 15-yr rates with an **"as of [date]"** label.
-   - *Honest approach:* weekly national averages (Freddie Mac PMMS is the standard source), refreshed
-     on a schedule, clearly labeled as averages. **True real-time per-lender rates need a paid feed
-     and are out of scope for v1.**
+Verification: $500K @ 6.8%/30yr → $2,607.70 P&I / $538,772 total interest (conventional, 20% down,
+no PMI); FHA → $7,000 financed UFMIP, $186.54/mo MIP; +$200/mo extra → 5yr 8mo sooner, $121K saved.
 
 ### ⚠️ Module 4b — Mortgage referral commission  ·  Status: **BLOCKED (legal)**
 Jose asked whether Carla could earn commission when a buyer clicks through to a lender. **In the U.S.

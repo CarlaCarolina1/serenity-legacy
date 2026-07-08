@@ -35,10 +35,16 @@ All three fixes are edits in the working tree. They go live only after a **Verce
    to swap in Carla's own photos. Best source = **Carla's own photos**; accurate free-license
    interim images are wired in the meantime.
 
-3. **Begin the builds** (see ROADMAP for full specs): Calculator pro upgrade + property-type
-   filters first (self-contained), then the Resources dynamic-data feature (needs data-source
-   decisions). **These need a runnable preview to verify** — set up a no-space path junction to
-   `frontend/` first (the space in "Carlas Website" breaks the preview launcher).
+3. **Resources dynamic per-property data** (ROADMAP §5) — needs data-source decisions (free-API MVP
+   first). Then Calculator **affordability mode** (income → max price), and the New-Construction
+   listings store so the property-type filters have real data.
+
+### Running the dev server (space-in-path gotcha)
+The folder name has a space, which breaks the `npm`-based preview launcher AND a directory junction
+confuses Vite's module resolution (`/src/main.tsx` fails to load → blank app). **What works:** run
+Vite directly from the real folder, where quoting handles the space:
+`cd "C:/Users/Yacaman.LEX/Desktop/Carlas Website/frontend" && npx vite --port 5173`
+then open http://localhost:5173 in Chrome.
 
 ---
 

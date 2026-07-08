@@ -6,8 +6,28 @@ import { getFallbackProperties } from '../data/properties'
 import SEO from '../components/SEO'
 import './Properties.css'
 
+// Property-type categories for the filter bar. Ready for the New Construction /
+// builder-permitted listings source — see ROADMAP.md.
+const CATEGORIES = ['All', 'New Construction', 'Residential', 'Land', 'Commercial'] as const
+type Category = (typeof CATEGORIES)[number]
+
+const matchesCategory = (propertyType: string | null | undefined, category: Category): boolean => {
+  if (category === 'All') return true
+  const t = (propertyType || '').toLowerCase()
+  if (category === 'Residential') {
+    return ['house', 'condo', 'townhouse', 'apartment', 'residential', 'single', 'villa'].some((k) =>
+      t.includes(k)
+    )
+  }
+  if (category === 'New Construction') return t.includes('new') || t.includes('construction')
+  if (category === 'Land') return t.includes('land') || t.includes('lot')
+  if (category === 'Commercial') return t.includes('commercial')
+  return true
+}
+
 const Properties = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list' | 'gallery'>('grid')
+  const [typeFilter, setTypeFilter] = useState<Category>('All')
   const [properties, setProperties] = useState<Property[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -38,6 +58,10 @@ const Properties = () => {
 
     fetchProperties()
   }, [])
+
+  const visibleProperties = properties.filter((property) =>
+    matchesCategory(property.property_type, typeFilter)
+  )
 
   return (
     <div className="properties-page">
@@ -80,6 +104,21 @@ const Properties = () => {
             <h2>Featured Listings</h2>
           </div>
 
+          <div className="type-filter" role="tablist" aria-label="Filter properties by type">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                role="tab"
+                aria-selected={typeFilter === cat}
+                className={`type-filter-btn ${typeFilter === cat ? 'active' : ''}`}
+                onClick={() => setTypeFilter(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
           {loading && (
             <div className="properties-loading">
               <p>Loading properties...</p>
@@ -97,7 +136,7 @@ const Properties = () => {
             <>
               {viewMode === 'gallery' ? (
                 <div className="properties-gallery">
-                  {properties.map((property) => {
+                  {visibleProperties.map((property) => {
                     const imageUrls = Array.isArray(property.image_urls)
                       ? property.image_urls
                       : typeof property.image_urls === 'string'
@@ -148,7 +187,7 @@ const Properties = () => {
                 </div>
               ) : (
                 <div className={`properties-grid ${viewMode === 'list' ? 'list-view' : ''}`}>
-                  {properties.map((property) => {
+                  {visibleProperties.map((property) => {
                     const imageUrls = Array.isArray(property.image_urls)
                       ? property.image_urls
                       : typeof property.image_urls === 'string'
@@ -178,9 +217,13 @@ const Properties = () => {
                 </div>
               )}
 
-              {properties.length === 0 && (
+              {visibleProperties.length === 0 && (
                 <div className="no-properties">
-                  <p>No properties found. Check back soon for new listings!</p>
+                  <p>
+                    {typeFilter === 'All'
+                      ? 'No properties found. Check back soon for new listings!'
+                      : `No ${typeFilter} listings right now. Try another category or check back soon!`}
+                  </p>
                 </div>
               )}
             </>
