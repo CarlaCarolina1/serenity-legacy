@@ -88,10 +88,22 @@ original design preserved exactly.
   until Carla clears it with her broker/attorney.**
 - Resources tab → dynamic per-property data (schools, crime, HOA, neighborhood) — plan approved.
 
-**NOT deployed yet:** all three code fixes go live only on the next Vercel deploy from GitHub.
+**Later same session — builds + deploy attempt:**
+- ✅ Built & browser-verified the **Calculator pro upgrade** (loan types Conventional/FHA/VA/USDA
+  with correct financed upfront fees + per-program mortgage insurance, lifetime total interest,
+  extra-payment payoff savings, current-rate "as of" panel) and the **property-type filter bar**
+  (All / New Construction / Residential / Land / Commercial). Math verified against hand calcs.
+- ✅ Removed 2 confusing non-production root HTML files (`index.html`, `OPEN_WEBSITE.html`); kept
+  the live entry `frontend/index.html`.
+- ✅ Committed everything and **pushed to GitHub `main`** (commits `07f6f6d`, `a9dd12a`).
+- ✅ `npm run build` succeeds cleanly (deploy-ready).
 
-**Next 3 (see HANDOFF.md):** (1) deploy current fixes, (2) About-page real area photos,
-(3) begin Calculator pro upgrade + property-type filters.
+**⚠️ DEPLOY BLOCKER (needs Jose):** serenitylegacy.net did **NOT** update after the pushes. Live
+headers show `Last-Modified: July 2` / old bundle `index-D7qSjjRR.js` while our build produces a new
+bundle — so **Vercel is not auto-deploying from `main`.** No Vercel CLI installed and no `.vercel`
+project link locally, so I can't trigger it from here. **Jose to check the Vercel dashboard:** is the
+Git integration connected, is the Production Branch set to `main`, and are there failed/paused
+deployments? Once reconnected/redeployed, all of this session's work goes live in one build.
 
 ---
 

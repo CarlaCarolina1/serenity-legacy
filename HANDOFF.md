@@ -23,11 +23,20 @@ All three fixes are edits in the working tree. They go live only after a **Verce
 
 ---
 
-## The next 3 steps (in order)
+## ⚠️ TOP PRIORITY — production deploy is broken
 
-1. **Deploy the current fixes.** Commit the working-tree changes and push to `main` (Vercel
-   auto-deploys). Verify on live site: (a) Properties no longer hangs, (b) social buttons open
-   Carla's real FB/IG. *No design change ships in this deploy — it is safe.*
+All of this session's work is committed and pushed to GitHub `main` (`07f6f6d`, `a9dd12a`) and the
+production build is clean — but **serenitylegacy.net is NOT updating.** Live headers show a July 2
+build; Vercel is not auto-deploying from `main`. No Vercel CLI / `.vercel` link locally to trigger
+it. **Jose (Vercel dashboard):** confirm the Git integration is connected, Production Branch = `main`,
+and check for failed/paused deployments. A manual "Redeploy" of the latest commit will ship
+everything at once. Until then, none of the fixes are live.
+
+## The next steps (after deploy is unblocked)
+
+1. **Confirm live** once Vercel redeploys: Properties no longer hangs, social buttons open Carla's
+   real FB/IG, About shows the corrected area photos, Calculator shows loan types, Properties shows
+   the type filter.
 
 2. **About page — real area photos.** Replace the incorrect stock images in
    `frontend/src/pages/About.tsx` (the `areas-grid-images` array, ~line 91). See
