@@ -98,12 +98,19 @@ original design preserved exactly.
 - ✅ Committed everything and **pushed to GitHub `main`** (commits `07f6f6d`, `a9dd12a`).
 - ✅ `npm run build` succeeds cleanly (deploy-ready).
 
-**⚠️ DEPLOY BLOCKER (needs Jose):** serenitylegacy.net did **NOT** update after the pushes. Live
-headers show `Last-Modified: July 2` / old bundle `index-D7qSjjRR.js` while our build produces a new
-bundle — so **Vercel is not auto-deploying from `main`.** No Vercel CLI installed and no `.vercel`
-project link locally, so I can't trigger it from here. **Jose to check the Vercel dashboard:** is the
-Git integration connected, is the Production Branch set to `main`, and are there failed/paused
-deployments? Once reconnected/redeployed, all of this session's work goes live in one build.
+**✅ DEPLOYED (resolved same session):** Vercel was not auto-deploying from `main` (live was stuck at
+a July 2 build). Fixed by deploying directly with the **Vercel CLI**: `vercel link` →
+`vercel --prod`. First attempt failed ("File size limit exceeded (100 MB)") because the CLI uploaded
+914 MB incl. the 104 MB `old_design_reference.mp4` and `node_modules`; added a `.vercelignore`
+(root-anchored, keeps `frontend/`) and redeployed successfully. **Live and verified on
+serenitylegacy.net** (new bundle `index-BwYGDvSx.js`, Age 0): social links = Carla's real FB/IG,
+LinkedIn removed, About shows the corrected local area photos, Calculator + property filter present.
+Telemetry disabled on the CLI (`vercel telemetry disable`) per Jose's privacy preference.
+
+**⚠️ Still open:** GitHub→Vercel **auto-deploy is not firing** on push to `main` (why the site was
+stale). Until that's fixed in the Vercel dashboard (Settings → Git: confirm connection + Production
+Branch = `main`), deploy future changes with `vercel --prod` from the repo root (CLI is authed as
+`cc-5803`, project linked in `.vercel/`).
 
 ---
 

@@ -23,14 +23,19 @@ All three fixes are edits in the working tree. They go live only after a **Verce
 
 ---
 
-## ⚠️ TOP PRIORITY — production deploy is broken
+## Deploying (IMPORTANT — auto-deploy is not working)
 
-All of this session's work is committed and pushed to GitHub `main` (`07f6f6d`, `a9dd12a`) and the
-production build is clean — but **serenitylegacy.net is NOT updating.** Live headers show a July 2
-build; Vercel is not auto-deploying from `main`. No Vercel CLI / `.vercel` link locally to trigger
-it. **Jose (Vercel dashboard):** confirm the Git integration is connected, Production Branch = `main`,
-and check for failed/paused deployments. A manual "Redeploy" of the latest commit will ship
-everything at once. Until then, none of the fixes are live.
+The site is LIVE with all current work (deployed July 8/9 via CLI). **But GitHub→Vercel auto-deploy
+does NOT fire on push to `main`** — that's why it was stuck at a July 2 build. So a `git push` alone
+does NOT update the site.
+
+**To deploy changes:** from the repo root run `vercel --prod` (CLI is authenticated as `cc-5803`;
+project linked in `.vercel/`; a `.vercelignore` keeps the upload small — do not remove it or the
+104 MB root `.mp4` will blow the 100 MB limit again).
+
+**To fix auto-deploy properly (recommended):** in the Vercel dashboard → project **serenity-legacy**
+→ **Settings → Git**, confirm the GitHub repo is connected and **Production Branch = `main`**. Once
+that works, `git push` will deploy on its own and the CLI won't be needed.
 
 ## The next steps (after deploy is unblocked)
 

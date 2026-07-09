@@ -1,5 +1,39 @@
-node_modules
-.git
-.env.local
-.env.*.local
+# The production build only needs vercel.json + frontend/. Everything below is
+# excluded from CLI uploads (node_modules, the stale root app, big media, docs).
+# Patterns starting with "/" are anchored to the repo root so they never affect
+# files inside frontend/ (e.g. frontend/public/images stay included).
 
+node_modules
+
+# Stale / non-production root app and backend (frontend build doesn't use these)
+/src
+/public
+/dist
+/backend
+/database
+/Carla_Website_Project
+
+# Archived docs and backups
+/Docs_Archive
+/backups
+/archive
+
+# Loose asset folders at root (frontend has its own under frontend/public)
+/images
+/Logo
+/Jessie House
+/Fonts_Prata
+/Fonts_Prata_Raleway
+
+# Large media / binaries (over Vercel's limits and unneeded for the build)
+/*.mp4
+/*.psd
+/*.zip
+/*.pdf
+/*.jpeg
+/*.png
+
+# Root-level docs and notes
+/*.md
+/*.txt
+/.claude
