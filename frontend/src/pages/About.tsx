@@ -123,7 +123,7 @@ const About = () => {
             {siteContent.about.whyChoose.items.map((item, index) => {
               const images = [
                 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80', // Local Market Expertise (city/skyline)
-                'https://images.unsplash.com/photo-1521790361543-f6429e9c7d86?auto=format&fit=crop&w=1200&q=80', // Personalized Service (handshake/consultation)
+                '/images/why/personalized-service.jpg', // Personalized Service (handshake — local, was a 404 stock URL)
                 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80', // Transparent Communication (team/collaboration)
                 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80', // Proven Track Record (success/achievement)
                 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80', // Extra if needed
